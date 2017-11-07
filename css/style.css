@@ -1,0 +1,236 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+font-family:方正兰亭黑简体;
+}
+a, a:hover { text-decoration: none !important; }
+a{
+    text-decoration: none;
+}
+li{
+    list-style: none;
+}
+.font{
+    line-height: 40px;
+    font-size: 32px;
+}
+.font_s{
+    font-size: 18px;
+}
+.header{
+    width: 1920px;
+    height: 137px;
+    background-color: #003478;
+}
+.logo_3{
+    margin-top: 5px;
+    margin-left: 400px;
+    float: left;
+}
+
+.nav a{
+    color: #ffffff;
+}
+.nav a:hover{
+    color: #ff9e1c;
+}
+.nav li{
+    margin: 0;
+    float: left;
+    width: 194px;
+    height: 132px;
+    text-align: center;
+    padding-top: 45px;
+}
+.navigation{
+    border-bottom: 5px solid #ff9e1c;
+}
+#down66 {
+    margin-top: -3px;
+    position: relative;
+    font-size: 32px;
+    display:inline-block
+}
+#down66-content {
+    display: none;
+    width: 190px;
+    padding: 10px 0 10px 10px;
+    text-align: left;
+    background-color: #00060f;
+    margin-left: 35px;
+}
+#down66-content a{
+    font-size: 24px;
+    color: #c8c9ca;
+}
+#down66-content a:hover{
+    color: #ffffff;
+}
+#down66:hover .down66-content {
+    display: block;
+}
+.content{
+    background-color: white;
+    width: 1100px;
+    height: auto;
+    margin-left: 400px;
+    margin-top: 385px;
+    position:relative;
+    z-index: 1;
+}
+.small_img{
+    height: 30px;
+    width: 4px;
+    background-color: #1a6fa6;
+    margin-left: 300px;
+    margin-top: -300px;
+}
+.team_text{
+    width: 750px;
+    margin-left: 330px;
+    margin-top: -32px;
+    line-height: 35px;
+}
+.case{
+    margin-top:200px;
+}
+.left__{
+    margin-left: 110px;
+}
+.case>table,th,td{
+    margin-left: 100px;
+    border: 5px solid white;
+}
+.cooperative{
+    width: 1920px;
+    margin-top:40px;
+    padding-left:400px;
+    height: 420px;
+    background-color: #f9f9f9;
+}
+.cooperative  td{
+    width: 222px;
+    height: 104px;
+}
+.coo_table td{
+    border: 10px solid #f9f9f9;
+}
+
+.sh{
+    background-image: url("../img/logo/souhu1.png");
+}
+.sh:hover{
+    background-image: url("../img/logo/souhu.png");
+}
+.bd{
+    background-image: url("../img/logo/baidu1.png");
+}
+.bd:hover{
+    background-image: url("../img/logo/baidu.png");
+
+}
+.tx{
+    background-image: url("../img/logo/tengxun1.png");
+}
+.tx:hover{
+    background-image: url("../img/logo/tengxun.png");
+
+}
+.in{
+    background-image: url("../img/logo/intel1.png");
+}
+.in:hover{
+    background-image: url("../img/logo/intel.png");
+
+}
+.eb{
+    background-image: url("../img/logo/ebay1.png");
+}
+.eb:hover{
+    background-image: url("../img/logo/ebay.png");
+
+}
+.wy{
+    background-image: url("../img/logo/wangyi1.png");
+}
+.wy:hover{
+    background-image: url("../img/logo/wangyi.png");
+
+}
+.xm{
+    background-image: url("../img/logo/xiaomi1.png");
+}
+.xm:hover{
+    background-image: url("../img/logo/xiaomi.png");
+
+}
+.hw{
+    background-image: url("../img/logo/huawei1.png");
+}
+.hw:hover{
+    background-image: url("../img/logo/huawei.png");
+
+}
+.qn{
+    background-image: url("../img/logo/qunaer1.png");
+}
+.qn:hover{
+    background-image: url("../img/logo/qunaer.png");
+
+}
+.mp{
+    background-image: url("../img/logo/maipu1.png");
+}
+.mp:hover{
+    background-image: url("../img/logo/maipu.png");
+
+}
+.contact{
+    padding-top:10px ;
+    width: 1100px;
+    height: auto;
+    margin-left: 400px;
+}
+.lqh{
+    float: left;
+}
+.wcq{
+    float: left;
+}
+.contact_left{
+    padding-top: 15px;
+    float: left;
+}
+.contact{
+    line-height: 25px;
+}
+#allmap {
+    float: right;
+    margin: 120px 0 40px 0;
+    width: 590px;height:380px;overflow: hidden;}
+.footer{
+    font-size: 16px;
+    clear: both;
+    width: 1920px;
+    height: 50px;
+    background-color: #2a2a2a;
+    color: white;
+}
+.footer_content{
+    width: 1100px;
+    height: 50px;
+    padding-left: 400px;
+}
+.footer_left{
+    padding-top: 15px;
+    float: left;
+}
+.footer_right{
+    padding-top: 15px;
+    float: right;
+}
+
+
+
