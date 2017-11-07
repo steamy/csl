@@ -1,7 +1,7 @@
 {
-  "name": "csl-vue",
+  "name": "csl",
   "version": "1.0.0",
-  "description": "实验室网站",
+  "description": "A Vue.js project",
   "author": "steamy <431917467@qq.com>",
   "private": true,
   "scripts": {
