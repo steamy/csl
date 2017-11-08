@@ -3,7 +3,6 @@
     <navigation>
 
     </navigation>
-    <h1>dev branch</h1>
   </div>
 </template>
 
