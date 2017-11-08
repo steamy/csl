@@ -119,72 +119,72 @@ li{
 }
 
 .sh{
-    background-image: url("../img/logo/souhu1.png");
+    background-image: url("../src/assets/img/logo/souhu1.png");
 }
 .sh:hover{
-    background-image: url("../img/logo/souhu.png");
+    background-image: url("../src/assets/img/logo/souhu.png");
 }
 .bd{
-    background-image: url("../img/logo/baidu1.png");
+    background-image: url("../src/assets/img/logo/baidu1.png");
 }
 .bd:hover{
-    background-image: url("../img/logo/baidu.png");
+    background-image: url("../src/assets/img/logo/baidu.png");
 
 }
 .tx{
-    background-image: url("../img/logo/tengxun1.png");
+    background-image: url("../src/assets/img/logo/tengxun1.png");
 }
 .tx:hover{
-    background-image: url("../img/logo/tengxun.png");
+    background-image: url("../src/assets/img/logo/tengxun.png");
 
 }
 .in{
-    background-image: url("../img/logo/intel1.png");
+    background-image: url("../src/assets/img/logo/intel1.png");
 }
 .in:hover{
-    background-image: url("../img/logo/intel.png");
+    background-image: url("../src/assets/img/logo/intel.png");
 
 }
 .eb{
-    background-image: url("../img/logo/ebay1.png");
+    background-image: url("../src/assets/img/logo/ebay1.png");
 }
 .eb:hover{
-    background-image: url("../img/logo/ebay.png");
+    background-image: url("../src/assets/img/logo/ebay.png");
 
 }
 .wy{
-    background-image: url("../img/logo/wangyi1.png");
+    background-image: url("../src/assets/img/logo/wangyi1.png");
 }
 .wy:hover{
-    background-image: url("../img/logo/wangyi.png");
+    background-image: url("../src/assets/img/logo/wangyi.png");
 
 }
 .xm{
-    background-image: url("../img/logo/xiaomi1.png");
+    background-image: url("../src/assets/img/logo/xiaomi1.png");
 }
 .xm:hover{
-    background-image: url("../img/logo/xiaomi.png");
+    background-image: url("../src/assets/img/logo/xiaomi.png");
 
 }
 .hw{
-    background-image: url("../img/logo/huawei1.png");
+    background-image: url("../src/assets/img/logo/huawei1.png");
 }
 .hw:hover{
-    background-image: url("../img/logo/huawei.png");
+    background-image: url("../src/assets/img/logo/huawei.png");
 
 }
 .qn{
-    background-image: url("../img/logo/qunaer1.png");
+    background-image: url("../src/assets/img/logo/qunaer1.png");
 }
 .qn:hover{
-    background-image: url("../img/logo/qunaer.png");
+    background-image: url("../src/assets/img/logo/qunaer.png");
 
 }
 .mp{
-    background-image: url("../img/logo/maipu1.png");
+    background-image: url("../src/assets/img/logo/maipu1.png");
 }
 .mp:hover{
-    background-image: url("../img/logo/maipu.png");
+    background-image: url("../src/assets/img/logo/maipu.png");
 
 }
 .contact{
