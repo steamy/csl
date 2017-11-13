@@ -23,7 +23,7 @@
           <nav id="menu-navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav" style="margin-top: 25px;margin-left: 120px;"> <!---->
               <li>
-                <a href="/">学术</a>
+                <a href="academy.html">学术</a>
               </li>
               <li>
                 <a href="/">团队</a>
