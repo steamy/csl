@@ -4,9 +4,7 @@
       <header class="navbar navbar-static-top csl-header" style="margin-bottom: 0px">
 
         <div class="container">
-
           <div class="navbar-header" style="margin-left: 80px">
-
             <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#menu-navbar" aria-controls="ment-navbar" aria-expanded="false">
               <span class="sr-only">Toggle navigation</span>
               <span class="icon-bar"></span>
