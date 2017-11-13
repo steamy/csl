@@ -12,7 +12,7 @@ export default {
 
 <style>
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: 方正兰亭黑简体;
   text-align: center;
   color: #2c3e50;
   margin-top: 0px;
