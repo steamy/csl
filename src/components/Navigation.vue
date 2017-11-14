@@ -3,8 +3,8 @@
 
       <header class="navbar navbar-static-top csl-header" style="margin-bottom: 0px">
 
-        <div class="container">
-          <div class="navbar-header" style="margin-left: 80px">
+        <div class="row" style="height: inherit;padding-left: 7%">
+          <div class="navbar-header col-md-6" style="height: inherit">
             <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#menu-navbar" aria-controls="ment-navbar" aria-expanded="false">
               <span class="sr-only">Toggle navigation</span>
               <span class="icon-bar"></span>
@@ -20,8 +20,8 @@
           </div> <!--navbar-header-->
 
             <!--menu-->
-          <nav id="menu-navbar" class="collapse navbar-collapse">
-            <ul class="nav navbar-nav" style="margin-top: 25px;margin-left: 120px;"> <!---->
+          <div id="menu-navbar" class="collapse navbar-collapse col-md-6" style="height: inherit !important; padding-top: 25px">
+            <ul class="nav navbar-nav"> <!---->
               <li>
                 <a href="academy.html">学术</a>
               </li>
@@ -38,7 +38,8 @@
                 <a href="/">博客</a>
               </li>
             </ul>
-          </nav>
+          </div>
+
         </div><!-- /.container-fluid -->
       </header>
   </div>

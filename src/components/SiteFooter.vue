@@ -1,8 +1,8 @@
 <template>
   <div class="SiteFooter">
-    <div class="contain">
+    <footer id="footer" class="contain">
       <p style="color: #333">Copyright@2009-2017.网络空间与安全实验室</p>
-    </div>
+    </footer>
   </div>
 </template>
 
@@ -13,6 +13,7 @@
 </script>
 
 <style scoped>
+
   .contain{
     padding-top: 20px;
     padding-bottom: 15px;
