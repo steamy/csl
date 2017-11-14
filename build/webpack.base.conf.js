@@ -12,7 +12,7 @@ function resolve (dir) {
 
 module.exports = {
   entry: {
-    app: './src/main.js',
+    app: './src/js/main.js',
     academy: './src/js/academy.js'
   },
   output: {

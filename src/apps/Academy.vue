@@ -17,8 +17,10 @@
       </ul>
       <div class="divTab" v-show="nowIndex===0">
         <ul>
-          <li style="height: 3em" v-for="(thesis,index) in thesises"><a class="thesisLink" target="_blank"
-            :href="thesis.url">* {{thesis.name}}</a></li>
+          <li style="height: 3em" v-for="(thesis,index) in thesises">
+            <a class="thesisLink" target="_blank"
+            :href="thesis.url">* {{thesis.name}}</a>
+          </li>
         </ul>
       </div>
 
