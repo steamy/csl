@@ -26,7 +26,7 @@
                 <a href="academy.html">学术</a>
               </li>
               <li>
-                <a href="/">团队</a>
+                <a href="team.html">团队</a>
               </li>
               <li>
                 <a href="/">合作</a>

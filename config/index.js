@@ -10,6 +10,7 @@ module.exports = {
     env: require('./prod.env'),
     index: path.resolve(__dirname, '../dist/index.html'),
     academy: path.resolve(__dirname,'../dist/academy.html'),
+    team: path.resolve(__dirname,'../dist/team.html'),
     assetsRoot: path.resolve(__dirname, '../dist'),
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',

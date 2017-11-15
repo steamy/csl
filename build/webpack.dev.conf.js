@@ -38,6 +38,12 @@ module.exports = merge(baseWebpackConfig, {
       inject: true,
       chunks: ['academy']
     }),
+    new HtmlWebpackPlugin({
+      filename: 'team.html',
+      template: 'team.html',
+      inject: true,
+      chunks: ['team']
+    }),
     new FriendlyErrorsPlugin()
   ]
 })
