@@ -28,7 +28,7 @@
           <div class="col-md-4">
             <img style="width: 13em" :src="teacher.avatorUrl">
           </div>
-          <div class="">
+          <div class="" style="padding-right: 5%">
             <p class="title-text">
               {{teacher.name}}   <span style="color: #555555">{{teacher.professionalTitle}}</span>
             </p>
