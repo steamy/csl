@@ -11,6 +11,7 @@ export default {
 </script>
 
 <style>
+@import '../assets/css/common.scss';
 #app {
   font-family: 方正兰亭黑简体;
   text-align: center;

@@ -13,7 +13,8 @@ function resolve (dir) {
 module.exports = {
   entry: {
     app: './src/js/main.js',
-    academy: './src/js/academy.js'
+    academy: './src/js/academy.js',
+    team: './src/js/team.js'
   },
   output: {
     path: config.build.assetsRoot,
@@ -65,6 +66,20 @@ module.exports = {
           limit: 10000,
           name: utils.assetsPath('media/[name].[hash:7].[ext]')
         }
+      },
+      {
+        test: /\.scss$/,
+        use: [{
+          loader: "style-loader"
+        }, {
+          loader: "css-loader"
+        }, {
+          loader: "sass-loader"
+        }]
+      },
+      {
+        test: /\.json$/,
+        loader: 'json-loader'
       },
       {
         test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,

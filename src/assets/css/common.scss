@@ -109,3 +109,13 @@ html,body{
 .animation_opactiy{
   animation: backOpacity 2s ease-in-out infinite;
 }
+
+$theme-color-blue: #247fbb;
+
+.title-text {
+  text-align: left;
+  font-size: 26px;
+  line-height: 1.5;
+  font-weight: 400;
+  color: #333;
+}

@@ -1,6 +1,8 @@
 <template>
   <div id="academy">
     <navigation></navigation>
+
+    <!--banner-->
     <div>
       <div style="padding-top: 5%;padding-bottom: 5%">
         <h2 style="color: #247fbb">Achievement in Research</h2>
@@ -8,7 +10,9 @@
       </div>
       <img src="../assets/img/academy/banner.png" style="width: 100%;height: 200px"/>
     </div>
+    <!--banner-->
 
+    <!--tab-->
     <div id="academyContainer">
       <ul class="tabs row">
         <li class="li-tab col-md-4" v-for="(name,index) in tabNames"
@@ -27,6 +31,7 @@
       <div class="divTab" v-show="nowIndex===1">专利</div>
       <div class="divTab" v-show="nowIndex===2">科研</div>
     </div>
+    <!--tab-->
     <br/>
     <br/>
     <site-footer></site-footer>
