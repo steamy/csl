@@ -39,10 +39,10 @@ module.exports = merge(baseWebpackConfig, {
       chunks: ['academy']
     }),
     new HtmlWebpackPlugin({
-      filename: 'cooperation.html',
-      template: 'cooperation.html',
+      filename: 'team.html',
+      template: 'team.html',
       inject: true,
-      chunks: ['cooperation']
+      chunks: ['team']
     }),
     new FriendlyErrorsPlugin()
   ]

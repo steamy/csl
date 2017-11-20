@@ -86,8 +86,8 @@ const webpackConfig = merge(baseWebpackConfig, {
       chunks: ['manifest','vendor','academy']
     }),
     new HtmlWebpackPlugin({
-      filename: config.build.cooperation,
-      template: 'cooperation.html',
+      filename: config.build.team,
+      template: 'team.html',
       inject: true,
       minify: {
         removeComments: true,
@@ -98,7 +98,7 @@ const webpackConfig = merge(baseWebpackConfig, {
       },
       // necessary to consistently work with multiple chunks via CommonsChunkPlugin
       chunksSortMode: 'dependency',
-      chunks: ['manifest','vendor','cooperation']
+      chunks: ['manifest','vendor','team']
     }),
     // keep module.id stable when vender modules does not change
     new webpack.HashedModuleIdsPlugin(),
