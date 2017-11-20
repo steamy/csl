@@ -14,7 +14,8 @@ module.exports = {
   entry: {
     app: './src/js/main.js',
     academy: './src/js/academy.js',
-    team: './src/js/team.js'
+    team: './src/js/team.js',
+    cooperation:'./src/js/cooperation.js'
   },
   output: {
     path: config.build.assetsRoot,
