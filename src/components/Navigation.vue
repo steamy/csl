@@ -29,7 +29,7 @@
                 <a href="/">团队</a>
               </li>
               <li>
-                <a href="/">合作</a>
+                <a href="cooperation.html">合作</a>
               </li>
               <li>
                 <a href="/">通告</a>
