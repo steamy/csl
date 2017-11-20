@@ -44,6 +44,12 @@ module.exports = merge(baseWebpackConfig, {
       inject: true,
       chunks: ['team']
     }),
+    new HtmlWebpackPlugin({
+      filename: 'cooperation.html',
+      template: 'cooperation.html',
+      inject: true,
+      chunks: ['cooperation']
+    }),
     new FriendlyErrorsPlugin()
   ]
 })
