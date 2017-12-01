@@ -15,21 +15,26 @@
     <!--tab-->
     <div id="academyContainer">
       <ul class="tabs row">
-        <li class="li-tab col-md-4" v-for="(name,index) in tabNames"
+        <li class="li-tab col-md-6" v-for="(name,index) in tabNames"
         @click="toggleTabs(index)"
         :class='{active:index==nowIndex,liTabFirst:index==0,liTabLast:index==2}'>{{name}}</li>
       </ul>
       <div class="divTab" v-show="nowIndex===0">
         <ul>
-          <li style="height: 3em" v-for="(thesis,index) in thesises">
-            <a class="thesisLink" target="_blank"
-            :href="thesis.url">* {{thesis.name}}</a>
+          <li style="height: 3em" v-for="(thesis, index) in thesises">
+            <p class="thesisLink">* {{thesis.name}}</p>
           </li>
         </ul>
       </div>
 
-      <div class="divTab" v-show="nowIndex===1">专利</div>
-      <div class="divTab" v-show="nowIndex===2">科研</div>
+      <div class="divTab" v-show="nowIndex===1">
+        <ul>
+          <li style="height: 3em" v-for="(patent, index) in patents">
+            <p class="thesisLink">[{{index+1}}] {{patent.name}}</p>
+          </li>
+        </ul>
+      </div>
+
     </div>
     <!--tab-->
     <br/>
@@ -49,8 +54,25 @@
     name: 'Academy',
     data () {
       return {
-        tabNames: ['论文发表', '专利', '科研'],
+        tabNames: ['论文', '专利'],
         nowIndex: 0,
+        patents: [
+          {
+            name: '刘启和. 基于深度学习的医学气体识别方法[P]. 中国: 2013105034029.'
+          },
+          {
+            name: '周世杰. 一种对阅读器动态并行集进行调度的策略[P]. 中国: 2013106396525,.'
+          },
+          {
+            name: '周世杰. 三维空间中的大规模RFID阅读器的部署方法[P]. 中国: 2013106399754,.'
+          },
+          {
+            name: '周世杰. 导轨式无源RFID室内定位方法[P]. 中国: 2013106397299,.'
+          },
+          {
+            name: '周世杰. 基于阅读器优先级的静态阅读器调度方法[P]. 中国: 201310639974X,.'
+          }
+        ],
         thesises: [
           {
             name: '《基于XX的XX系统》',
