@@ -24,11 +24,11 @@
       </div>
 
       <div class="teamTeaches" >
-        <div class="teacher row" style="padding-top: 10%;padding-bottom: 5%" v-for="teacher in teachers">
+        <div class="teacher row" style="padding-top: 5em;padding-bottom: 1em" v-for="teacher in teachers">
           <div class="col-md-4">
             <img style="width: 13em" :src="teacher.avatorUrl">
           </div>
-          <div class="" style="padding-right: 5%">
+          <div class="" style="padding-right: 7em;padding-top: 1em">
             <p class="title-text">
               {{teacher.name}}   <span style="color: #555555">{{teacher.professionalTitle}}</span>
             </p>

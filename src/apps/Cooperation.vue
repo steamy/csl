@@ -47,6 +47,7 @@
 </script>
 
 <style scoped>
+  @import '../assets/css/common.scss';
   .CooperativeProject{
     background-color: #fafafa;
     padding-top: 10%;
