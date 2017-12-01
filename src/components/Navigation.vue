@@ -11,11 +11,12 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-
             <!--logo-->
             <a class="navbar-brand" href="/">
               <span><img src="../assets/img/logo/logo_3.png" class="lab-icon"/></span>
-              <span style="color: white;font-family: 方正兰亭黑简体;margin-left: 20px;font-size: xx-large">网络空间安全实验室</span>
+              <span style="color: white;font-family: 方正兰亭黑简体;margin-left: 20px;font-size: xx-large">
+                网络空间安全实验室
+              </span>
             </a>
           </div> <!--navbar-header-->
 

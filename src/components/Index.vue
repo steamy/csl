@@ -1,7 +1,7 @@
 <template>
   <div class="Index">
     <navigation></navigation>
-    <img src="../assets/img/index/banner.jpg" style="width: 100%;">
+    <!--<img src="../assets/img/index/banner.jpg" style="width: 100%;">-->
     <div class="row about-us-box">
       <div class="col-md-6" style="width: 50%;margin-top: 30px">
         <p class="title-left">我们的团队</p>
@@ -20,25 +20,43 @@
 
     <div class="project-info-box">
       <p class="title-left">我们的项目</p>
-      <div class="project-collection row">
-        <div class="project-cell col-md-3">
-          <img class="project-img" src="../assets/img/index/1.jpg">
-          <p class="project-title">安全态势感知</p>
-        </div>
-        <div class="project-cell col-md-3 col-md-offset-1">
-          <img class="project-img" src="../assets/img/index/2.jpg">
-          <p class="project-title">域通全球</p>
-        </div>
-        <div class="project-cell col-md-3 col-md-offset-1">
-          <img class="project-img" src="../assets/img/index/3.jpg">
-          <p class="project-title">五粮液</p>
-        </div>
-      </div>
-    </div><!--project-info-box-->
 
+      <div id="projContainer">
+        <ul class="tabs row">
+          <li class="li-tab col-md-4" v-for="(name,index) in tabNames"
+              @click="toggleTabs(index)"
+              :class='{active:index==nowIndex,liTabFirst:index==0,liTabLast:index==2}'>{{name}}</li>
+        </ul>
+
+        <div  class="divTab project-collection row" v-show="nowIndex===0">
+          <div class="project-cell col-md-3 col-md-offset-1" v-for="(project,index) in securityProj">
+            <img class="project-img" :src="project.url">
+            <p class="project-title">{{project.name}}</p>
+          </div>
+        </div>
+
+        <div  class="divTab project-collection row" v-show="nowIndex===1">
+          <div class="project-cell col-md-3 col-md-offset-1" v-for="(project,index) in IntelliComputeProj">
+            <img class="project-img" :src="project.url">
+            <p class="project-title">{{project.name}}</p>
+          </div>
+        </div>
+
+        <div  class="divTab project-collection row" v-show="nowIndex===2">
+          <div class="project-cell col-md-3 col-md-offset-1" v-for="(project,index) in internetPlusProj">
+            <img class="project-img" :src="project.url">
+            <p class="project-title">{{project.name}}</p>
+          </div>
+        </div>
+
+      </div>
+
+    </div><!--project-info-box-->
 
     <div class="co-partner-box">
       <p class="title-left">合作伙伴</p>
+
+
       <div class="row cp-partner-collection">
         <div class="col-md-3" v-for="imgUrl in coImgUrls">
           <a class="thumbnail" style="padding: 0;border: 0">
@@ -50,12 +68,12 @@
 
     <div class="bottom-nav-box">
       <div class="row">
-        <div class="col-md-6"style="border-right: #555555 solid 1px">
+        <div class="col-md-6" style="border-right: #555555 solid 1px">
           <p class="bottom-nav-title">相关链接</p>
           <p class="detail-left ">
-            <a class="sitemap-link" href="http://www.uestc.edu.cn">电子科技大学主页</a>
+            <a class="sitemap-link" target="_blank" href="http://www.uestc.edu.cn">电子科技大学主页</a>
             <br/>
-            <a class="sitemap-link" href="http://www.ss.uestc.edu.cn/">电子科技大学信息与软件工程学院</a>
+            <a class="sitemap-link" target="_blank" href="http://www.ss.uestc.edu.cn/">电子科技大学信息与软件工程学院</a>
           </p>
         </div>
         <div class="col-md-6" style="padding-left: 10%">
@@ -64,7 +82,8 @@
           </p>
         </div>
       </div>
-    </div><!--bottom-nav-->
+    </div>
+    <!--bottom-nav-->
 
     <site-footer></site-footer>
 
@@ -72,13 +91,18 @@
 </template>
 
 <script>
-  import Navigation from './Navigation.vue'
+  import Navigation from './Navigation'
   import SiteFooter from './SiteFooter'
   export default {
     components: {
       SiteFooter,
       Navigation},
     name: 'Index',
+    methods: {
+      toggleTabs: function (index) {
+        this.nowIndex = index
+      }
+    },
     data () {
       return {
         coImgUrls: [
@@ -90,6 +114,50 @@
           {url: require('../assets/img/logo/intel.png')},
           {url: require('../assets/img/logo/maipu.png')},
           {url: require('../assets/img/logo/xiaomi.png')}
+        ],
+        tabNames: ['信息安全', '智能计算', '互联网+'],
+        nowIndex: 0,
+        securityProj: [
+          {
+            name: '安全态势',
+            url: require('../assets/img/index/1.jpg')
+          },
+          {
+            name: '垃圾邮件识别',
+            url: require('../assets/img/index/2.jpg')
+          },
+          {
+            name: '密码学',
+            url: require('../assets/img/index/3.jpg')
+          }
+        ],
+        IntelliComputeProj: [
+          {
+            name: '熊猫动漫',
+            url: require('../assets/img/index/3.jpg')
+          },
+          {
+            name: '交通仿真',
+            url: require('../assets/img/index/2.jpg')
+          },
+          {
+            name: '朗驰PG网关',
+            url: require('../assets/img/index/1.jpg')
+          }
+        ],
+        internetPlusProj: [
+          {
+            name: '域通全球',
+            url: require('../assets/img/index/3.jpg')
+          },
+          {
+            name: '五粮液互联网营销',
+            url: require('../assets/img/index/2.jpg')
+          },
+          {
+            name: '卧龙旅游解决方案',
+            url: require('../assets/img/index/1.jpg')
+          }
         ]
       }
     }
@@ -97,6 +165,7 @@
 </script>
 
 <style scoped>
+
   .about-us-box{
     background-color: #fafafa;
     padding-top: 10%;
@@ -120,16 +189,27 @@
     background-color: white;
     padding-top: 5%;
     padding-left: 10%;
+    padding-right: 10%;
     padding-bottom: 5%;
   }
-  .project-collection,.cp-partner-collection{
-    margin-top: 5%
+  .cp-partner-collection {
+    margin-top: 3em;
+  }
+  .project-collection{
+    /*margin-top: 5%*/
+    background-color: #f5f5f5;
+    margin: 0;
+    padding-top: 3em;
+    padding-bottom: 3em;
+    padding-left: 0em !important;
+    padding-right: 4em;
   }
   .project-cell{
-    background-color: #fafafa;
-    height: 420px;
-    border-radius: 20px;
+    background-color: white;
+    height: 20em;
+    border-radius: 1em;
     padding: 0;
+    text-align: center;
   }
   .project-img {
     border-radius: 20px 20px 0 0;
@@ -171,5 +251,39 @@
   .sitemap-link:hover {
     color: #1a6fa6;
   }
+  #projContainer{
+    position: relative;
+    min-height: 30em;
+    background-color: white;
+    border-radius: 0.3em;
+    margin-top: 1em;
+  }
+
+
+  /*tabs*/
+  .tabs {
+    width: 100%;
+    height: 6em;
+    margin: 0;
+  }
+  .li-tab{
+    background-color: white;
+    height: inherit;
+    font-size: 20px;
+    padding-top: 20px;
+    color: #333;
+  }
+
+
+  .active{
+    color: #247fbb;
+  }
+
+  .divTab {
+    text-align: left;
+    padding-top: 3em;
+    padding-left: 6em;
+  }
+
 
 </style>
