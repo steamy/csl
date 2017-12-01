@@ -17,7 +17,7 @@
         </p>
       </div>
       <div class="project-pic">
-        <img src="../assets/img/index/3.jpg" style="...">
+        <img src="../assets/img/index/2.jpg" style="...">
       </div>
     </div>
     <div class="CooperativeProject" >
