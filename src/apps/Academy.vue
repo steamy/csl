@@ -17,11 +17,11 @@
       <ul class="tabs row">
         <li class="li-tab col-md-6" v-for="(name,index) in tabNames"
         @click="toggleTabs(index)"
-        :class='{active:index==nowIndex,liTabFirst:index==0,liTabLast:index==2}'>{{name}}</li>
+        :class='{active:index==nowIndex,liTabFirst:index==0,liTabLast:index==1}'>{{name}}</li>
       </ul>
       <div class="divTab" v-show="nowIndex===0">
         <ul>
-          <li style="height: 3em" v-for="(thesis, index) in thesises">
+          <li class="content" v-for="(thesis, index) in thesises">
             <p class="thesisLink">* {{thesis.name}}</p>
           </li>
         </ul>
@@ -29,7 +29,7 @@
 
       <div class="divTab" v-show="nowIndex===1">
         <ul>
-          <li style="height: 3em" v-for="(patent, index) in patents">
+          <li class="content" v-for="(patent, index) in patents">
             <p class="thesisLink">[{{index+1}}] {{patent.name}}</p>
           </li>
         </ul>
@@ -116,6 +116,11 @@
     min-height: 30em;
     background-color: white;
     border-radius: 0.3em;
+  }
+
+
+  .content{
+    line-height: 2.5em;
   }
 
   .thesisLink {

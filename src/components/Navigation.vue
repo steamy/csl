@@ -2,26 +2,25 @@
   <div class="navigation">
 
       <header class="navbar navbar-static-top csl-header" style="margin-bottom: 0px">
-
         <div class="row" style="height: inherit;padding-left: 7%">
-          <div class="navbar-header col-md-6" style="height: inherit">
-            <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#menu-navbar" aria-controls="ment-navbar" aria-expanded="false">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
+          <div class="navbar-header  col-sm-6 " style="height: inherit">
             <!--logo-->
-            <a class="navbar-brand" href="/">
-              <span><img src="../assets/img/logo/logo_3.png" class="lab-icon"/></span>
-              <span style="color: white;font-family: 方正兰亭黑简体;margin-left: 20px;font-size: xx-large">
+            <a class="navbar-brand col-sm-6 " href="/">
+              <span><img src="../assets/img/logo/logo_3.png" class="lab-icon "/></span>
+              <span style="color: white;font-family: 方正兰亭黑简体;margin-left: 20px;" >
                 网络空间安全实验室
               </span>
             </a>
+            <button class="navbar-toggle collapsed col-xs-1" type="button" data-toggle="collapse" data-target="#menu-navbar" aria-controls="ment-navbar" aria-expanded="false">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar" ></span>
+              <span class="icon-bar"></span>
+            </button>
           </div> <!--navbar-header-->
 
             <!--menu-->
-          <div id="menu-navbar" class="collapse navbar-collapse col-md-6" style="height: inherit !important; padding-top: 25px">
+          <div id="menu-navbar" class="collapse navbar-collapse col-sm-6 " style="height: inherit !important; padding-top: 25px">
             <ul class="nav navbar-nav"> <!---->
               <li>
                 <a href="academy.html">学术</a>
@@ -36,7 +35,7 @@
                 <a href="/">通告</a>
               </li>
               <li>
-                <a href="/">博客</a>
+                <a href="http://localhost/blog">博客</a>
               </li>
             </ul>
           </div>
@@ -61,25 +60,35 @@
 
   .csl-header {
     background-color: #003478 ;
-    border: none;
     height: 100px;
+    border: none;
     -webkit-border-radius: 0;
     -moz-border-radius: 0;
     border-radius: 0;
   }
+
+  .icon-bar{
+    background-color: #F5F5F5;
+  }
   .lab-icon {
-    width: 80px;
+    width: 50px;
     margin-top: -5px;
   }
 
   ul li{
     margin-left: 30px;
+    /*margin-left: 50%;*/
+
   }
   ul li a:hover{
     background-color: inherit;
   }
   ul li a{
-    color: white;
+    color:white;
+    background-color:#003478;
     font-size: larger;
   }
+
+
+
 </style>
