@@ -19,6 +19,7 @@
         @click="toggleTabs(index)"
         :class='{active:index==nowIndex,liTabFirst:index==0,liTabLast:index==1}'>{{name}}</li>
       </ul>
+
       <div class="divTab" v-show="nowIndex===0">
         <ul>
           <li class="content" v-for="(thesis, index) in thesises">
@@ -98,7 +99,7 @@
 <style scoped>
 
 @import '../assets/css/common.scss';
-@import '../assets/css/tabbar.scss';
+/*@import '../assets/css/tabbar.scss';*/
   #academy {
     font-family: 方正兰亭黑简体;
     text-align: center;
@@ -118,10 +119,42 @@
     border-radius: 0.3em;
   }
 
-
   .content{
     line-height: 2.5em;
   }
+
+.tabs {
+  width: 100%;
+/*  height: 6em;*/
+  margin: 0;
+  border-radius: 0.3em;
+}
+.li-tab{
+  background-color: #F5F5F5;
+  height: inherit;
+  font-size: 20px;
+  padding-top: 20px;
+  padding-bottom: 1em;
+}
+
+.liTabFirst {
+  border-radius: 0.3em 0 0 0;
+}
+
+.liTabLast {
+  border-radius: 0 0.3em 0 0;
+}
+
+.active{
+  background-color: white;
+  color: #247fbb;
+}
+
+.divTab {
+  text-align: left;
+  padding-top: 3em;
+  padding-left: 6em;
+}
 
   .thesisLink {
     font-size: 16px;
