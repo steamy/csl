@@ -1,5 +1,6 @@
 <template>
   <div class="Index">
+    <meta name="viewport" content="width=width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <navigation></navigation>
     <!--<img src="../assets/img/index/banner.jpg" style="width: 100%;">-->
     <div class="row about-us-box">
@@ -186,7 +187,8 @@
     color: #333;
   }
   .project-info-box{
-    background-color: white;
+  /*  background-color: white;*/
+    background-color: #fafafa;
     padding-top: 5%;
     padding-left: 10%;
     padding-right: 10%;
@@ -205,8 +207,8 @@
     padding-right: 4em;
   }
   .project-cell{
-    background-color: white;
-    height: 20em;
+/*    background-color: white;
+    height: 20em;*/
     border-radius: 1em;
     padding: 0;
     text-align: center;
@@ -253,8 +255,8 @@
   }
   #projContainer{
     position: relative;
-    min-height: 30em;
-    background-color: white;
+/*    min-height: 30em;*/
+/*    background-color: white;*/
     border-radius: 0.3em;
     margin-top: 1em;
   }
@@ -263,11 +265,12 @@
   /*tabs*/
   .tabs {
     width: 100%;
-    height: 6em;
-    margin: 0;
+/*    height: 6em;
+    margin: 0;*/
+    margin:0 0 1em 0;
   }
   .li-tab{
-    background-color: white;
+/*    background-color: white;*/
     height: inherit;
     font-size: 20px;
     padding-top: 20px;
