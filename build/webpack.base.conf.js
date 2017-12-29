@@ -79,6 +79,12 @@ module.exports = {
         }]
       },
       {
+        test: /\.less$/,
+        use: [{
+          loader: "style-loader!css-loader!less-loader"
+        }]
+      },
+      {
         test: /\.json$/,
         loader: 'json-loader'
       },
