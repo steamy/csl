@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import Cooperation from '../apps/Cooperation.vue'
 import 'jquery/dist/jquery.min'
-import 'bootstrap/dist/css/bootstrap.min.css'
-import 'bootstrap/dist/js/bootstrap.min'
+import '../assets/css/bootstrap/css/bootstrap.css'
+import '../assets/css/bootstrap/js/bootstrap.min'
 
 Vue.config.productionTip = false
 

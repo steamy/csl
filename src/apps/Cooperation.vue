@@ -60,7 +60,7 @@
 </script>
 
 <style scoped>
-/*  @import '../assets/css/common.scss';*/
+  @import '../assets/css/common.scss';
   #cooperation {
     font-family: 方正兰亭黑简体;
     text-align: center;

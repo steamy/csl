@@ -1,11 +1,9 @@
-<template>
+<template xmlns="http://www.w3.org/1999/html">
   <div class="Index">
-    <meta name="viewport" content="width=width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <navigation></navigation>
     <!--<img src="../assets/img/index/banner.jpg" style="width: 100%;">-->
-    <div class="container">
-    <div class="row about-us-box">
-      <div class="col-md-6">
+    <div class=" container about-us-box">
+      <div class="col-xs-12 col-md-6" style="margin-top: 30px">
         <p class="title-left">我们的团队</p>
         <p class="detail-left">
           网络空间安全实验室以网络空间安全、大数据分析及智能信息处理、
@@ -15,63 +13,74 @@
           专著10部、专利授权与申报30余项。
         </p>
       </div>
-      <div class="col-md-6">
-        <img src="../assets/img/logo/logo_1.png" style="width: 30%;"/>
+      <div class="col-md-6 team-logo" style="text-align: center">
+        <img  src="../assets/img/logo/logo_1.png" style="width: 18em;"/>
       </div>
+    </div> <!--about-us-box-->
+
+    <div style="background-color: #fafafa">
+
+      <div class="container project-info-box">
+        <p class="title-left">我们的项目</p>
+
+        <div id="proj-container-md">
+          <ul class="tabs row">
+            <li class="li-tab col-md-4 col-xs-4 col-sm-4" v-for="(name,index) in tabNames"
+                @click="toggleTabs(index)"
+                :class='{active:index==nowIndex,liTabFirst:index==0,liTabLast:index==2}'>{{name}}</li>
+          </ul>
+
+          <div  class="divTab project-collection row" v-show="nowIndex===0">
+            <div class="cell-container col-xs-4 col-sm-4" v-for="(project,index) in securityProj">
+              <div class="project-cell">
+                <img class="project-img" :src="project.url">
+                <p class="proj-title" >{{project.comName}}<br><span style="color: gray">{{project.projName}}</span></p>
+              </div>
+            </div>
+          </div>
+
+          <div  class="divTab project-collection row" v-show="nowIndex===1">
+            <div class="cell-container col-md-4  col-xs-4 col-sm-4" v-for="(project,index) in IntelliComputeProj">
+              <div class="project-cell">
+                <img class="project-img" :src="project.url">
+                <p class="proj-title" >{{project.comName}}<br>{{project.projName}}</p>
+              </div>
+            </div>
+          </div>
+
+          <div  class="divTab project-collection row" v-show="nowIndex===2">
+            <div class="cell-container col-md-4 col-xs-4 col-sm-4" v-for="(project,index) in internetPlusProj">
+              <div class="project-cell">
+                <img class="project-img" :src="project.url">
+                <p class="proj-title" >{{project.comName}}<br>{{project.projName}}</p>
+              </div>
+            </div>
+          </div>
+
+        </div><!--proj-container-md-->
+
+      </div><!--project-info-box-->
+
     </div>
-    </div><!--about-us-box-->
-
-    <div class="project-info-box">
-      <p class="title-left">我们的项目</p>
-
-      <div id="projContainer">
-        <ul class="tabs row">
-          <li class="li-tab col-md-4" v-for="(name,index) in tabNames"
-              @click="toggleTabs(index)"
-              :class='{active:index==nowIndex,liTabFirst:index==0,liTabLast:index==2}'>{{name}}</li>
-        </ul>
-
-        <div  class="divTab project-collection row" v-show="nowIndex===0">
-          <div class="project-cell col-md-3 col-md-offset-1" v-for="(project,index) in securityProj">
-            <img class="project-img" :src="project.url">
-            <p class="project-title">{{project.name}}</p>
-          </div>
-        </div>
-
-        <div  class="divTab project-collection row" v-show="nowIndex===1">
-          <div class="project-cell col-md-3 col-md-offset-1" v-for="(project,index) in IntelliComputeProj">
-            <img class="project-img" :src="project.url">
-            <p class="project-title">{{project.name}}</p>
-          </div>
-        </div>
-
-        <div  class="divTab project-collection row" v-show="nowIndex===2">
-          <div class="project-cell col-md-3 col-md-offset-1" v-for="(project,index) in internetPlusProj">
-            <img class="project-img" :src="project.url">
-            <p class="project-title">{{project.name}}</p>
-          </div>
-        </div>
-
-      </div>
-
-    </div><!--project-info-box-->
 
     <div class="co-partner-box">
-      <p class="title-left">合作伙伴</p>
+      <div class="container">
+        <p class="title-left">合作伙伴</p>
 
 
-      <div class="row cp-partner-collection">
-        <div class="col-md-3" v-for="imgUrl in coImgUrls">
-          <a class="thumbnail" style="padding: 0;border: 0">
-            <img :src="imgUrl.url" style="width: 100%"/>
-          </a>
+        <div class="row cp-partner-collection">
+          <div class="col-md-3 col-sm-3 col-xs-3" v-for="imgUrl in coImgUrls">
+            <a class="thumbnail"  style="padding: 0;border: 0">
+              <img :src="imgUrl.url" class="cp-partner-img"/>
+            </a>
+          </div>
         </div>
       </div>
     </div><!--co-partner-box-->
 
     <div class="bottom-nav-box">
       <div class="row">
-        <div class="col-md-6" style="border-right: #555555 solid 1px">
+        <div class="col-md-6 col-xs-12  col-sm-12">
           <p class="bottom-nav-title">相关链接</p>
           <p class="detail-left ">
             <a class="sitemap-link" target="_blank" href="http://www.uestc.edu.cn">电子科技大学主页</a>
@@ -79,7 +88,8 @@
             <a class="sitemap-link" target="_blank" href="http://www.ss.uestc.edu.cn/">电子科技大学信息与软件工程学院</a>
           </p>
         </div>
-        <div class="col-md-6" style="padding-left: 10%">
+
+        <div class="col-md-6 col-xs-12 col-sm-12" ><!--style="padding-left: 10%"-->
           <p class="bottom-nav-title">联系我们</p>
           <p class="detail-left" style="white-space:pre;line-height: 26px">联系人：刘老师     TEL:15208292978<br/>E-Mail:QIHELIU@UESTC.EDU.CN<br/>联系地址：四川省成都市成华区建设北路二段四号
           </p>
@@ -96,11 +106,16 @@
 <script>
   import Navigation from './Navigation'
   import SiteFooter from './SiteFooter'
+  import {isPC} from '../js/common/common'
+
   export default {
     components: {
       SiteFooter,
       Navigation},
     name: 'Index',
+    computed: {
+      isPC: isPC
+    },
     methods: {
       toggleTabs: function (index) {
         this.nowIndex = index
@@ -109,56 +124,61 @@
     data () {
       return {
         coImgUrls: [
-          {url: require('../assets/img/logo/ebay.png')},
-          {url: require('../assets/img/logo/huawei.png')},
-          {url: require('../assets/img/logo/baidu.png')},
-          {url: require('../assets/img/logo/wangyi.png')},
-          {url: require('../assets/img/logo/tengxun.png')},
-          {url: require('../assets/img/logo/intel.png')},
-          {url: require('../assets/img/logo/maipu.png')},
-          {url: require('../assets/img/logo/xiaomi.png')}
+          {url: require('../assets/img/logo/yutongquanqiu.jpg')},
+          {url: require('../assets/img/logo/langchi.jpg')},
+          {url: require('../assets/img/logo/guojiadianwang.png')},
+          {url: require('../assets/img/logo/wuliangye.png')}
         ],
         tabNames: ['信息安全', '智能计算', '互联网+'],
         nowIndex: 0,
         securityProj: [
           {
-            name: '安全态势',
+            comName: '网络空间',
+            projName: '安全态势',
             url: require('../assets/img/index/1.jpg')
           },
           {
-            name: '垃圾邮件识别',
+            comName: '智能计算',
+            projName: '垃圾邮件识别',
             url: require('../assets/img/index/2.jpg')
           },
           {
-            name: '密码学',
+            comName: '云安全',
+            projName: '密码学',
             url: require('../assets/img/index/3.jpg')
           }
         ],
         IntelliComputeProj: [
           {
-            name: '熊猫动漫',
+            comName: '智能计算',
+            porjName: '熊猫动漫',
             url: require('../assets/img/index/3.jpg')
           },
           {
-            name: '交通仿真',
+            comName: '智能计算',
+            projName: '交通仿真',
             url: require('../assets/img/index/2.jpg')
           },
           {
-            name: '朗驰PG网关',
+            comName: '朗驰',
+            projName: 'PG网关',
             url: require('../assets/img/index/1.jpg')
           }
         ],
         internetPlusProj: [
           {
-            name: '域通全球',
+            comName: '域通全球',
+            projName: '商业项目',
             url: require('../assets/img/index/3.jpg')
           },
           {
-            name: '五粮液互联网营销',
+            comName: '五粮液',
+            projName: '互联网营销',
             url: require('../assets/img/index/2.jpg')
           },
           {
-            name: '卧龙旅游解决方案',
+            comName: '卧龙',
+            projName: '智慧旅游',
             url: require('../assets/img/index/1.jpg')
           }
         ]
@@ -167,23 +187,13 @@
   }
 </script>
 
-<style scoped>
+<style  scoped>
 
-  .Index{
-    background-color: #fafafa;
-  }
   .about-us-box{
-    background-color: #fafafa;
+    /*background-color: #fafafa;*/
     padding-top: 5%;
-    padding-bottom: 2%;
-/*    padding-left: 10%;*/
+    padding-bottom: 5%;
   }
-  @media (min-width: 1600px){
-    .container{
-      width:1484px;
-    }
-  }
-
   .title-left{
     text-align: left;
     line-height: 40px;
@@ -191,56 +201,50 @@
     color: #333;
   }
   .detail-left{
+    margin-top: 0.6em;
     text-align: left;
-    font-size: 17px;
+    font-size: 18px;
     line-height: 1.5;
     font-weight: 400;
     color: #333;
   }
   .project-info-box{
-  /*  background-color: white;*/
     background-color: #fafafa;
     padding-top: 5%;
-    padding-left: 10%;
-    padding-right: 10%;
     padding-bottom: 5%;
   }
   .cp-partner-collection {
     margin-top: 3em;
   }
   .project-collection{
-    /*margin-top: 5%*/
     background-color: #f5f5f5;
     margin: 0;
     padding-top: 3em;
     padding-bottom: 3em;
     padding-left: 0em !important;
-    padding-right: 4em;
+  }
+  .cell-container{
+    padding: 0 3em;
   }
   .project-cell{
-/*    background-color: white;
-    height: 20em;*/
-    border-radius: 1em;
-    padding: 0;
+    padding-bottom: 2em;
+    background-color: white;
+    border-radius: 0.5em;
     text-align: center;
   }
   .project-img {
-    border-radius: 20px 20px 0 0;
     width: 100%;
+    border-radius: 0.5em 0.5em 0 0;
   }
-  .project-title{
-    margin-top: 20px;
-    font-size: 17px;
-    line-height: 1.5;
-    font-weight: 400;
+  .proj-title{
+    margin-top: 2em;
+    font-size: 16px;
     color: #333;
   }
   .co-partner-box{
-    background-color: #fafafa;
-    padding-top: 5%;
-    padding-left: 10%;
-    padding-bottom: 5%;
-    padding-right:10%;
+    background-color: white;
+    padding-top: 4em;
+    padding-bottom: 4em;
   }
 
   .bottom-nav-box{
@@ -264,10 +268,8 @@
   .sitemap-link:hover {
     color: #1a6fa6;
   }
-  #projContainer{
+  #proj-container-md{
     position: relative;
-/*    min-height: 30em;*/
-/*    background-color: white;*/
     border-radius: 0.3em;
     margin-top: 1em;
   }
@@ -293,11 +295,66 @@
     color: #247fbb;
   }
 
+  .cp-partner-img{
+    width: 260px;
+    height: 110px;
+  }
   .divTab {
     text-align: left;
     padding-top: 3em;
     padding-left: 6em;
   }
+
+
+  @media (max-width: 768px){
+    .team-logo{
+      display: none;
+    }
+    .title-left,.title-left + .detail-left{
+      text-align: center;
+    }
+    .detail-left{
+      padding: 0px 10px;
+    }
+    .cell-container{
+      padding: 0 5px;
+    }
+    .proj-title{
+      font-size: 14px;
+    }
+    .cp-partner-img{
+      width: 64px;
+      height: 30px;
+    }
+    .bottom-nav-title + .detail-left {
+      font-size: 14px;
+    }
+    .bottom-nav-title{
+      font-size: 22px;
+    }
+    .sitemap-link{
+      font-size: 14px;
+    }
+  }
+  @media (min-width: 768px) and (max-width: 992px) {
+    .team-logo{
+      display: none;
+    }
+    .title-left{
+      text-align: center;
+    }
+    .cell-container{
+      padding: 0 5px;
+    }
+    .proj-title{
+      font-size: 14px;
+    }
+    .cp-partner-img{
+      width: 64px;
+      height: 30px;
+    }
+  }
+
 
 
 </style>

@@ -1,56 +1,69 @@
 <template>
   <div class="navigation">
 
-      <header class="navbar navbar-static-top csl-header" style="margin-bottom: 0px">
-        <div class="row" style="height: inherit;padding-left: 7%">
-          <div class="navbar-header  col-sm-6 " style="height: inherit">
-            <!--logo-->
-            <a class="navbar-brand col-sm-6 " href="/">
-              <span><img src="../assets/img/logo/logo_3.png" class="lab-icon "/></span>
-              <span style="color: white;font-family: 方正兰亭黑简体;margin-left: 20px;" >
+    <header class="navbar navbar-bar csl-header" style="margin-bottom: 0px">
+      <div class="row" style="height: inherit;padding-left: 7%">
+        <div class="navbar-header   " style="height: inherit">
+          <!--logo-->
+          <a class="navbar-brand " href="/"
+             :style='{paddingTop:brandPadding + "px",paddingBottom:brandPadding + "px"}'>
+            <span v-if="isPC"><img src="../assets/img/logo/logo_3.png" class="lab-icon"/></span>
+            <span style="color: white;font-family: 方正兰亭黑简体;margin-left: 20px;font-size: 1.4em;" >
                 网络空间安全实验室
               </span>
-            </a>
-            <button class="navbar-toggle collapsed col-xs-1" type="button" data-toggle="collapse" data-target="#menu-navbar" aria-controls="ment-navbar" aria-expanded="false">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar" ></span>
-              <span class="icon-bar"></span>
-            </button>
-          </div> <!--navbar-header-->
+          </a>
+          <button class="navbar-toggle " type="button" data-toggle="collapse" data-target="#menu-navbar" aria-controls="ment-navbar" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar" ></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div> <!--navbar-header-->
 
-            <!--menu-->
-          <div id="menu-navbar" class="collapse navbar-collapse col-sm-6 " style="height: inherit !important; padding-top: 25px">
-            <ul class="nav navbar-nav"> <!---->
-              <li>
-                <a href="academy.html">学术</a>
-              </li>
-              <li>
-                <a href="team.html">团队</a>
-              </li>
-              <li>
-                <a href="cooperation.html">合作</a>
-              </li>
-              <li>
-                <a href="/">通告</a>
-              </li>
-              <li>
-                <a href="http://localhost/blog">博客</a>
-              </li>
-            </ul>
-          </div>
+        <!--menu-->
+        <div id="menu-navbar" class="collapse navbar-collapse" style="height: inherit !important;">
+          <ul class="nav navbar-nav navbar-right" > <!---->
+            <li>
+              <a href="academy.html">学术</a>
+            </li>
+            <li>
+              <a href="team.html">团队</a>
+            </li>
+            <li>
+              <a href="cooperation.html">合作</a>
+            </li>
+            <li>
+              <a href="/">通告</a>
+            </li>
+            <li>
+              <a href="http://localhost:2368">博客</a>
+            </li>
+          </ul>
+        </div>
 
-        </div><!-- /.container-fluid -->
-      </header>
+      </div><!-- /.container-fluid -->
+    </header>
   </div>
 </template>
 
 <script>
+  import {isPC} from '../js/common/common'
+
   export default {
     name: 'Navigation',
     data () {
       return {
         msg: 'Welcome to Your Vue.js App'
+      }
+    },
+    computed: {
+      isPC: isPC,
+      brandPadding: function () {
+        if (isPC()) {
+          return 25
+        } else {
+          return 40
+        }
       }
     }
   }
@@ -58,13 +71,9 @@
 
 <style scoped>
 
+
   .csl-header {
     background-color: #003478 ;
-    height: 100px;
-    border: none;
-    -webkit-border-radius: 0;
-    -moz-border-radius: 0;
-    border-radius: 0;
   }
 
   .icon-bar{
@@ -72,23 +81,33 @@
   }
   .lab-icon {
     width: 50px;
-    margin-top: -5px;
   }
 
-  ul li{
-    margin-left: 30px;
-    /*margin-left: 50%;*/
+  .navbar-right{
+    margin-right: 0px;
+  }
 
-  }
-  ul li a:hover{
-    background-color: inherit;
-  }
+
+
+  /*ul li a:hover{*/
+    /*background-color: inherit;*/
+  /*}*/
   ul li a{
     color:white;
-    background-color:#003478;
-    font-size: larger;
+    font-size: 16px;
   }
 
+  @media (min-width: 768px) and (max-width: 992px) {
+    ul li a{
+      padding: 40px 20px;
+    }
+  }
+
+  @media (min-width: 1200px) {
+    .navbar-right{
+      margin-right: 4em ;
+    }
+  }
 
 
 </style>
