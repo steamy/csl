@@ -36,7 +36,7 @@
               <a href="/">通告</a>
             </li>
             <li>
-              <a href="http://localhost/blog">博客</a>
+              <a href="http://localhost:2368">博客</a>
             </li>
           </ul>
         </div>
