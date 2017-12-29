@@ -3,7 +3,7 @@
     <navigation></navigation>
     <!--banner-->
     <div>
-      <div style="padding-top: 5%;padding-bottom: 5%">
+      <div style="padding-top: 1%;padding-bottom: 1%" >
         <h1 style="color: #247fbb">Team</h1>
         <div style="width: 10%;height: 3px;background-color: #247fbb;margin-left: 45%;margin-top: 20px"></div>
       </div>
@@ -14,21 +14,24 @@
 
     <!--tab-->
     <div id="teamContain">
-      <div class="row" style="padding-top: 6em">
-        <div class="col-md-2">
+      <div class="row">
+        <div class="line-flag"></div>
+        <p class="title-text-1">团队师资</p>
+
+<!--        <div class="col-md-2">
           <div class="line-flag"></div>
         </div>
         <div class="col-md-10" style="padding-top: 0.6em">
           <p class="title-text">团队师资</p>
-        </div>
+        </div>-->
       </div>
 
       <div class="teamTeaches" >
-        <div class="teacher row" style="padding-top: 5em;padding-bottom: 1em" v-for="teacher in teachers">
+        <div class="teacher row"  v-for="teacher in teachers">
           <div class="col-md-4">
-            <img style="width: 13em" :src="teacher.avatorUrl">
+            <img style="width: 60%" :src="teacher.avatorUrl">
           </div>
-          <div class="" style="padding-right: 7em;padding-top: 1em">
+          <div class="teacherIntr col-md-8">
             <p class="title-text">
               {{teacher.name}}   <span style="color: #555555">{{teacher.professionalTitle}}</span>
             </p>
@@ -38,11 +41,14 @@
             </p>
           </div>
         </div>
+        <div class="studentIntr" >
+          <app-banner :listImg="listImg"></app-banner>
+        </div>
       </div>
     </div>
     <!--tab-->
-    <br/>
-    <br/>
+
+
     <site-footer></site-footer>
 
   </div>
@@ -51,7 +57,40 @@
 <script>
   import Navigation from '../components/Navigation'
   import SiteFooter from '../components/SiteFooter'
+  import Banner from '../components/Banner'
+  import a from '../assets/img/student/group_pic1.jpg'
+  import b from '../assets/img/student/group_pic2.jpg'
+
   export default {
+    components: {
+      SiteFooter,
+      Navigation,
+      'app-banner': Banner},
+    name: 'Team',
+    data () {
+      return {
+        listImg: [{
+          url: a
+        }, {
+          url: b
+        }]
+      }
+    },
+    computed: {
+      teachers: function () {
+        var teachersJson = require('../assets/json/teachers.json')
+        console.log(teachersJson)
+        for (var i = 0; i < teachersJson.length; i++) {
+          var url = teachersJson[i].avatorUrl.split('/')
+          teachersJson[i].avatorUrl = require('../assets/img/teacher/' + url[url.length - 1])
+        }
+        return teachersJson
+      }
+    },
+    methods: {
+    }
+  }
+  /*  export default {
     components: {
       SiteFooter,
       Navigation},
@@ -73,7 +112,7 @@
     },
     methods: {
     }
-  }
+  } */
 </script>
 
 <style scoped lang="scss">
@@ -89,20 +128,39 @@
   #teamContain {
     position: relative;
     margin-top: -50px;
-    margin-left:10%;
-    margin-right: 10%;
-    width: 80%;
+    margin-left:20%;
+    margin-right: 20%;
+    width: 60%;
     min-height: 30em;
     background-color: white;
     border-radius: 0.3em;
     padding-bottom: 5%;
   }
+  .row{
+    padding-top: 3%;
+  }
 
   .line-flag {
     background-color: $theme-color-blue;
-    margin-left: 6em;
+    margin-left: 5%;
     width: 0.4em;
     height: 4em;
+    float:left;
+  }
+  .title-text-1{
+    padding:10px 0 0 3%;
+    float: left;
+    font-size: 26px;
+    line-height: 1.5;
+    font-weight: 400;
+    color: #333;
+    text-align: left;
+  }
+  .teacherIntr{
+    padding:1em 1em 0 0;
+  }
+  .teacher{
+    padding:4% 0 0 4%;
   }
   p {
     text-align: left;
@@ -110,4 +168,32 @@
   .professional-tile {
 
   }
+
+.studentIntr{
+  padding:5% 10% 0 10%;
+}
+.swiper-container {
+  width: 100%;
+  height: 20em;
+  .swiper-wrapper {
+    width: 100%;
+    height: 100%;
+  }
+  .swiper-slide {
+    background-position: center;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+  .swiper-pagination-bullet {
+    width:0.833rem;
+    height: 0.833rem;
+    display: inline-block;
+    background: #7c5e53;
+  }
+}
 </style>

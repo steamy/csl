@@ -4,7 +4,7 @@
 
     <!--banner-->
     <div>
-      <div style="padding-top: 5%;padding-bottom: 5%">
+      <div style="padding-top: 1%;padding-bottom: 1%">
         <h2 style="color: #247fbb">Achievement in Research</h2>
         <div style="width: 10%;height: 3px;background-color: #247fbb;margin-left: 45%;margin-top: 20px"></div>
       </div>
