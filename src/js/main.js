@@ -4,7 +4,7 @@ import Vue from 'vue'
 import App from '../apps/App.vue'
 import router from '../router/index'
 import 'jquery/dist/jquery.min'
-import 'bootstrap/dist/css/bootstrap.min.css'
+import '../assets/css/bootstrap/css/bootstrap.css'
 import 'bootstrap/dist/js/bootstrap.min'
 import 'lib-flexible'
 

@@ -1,7 +1,7 @@
 <template>
   <div class="SiteFooter">
     <footer id="footer" class="contain">
-      <p style="color: #333">Copyright@2009-2017.网络空间与安全实验室</p>
+      <p style="color: #333">Copyright@2017.网络空间与安全实验室</p>
     </footer>
   </div>
 </template>
