@@ -3,8 +3,9 @@
     <meta name="viewport" content="width=width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <navigation></navigation>
     <!--<img src="../assets/img/index/banner.jpg" style="width: 100%;">-->
+    <div class="container">
     <div class="row about-us-box">
-      <div class="col-md-6" style="width: 50%;margin-top: 30px">
+      <div class="col-md-6">
         <p class="title-left">我们的团队</p>
         <p class="detail-left">
           网络空间安全实验室以网络空间安全、大数据分析及智能信息处理、
@@ -15,9 +16,10 @@
         </p>
       </div>
       <div class="col-md-6">
-        <img src="../assets/img/logo/logo_1.png" style="width: 50%;"/>
+        <img src="../assets/img/logo/logo_1.png" style="width: 30%;"/>
       </div>
-    </div> <!--about-us-box-->
+    </div>
+    </div><!--about-us-box-->
 
     <div class="project-info-box">
       <p class="title-left">我们的项目</p>
@@ -167,12 +169,21 @@
 
 <style scoped>
 
+  .Index{
+    background-color: #fafafa;
+  }
   .about-us-box{
     background-color: #fafafa;
-    padding-top: 10%;
-    padding-bottom: 10%;
-    padding-left: 10%;
+    padding-top: 5%;
+    padding-bottom: 2%;
+/*    padding-left: 10%;*/
   }
+  @media (min-width: 1600px){
+    .container{
+      width:1484px;
+    }
+  }
+
   .title-left{
     text-align: left;
     line-height: 40px;
