@@ -5,7 +5,7 @@ import App from '../apps/App.vue'
 import router from '../router/index'
 import 'jquery/dist/jquery.min'
 import '../assets/css/bootstrap/css/bootstrap.css'
-import 'bootstrap/dist/js/bootstrap.min'
+import '../assets/css/bootstrap/js/bootstrap.min'
 import 'lib-flexible'
 
 Vue.config.productionTip = false
