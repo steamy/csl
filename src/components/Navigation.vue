@@ -5,9 +5,8 @@
       <div class="row" style="height: inherit;padding-left: 7%">
         <div class="navbar-header   " style="height: inherit">
           <!--logo-->
-          <a class="navbar-brand " href="/"
-             :style='{paddingTop:brandPadding + "px",paddingBottom:brandPadding + "px"}'>
-            <span v-if="isPC"><img src="../assets/img/logo/logo_3.png" class="lab-icon"/></span>
+          <a class="navbar-brand " href="/">
+            <span ><img src="../assets/img/logo/logo_3.png" class="lab-icon"/></span>
             <span style="color: white;font-family: 方正兰亭黑简体;margin-left: 20px;font-size: 1.4em;" >
                 网络空间安全实验室
               </span>
@@ -97,7 +96,16 @@
     font-size: 16px;
   }
 
+  @media (max-width: 768px) {
+    .navbar-brand span img{
+      display: none;
+    }
+  }
+
   @media (min-width: 768px) and (max-width: 992px) {
+    .navbar-brand span img{
+      display: none;
+    }
     ul li a{
       padding: 40px 20px;
     }
@@ -106,6 +114,10 @@
   @media (min-width: 1200px) {
     .navbar-right{
       margin-right: 4em ;
+    }
+    .navbar-brand {
+      padding-top: 25px;
+      padding-bottom: 25px;
     }
   }
 
