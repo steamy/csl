@@ -128,14 +128,28 @@
   #teamContain {
     position: relative;
     margin-top: -50px;
-    margin-left:20%;
+/*    margin-left:20%;
     margin-right: 20%;
-    width: 60%;
+    width: 60%;*/
     min-height: 30em;
     background-color: white;
     border-radius: 0.3em;
     padding-bottom: 5%;
+/*    @media screen and (min-width:1800px){
+        margin-left:20%;
+        margin-right: 20%;
+        width: 60%;
+    }
+    @media screen and (min-width:1200px) and (max-width: 1400px){
+      margin-left:15%;
+      margin-right: 15%;
+      width: 70%;
+    }
+    @media screen and (min-width:960px) and (max-width:1199px ){
+      width: 100%;
+    }*/
   }
+
   .row{
     padding-top: 3%;
   }
