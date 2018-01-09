@@ -103,11 +103,14 @@
   }
 
   @media (min-width: 768px) and (max-width: 992px) {
-    .navbar-brand span img{
-      display: none;
-    }
     ul li a{
       padding: 40px 20px;
+    }
+  }
+  @media (min-width: 992px) and (max-width: 1200px){
+    .navbar-brand {
+      padding-top: 25px;
+      padding-bottom: 25px;
     }
   }
 
