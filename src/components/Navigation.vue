@@ -7,7 +7,7 @@
           <!--logo-->
           <a class="navbar-brand " href="/">
             <span ><img src="../assets/img/logo/logo_3.png" class="lab-icon"/></span>
-            <span style="color: white;margin-left: 20px;font-size: 1.4em;" >
+            <span style="color: white;margin-left: 20px;font-size: 20px;" >
                 网络空间安全实验室
               </span>
           </a>
@@ -18,6 +18,8 @@
             <span class="icon-bar"></span>
           </button>
         </div> <!--navbar-header-->
+
+
 
         <!--menu-->
         <div id="menu-navbar" class="collapse navbar-collapse" style="height: inherit !important;">
@@ -100,7 +102,7 @@
   /*}*/
   ul li a{
     color:white;
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 500;
     line-height: 20px;
 

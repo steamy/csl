@@ -1,102 +1,87 @@
 <template xmlns="http://www.w3.org/1999/html">
   <div class="Index">
     <navigation></navigation>
-    <!--<img src="../assets/img/index/banner.jpg" style="width: 100%;">-->
-    <div class=" container about-us-box">
-      <div class="col-xs-12 col-md-6" style="margin-top: 30px">
-        <p class="title-left">我们的团队</p>
-        <p class="detail-left">
-          网络空间安全实验室以网络空间安全、大数据分析及智能信息处理、
-          互联网+作为主要研究方向。承担了30余项与网络安全相关的项目，
-          包括：国家自然科学基金、国家“863”计划、国防 “十二五”基础预研等。
-          从实验室成立至今，获得四川省科技进步奖二等奖2项，相关论文发表200余篇、
-          专著10部、专利授权与申报30余项。
-        </p>
+    <index-banner></index-banner>
+
+    <!-- 团队概述-->
+    <section id="teamintro">
+      <p class="title-main">团队概况</p>
+      <p class="desc">网络安全空间实验室以网络空间安全、大数据分析及智能信息处理、互联网+作为主要方向</p>
+      <div class="row our-achieves">
+        <div class="col-xs-2 achievement" v-for="achieve in intro">
+          <img class=" achieve-icon" :src="achieve.icon_url"/>
+          <p class="desc">{{achieve.category}}</p>
+          <p class="desc">{{achieve.detail}}</p>
+        </div>
       </div>
-      <div class="col-md-6 team-logo" style="text-align: center">
-        <img  src="../assets/img/logo/logo_1.png" style="width: 18em;"/>
-      </div>
-    </div> <!--about-us-box-->
+    </section>
 
-    <div style="background-color: #fafafa">
+    <!--项目展示-->
+    <section id="project">
+      <p class="title-main">项目展示</p>
+      <br/>
+      <div id="project-show">
 
-      <div class="container project-info-box">
-        <p class="title-left">我们的项目</p>
+        <ul class="tabs row project-tabs">
+          <li class="col-md-4 col-xs-4 col-sm-4 desc" v-for="(name,index) in tabNames"
+              @click="toggleTabs(index)"
+              :class='{active:index==nowIndex,liTabFirst:index==0,liTabLast:index==2}'>{{name}}
+              <div class="bottom-line" v-show="index==nowIndex"></div>
+          </li>
+        </ul>
+        <br/>
+        <br/>
 
-        <div id="proj-container-md">
-          <ul class="tabs row">
-            <li class="li-tab col-md-4 col-xs-4 col-sm-4" v-for="(name,index) in tabNames"
-                @click="toggleTabs(index)"
-                :class='{active:index==nowIndex,liTabFirst:index==0,liTabLast:index==2}'>{{name}}</li>
-          </ul>
-
-          <div  class="divTab project-collection row" v-show="nowIndex===0">
-            <div class="cell-container col-xs-4 col-sm-4" v-for="(project,index) in securityProj">
-              <div class="project-cell">
-                <img class="project-img" :src="project.url">
-                <p class="proj-title" >{{project.comName}}<br><span style="color: gray">{{project.projName}}</span></p>
-              </div>
+        <div  class="row">
+          <div class="cell-container col-xs-4 col-sm-4" v-for="project in projectNow">
+            <div class="project-cell">
+              <img class="project-img" :src="project.show_img">
+              <p class="desc" >{{project.show_title}}<br><span style="font-weight: 300">{{project.show_detail}}</span></p>
             </div>
-          </div>
-
-          <div  class="divTab project-collection row" v-show="nowIndex===1">
-            <div class="cell-container col-md-4  col-xs-4 col-sm-4" v-for="(project,index) in IntelliComputeProj">
-              <div class="project-cell">
-                <img class="project-img" :src="project.url">
-                <p class="proj-title" >{{project.comName}}<br>{{project.projName}}</p>
-              </div>
-            </div>
-          </div>
-
-          <div  class="divTab project-collection row" v-show="nowIndex===2">
-            <div class="cell-container col-md-4 col-xs-4 col-sm-4" v-for="(project,index) in internetPlusProj">
-              <div class="project-cell">
-                <img class="project-img" :src="project.url">
-                <p class="proj-title" >{{project.comName}}<br>{{project.projName}}</p>
-              </div>
-            </div>
-          </div>
-
-        </div><!--proj-container-md-->
-
-      </div><!--project-info-box-->
-
-    </div>
-
-    <div class="co-partner-box">
-      <div class="container">
-        <p class="title-left">合作伙伴</p>
-
-
-        <div class="row cp-partner-collection">
-          <div class="col-md-3 col-sm-3 col-xs-3" v-for="imgUrl in coImgUrls">
-            <a class="thumbnail"  style="padding: 0;border: 0">
-              <img :src="imgUrl.url" class="cp-partner-img"/>
-            </a>
           </div>
         </div>
       </div>
-    </div><!--co-partner-box-->
 
-    <div class="bottom-nav-box">
+      <div id="more-button">
+        <button>查看更多</button>
+      </div>
+
+    </section>
+
+    <!--合作伙伴-->
+    <section id="partner">
+
+      <p class="title-main">合作伙伴</p>
+      <p class="desc">卓越工程师计划实施-实习实训</p>
+
+      <div id="partner-show" class="row">
+        <div class="col-xs-3" v-for="imgUrl in coImgUrls">
+          <img :src="imgUrl.url"/>
+        </div>
+      </div>
+    </section>
+
+    <!-- 联系我们和相关链接-->
+    <section id="connect-us">
+
       <div class="row">
-        <div class="col-md-6 col-xs-12  col-sm-12">
-          <p class="bottom-nav-title">相关链接</p>
-          <p class="detail-left ">
-            <a class="sitemap-link" target="_blank" href="http://www.uestc.edu.cn">电子科技大学主页</a>
-            <br/>
-            <a class="sitemap-link" target="_blank" href="http://www.ss.uestc.edu.cn/">电子科技大学信息与软件工程学院</a>
-          </p>
+        <div class="col-xs-7">
+          <p class="desc bolder">相关链接</p>
+          <p><a class="desc" target="_blank" href="http://www.uestc.edu.cn">电子科技大学主页</a></p>
+          <p><a class="desc" target="_blank" href="http://www.ss.uestc.edu.cn/">电子科技大学信息与软件工程学院</a></p>
         </div>
 
-        <div class="col-md-6 col-xs-12 col-sm-12" ><!--style="padding-left: 10%"-->
-          <p class="bottom-nav-title">联系我们</p>
-          <p class="detail-left" style="white-space:pre;line-height: 26px">联系人：刘老师     TEL:15208292978<br/>E-Mail:QIHELIU@UESTC.EDU.CN<br/>联系地址：四川省成都市成华区建设北路二段四号
-          </p>
+        <div class="col-xs-5">
+          <p class="desc bolder">联系我们</p>
+          <p class="desc">联系人：刘老师</p>
+          <p class="desc">TEL:15208292978</p>
+          <p class="desc">E-Mail:QIHELIU@UESTC.EDU.CN</p>
+          <p class="desc">联系地址：四川省成都市成华区建设北路二段四号</p>
         </div>
       </div>
-    </div>
-    <!--bottom-nav-->
+
+    </section>
+
 
     <site-footer></site-footer>
 
@@ -107,252 +92,353 @@
   import Navigation from './Navigation'
   import SiteFooter from './SiteFooter'
   import {isPC} from '../js/common/common'
+  import IndexBanner from './IndexBanner'
+  import {jsonFetcher} from '../fetchdata/fetcher'
 
   export default {
     components: {
+      IndexBanner,
       SiteFooter,
       Navigation},
     name: 'Index',
     computed: {
       isPC: isPC
     },
+    mounted () {
+      this.getPojects()
+    },
     methods: {
       toggleTabs: function (index) {
         this.nowIndex = index
+        this.projectNow = this.projectAll[index]
+      },
+      getPojects: function () {
+        jsonFetcher.get('/api/v1/projects/index')
+          .then(res => {
+            const projects = res.data.data
+            this.projectAll = []
+            for (let index = 0; index < this.tabNames.length; index++) {
+              this.projectAll[index] = []
+            }
+
+            for (let i = 0; i < projects.length; i++) {
+              const project = projects[i]
+              for (let index = 0; index < this.tabNames.length; index++) {
+                if (project.category === this.tabNames[index]) {
+                  this.projectAll[index].push(project)
+                }
+              }
+            }
+            this.projectNow = this.projectAll[0]
+          })
+          .catch(err => {
+            console.log(err)
+            this.toggleTabs(0)
+          })
       }
     },
     data () {
       return {
+        projectNow: [],
+        projectAll: [
+          [
+            {
+              show_title: '网络空间',
+              show_detail: '安全态势',
+              show_img: require('../assets/img/index/1.jpg')
+            },
+            {
+              show_title: '智能计算',
+              show_detail: '垃圾邮件识别',
+              show_img: require('../assets/img/index/2.jpg')
+            },
+            {
+              show_title: '云安全',
+              show_detail: '密码学',
+              show_img: require('../assets/img/index/3.jpg')
+            }
+          ],
+          [
+            {
+              show_title: '智能计算',
+              show_detail: '熊猫动漫',
+              show_img: require('../assets/img/index/3.jpg')
+            },
+            {
+              show_title: '智能计算',
+              show_detail: '交通仿真',
+              show_img: require('../assets/img/index/2.jpg')
+            },
+            {
+              show_title: '朗驰',
+              show_detail: 'PG网关',
+              show_img: require('../assets/img/index/1.jpg')
+            }
+          ],
+          [
+            {
+              show_title: '域通全球',
+              show_detail: '商业项目',
+              show_img: require('../assets/img/index/3.jpg')
+            },
+            {
+              show_title: '五粮液',
+              show_detail: '互联网营销',
+              show_img: require('../assets/img/index/2.jpg')
+            },
+            {
+              show_title: '卧龙',
+              show_detail: '智慧旅游',
+              show_img: require('../assets/img/index/1.jpg')
+            }
+          ]
+        ],
+        intro: [
+          {
+            icon_url: require('../assets/img/index/project_icon.png'),
+            category: '项目',
+            detail: '30余项项目'
+          },
+          {
+            icon_url: require('../assets/img/index/award_icon.png'),
+            category: '奖项',
+            detail: '获进步奖2项'
+          },
+          {
+            icon_url: require('../assets/img/index/theses_icon.png'),
+            category: '论文',
+            detail: '200余篇论文'
+          },
+          {
+            icon_url: require('../assets/img/index/public_icon.png'),
+            category: '专著',
+            detail: '10余部专著'
+          },
+          {
+            icon_url: require('../assets/img/index/patent_icon.png'),
+            category: '专利',
+            detail: '30余项专利'
+          }
+        ],
         coImgUrls: [
-          {url: require('../assets/img/logo/yutongquanqiu.jpg')},
-          {url: require('../assets/img/logo/langchi.jpg')},
-          {url: require('../assets/img/logo/guojiadianwang.png')},
-          {url: require('../assets/img/logo/wuliangye.png')}
+          {url: require('../assets/img/index/yutongquanqiu.png')},
+          {url: require('../assets/img/index/guojiadianwang.png')},
+          {url: require('../assets/img/index/langchi.png')},
+          {url: require('../assets/img/index/wulianye.png')}
         ],
         tabNames: ['信息安全', '智能计算', '互联网+'],
-        nowIndex: 0,
-        securityProj: [
-          {
-            comName: '网络空间',
-            projName: '安全态势',
-            url: require('../assets/img/index/1.jpg')
-          },
-          {
-            comName: '智能计算',
-            projName: '垃圾邮件识别',
-            url: require('../assets/img/index/2.jpg')
-          },
-          {
-            comName: '云安全',
-            projName: '密码学',
-            url: require('../assets/img/index/3.jpg')
-          }
-        ],
-        IntelliComputeProj: [
-          {
-            comName: '智能计算',
-            porjName: '熊猫动漫',
-            url: require('../assets/img/index/3.jpg')
-          },
-          {
-            comName: '智能计算',
-            projName: '交通仿真',
-            url: require('../assets/img/index/2.jpg')
-          },
-          {
-            comName: '朗驰',
-            projName: 'PG网关',
-            url: require('../assets/img/index/1.jpg')
-          }
-        ],
-        internetPlusProj: [
-          {
-            comName: '域通全球',
-            projName: '商业项目',
-            url: require('../assets/img/index/3.jpg')
-          },
-          {
-            comName: '五粮液',
-            projName: '互联网营销',
-            url: require('../assets/img/index/2.jpg')
-          },
-          {
-            comName: '卧龙',
-            projName: '智慧旅游',
-            url: require('../assets/img/index/1.jpg')
-          }
-        ]
+        nowIndex: 0
+
       }
     }
   }
 </script>
 
-<style  scoped>
+<style  scoped="scoped" lang="scss">
 
-  .about-us-box{
-    /*background-color: #fafafa;*/
-    padding-top: 5%;
-    padding-bottom: 5%;
+
+
+
+
+  /*
+    首页通用样式
+  */
+
+  .desc {
+    color: #373d41;
+    font-size: 14px;
+    font-weight: 200;
   }
-  .title-left{
-    text-align: left;
-    line-height: 40px;
-    font-size: 32px;
+  .title-main {
     color: #333;
-  }
-  .detail-left{
-    margin-top: 0.6em;
-    text-align: left;
-    font-size: 18px;
-    line-height: 1.5;
+    font-size: 24px;
     font-weight: 400;
-    color: #333;
   }
-  .project-info-box{
-    background-color: #fafafa;
-    padding-top: 5%;
-    padding-bottom: 5%;
+  .detail-container {
+    padding-left: 20%;
+    padding-right: 20%;
   }
-  .cp-partner-collection {
+
+
+  /*
+    团队概述
+  */
+  #teamintro {
+    width: 100%;
+    background-color: white;
+    padding-bottom: 3em;
+    padding-top: 3em;
+  }
+
+  #teamintro .title-main+.desc {
+    margin-top: 0.5em;
+  }
+  .our-achieves {
+    @extend .detail-container;
     margin-top: 3em;
   }
-  .project-collection{
-    background-color: #f5f5f5;
-    margin: 0;
-    padding-top: 3em;
-    padding-bottom: 3em;
-    padding-left: 0em !important;
+  .achievement {
+    width: 20%;
   }
+  .achievement .desc {
+    font-weight: 400;
+  }
+  .achieve-icon {
+    width: 3.5em;
+  }
+  .achieve-icon + .desc {
+    margin-top: 1em;
+  }
+
+  /*
+    project
+  */
+  #project {
+    width: 100%;
+    background-color: #f1f2f3;
+    padding-bottom: 3em;
+    padding-top: 3em;
+  }
+  #project-show {
+    @extend .detail-container;
+  }
+  .project-tabs {
+    padding-right: 10%;
+    padding-left: 10%;
+  }
+  .project-tabs .desc {
+    font-weight: 400;
+  }
+  .active {
+    color: #247fbb;
+    /*border-bottom: 1px solid #247fbb;*/
+  }
+  .bottom-line {
+    margin-top: 3px;
+    margin-left: 45%;
+    margin-right: 45%;
+    height: 1px;
+    background-color: #247fbb;
+  }
+
   .cell-container{
     padding: 0 3em;
   }
+
+  .project-img {
+    width: 100%;
+    border-radius: 0.5em 0.5em 0 0;
+  }
+
   .project-cell{
     padding-bottom: 2em;
     background-color: white;
     border-radius: 0.5em;
     text-align: center;
   }
-  .project-img {
-    width: 100%;
-    border-radius: 0.5em 0.5em 0 0;
+
+  .project-cell .desc {
+    margin-top: 10px;
+    font-weight: 400;
   }
-  .proj-title{
-    margin-top: 2em;
-    font-size: 16px;
-    color: #333;
-  }
-  .co-partner-box{
-    background-color: white;
+
+  #more-button{
     padding-top: 4em;
-    padding-bottom: 4em;
+    margin: 0 auto;
   }
 
-  .bottom-nav-box{
-    background-color: #f5f5f5;
-    padding-top: 5%;
-    padding-left: 10%;
-    padding-right:10%;
-  }
-  .bottom-nav-title{
-    text-align: left;
-    line-height: 40px;
-    font-size: 26px;
+  #more-button button {
+    width: 160px;
+    padding-top: 0.7em;
+    padding-bottom: 0.7em;
+    background-color: transparent;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #333;
+    border-radius: 5px;
+
     color: #333;
+    font-weight: 400;
+    font-size: 14px;
   }
 
-  .sitemap-link{
-    text-decoration: none;
-    font-size: 16px;
-    color: #333;
-  }
-  .sitemap-link:hover {
-    color: #1a6fa6;
-  }
-  #proj-container-md{
-    position: relative;
-    border-radius: 0.3em;
-    margin-top: 1em;
-  }
-
-
-  /*tabs*/
-  .tabs {
+  /*
+    合作伙伴
+  */
+  #partner{
     width: 100%;
-/*    height: 6em;
-    margin: 0;*/
-    margin:0 0 1em 0;
-  }
-  .li-tab{
-/*    background-color: white;*/
-    height: inherit;
-    font-size: 20px;
-    padding-top: 20px;
-    color: #333;
-  }
-
-
-  .active{
-    color: #247fbb;
-  }
-
-  .cp-partner-img{
-    width: 260px;
-    height: 110px;
-  }
-  .divTab {
-    text-align: left;
+    background-color: white;
+    padding-bottom: 3em;
     padding-top: 3em;
-    padding-left: 6em;
+  }
+  #partner .title-main + .desc {
+    margin-top: 0.5em;
+  }
+  #partner-show{
+    @extend .detail-container;
+    margin-top: 2em;
+    margin-bottom: 10px;
+  }
+
+  #partner-show img {
+    width: 100%;
+  }
+  /*
+  联系我们
+  */
+  #connect-us{
+    width: 100%;
+    background-color: #f1f2f3;
+    padding-bottom: 3em;
+    padding-top: 3em;
+
+    text-align: left;
+  }
+
+  #connect-us > div {
+    @extend .detail-container
+  }
+
+  #connect-us .desc {
+    padding-top: 4px;
+    font-weight: 400;
+  }
+  #connect-us .bolder {
+    font-weight: 500;
+    padding-bottom: 1em;
+  }
+  #connect-us a {
+    text-decoration: none;
+  }
+  #connect-us a:hover {
+    color: #1a6fa6;
   }
 
 
   @media (max-width: 768px){
-    .team-logo{
-      display: none;
-    }
-    .title-left,.title-left + .detail-left{
-      text-align: center;
-    }
-    .detail-left{
-      padding: 0px 10px;
-    }
+
+
+
     .cell-container{
       padding: 0 5px;
-    }
-    .proj-title{
-      font-size: 14px;
     }
     .cp-partner-img{
       width: 64px;
       height: 30px;
     }
-    .bottom-nav-title + .detail-left {
-      font-size: 14px;
-    }
-    .bottom-nav-title{
-      font-size: 22px;
-    }
-    .sitemap-link{
-      font-size: 14px;
+
+    .detail-container{
+      padding-left: 0;
+      padding-right: 0;
     }
   }
   @media (min-width: 768px) and (max-width: 992px) {
-    .team-logo{
-      display: none;
-    }
-    .title-left{
-      text-align: center;
-    }
     .cell-container{
       padding: 0 5px;
     }
-    .proj-title{
-      font-size: 14px;
-    }
-    .cp-partner-img{
-      width: 64px;
-      height: 30px;
-    }
+
   }
+
+
 
 </style>
