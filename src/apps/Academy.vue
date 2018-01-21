@@ -2,41 +2,29 @@
   <div id="academy">
     <navigation></navigation>
 
-    <!--banner-->
-    <div>
-      <div id="banner-title-container" >
-        <h1 style="color: #247fbb">Achievement in Acaddemy</h1>
-        <div style="width: 10%;height: 3px;background-color: #247fbb;margin-left: 45%;margin-top: 20px"></div>
-      </div>
-      <img id="banner-img" src="../assets/img/academy/banner.png" style="width: 100%;height: 200px"/>
-    </div>
+    <index-banner></index-banner>
     <!--banner-->
 
     <!--tab-->
-    <div id="academyContainer">
+    <section id="container">
       <ul class="tabs row">
-        <li class="li-tab col-md-6 col-xs-6 col-sm-6" v-for="(name,index) in tabNames"
+        <li class="li-tab col-md-4 col-xs-4 col-sm-4" v-for="(name,index) in tabNames"
         @click="toggleTabs(index)"
         :class='{active:index==nowIndex,liTabFirst:index==0,liTabLast:index==1}'>{{name}}</li>
       </ul>
 
-      <div class="divTab" v-show="nowIndex===0">
-        <ul>
-          <li class="content" v-for="(thesis, index) in thesises">
-            <p class="thesisLink">* {{thesis.name}}</p>
+      <no-data v-show="noData"></no-data>
+
+      <div id="content">
+        <ul class="list-group">
+          <li class="list-group-item no-border" v-for="(content, index) in showNow">
+            {{content.show_text}}
           </li>
         </ul>
       </div>
 
-      <div class="divTab" v-show="nowIndex===1">
-        <ul>
-          <li class="content" v-for="(patent, index) in patents">
-            <p class="thesisLink">[{{index+1}}] {{patent.name}}</p>
-          </li>
-        </ul>
-      </div>
 
-    </div>
+    </section>
     <!--tab-->
     <br/>
     <br/>
@@ -48,49 +36,74 @@
 <script>
   import Navigation from '../components/Navigation'
   import SiteFooter from '../components/SiteFooter'
+  import IndexBanner from '../components/IndexBanner'
+  import NoData from '../components/NoData'
+  import {jsonFetcher} from '../fetchdata/fetcher'
+
   export default {
     components: {
+      NoData,
+      IndexBanner,
       SiteFooter,
       Navigation},
     name: 'Academy',
     data () {
       return {
-        tabNames: ['论文', '专利'],
+        noData: false,
+        tabNames: ['论文', '专利', '科研课题'],
+        showNow: [],
         nowIndex: 0,
-        patents: [
-          {
-            name: '刘启和. 基于深度学习的医学气体识别方法[P]. 中国: 2013105034029.'
-          },
-          {
-            name: '周世杰. 一种对阅读器动态并行集进行调度的策略[P]. 中国: 2013106396525,.'
-          },
-          {
-            name: '周世杰. 三维空间中的大规模RFID阅读器的部署方法[P]. 中国: 2013106399754,.'
-          },
-          {
-            name: '周世杰. 导轨式无源RFID室内定位方法[P]. 中国: 2013106397299,.'
-          },
-          {
-            name: '周世杰. 基于阅读器优先级的静态阅读器调度方法[P]. 中国: 201310639974X,.'
-          }
-        ],
-        thesises: [
-          {
-            name: '《基于XX的XX系统》',
-            url: 'http://www.baidu.com'
-          },
-          {
-            name: '《对XX算法的改进》',
-            url: 'http://www.baidu.com'
-          }
-        ]
+        patents: [],
+        theses: [],
+        publishes: []
       }
     },
     computed: {
     },
+    mounted () {
+      this.getPatents()
+      this.getThesis()
+    },
     methods: {
       toggleTabs: function (index) {
         this.nowIndex = index
+
+        if (index === 0) {
+          this.showNow = this.theses
+        } else if (index === 1) {
+          this.showNow = this.patents
+        } else {
+          this.showNow = this.publishes
+        }
+        this.noData = (this.showNow.length === 0)
+      },
+
+      getPatents: async function () {
+        jsonFetcher.get('/api/v1/patents')
+          .then(res => {
+            this.patents = res.data.data
+            for (let index = 0; index < this.patents.length; index++) {
+              const patent = this.patents[index]
+              this.patents[index].show_text = '【' + (index + 1) + '】' + patent.authorized_person + '.' + patent.name + '[P]. 中国:' + patent.search_number
+            }
+          })
+          .catch(err => {
+            console.log(err)
+          })
+      },
+      getThesis: async function () {
+        jsonFetcher.get('/api/v1/theses')
+          .then(res => {
+            this.theses = res.data.data
+            for (let index = 0; index < this.theses.length; index++) {
+              const thesis = this.theses[index]
+              this.theses[index].show_text = '【' + (index + 1) + '】' + thesis.author + '. 《' + thesis.title + '》.' + thesis.press + '.' + thesis.deadline
+            }
+            this.toggleTabs(0)
+          })
+          .catch(err => {
+            console.log(err)
+          })
       }
     }
   }
@@ -101,31 +114,33 @@
 @import '../assets/css/common.scss';
 /*@import '../assets/css/tabbar.scss';*/
   #academy {
-    font-family: 方正兰亭黑简体;
     text-align: center;
     color: #2c3e50;
     margin-top: 0px;
     background-color: #f0f2f5;
   }
- #banner-title-container {
-   padding-top: 1%;
-   padding-bottom: 1%;
- }
 
-  #academyContainer{
-    position: relative;
-    margin-top: -50px;
-    margin-left:10%;
-    margin-right: 10%;
-    width: 80%;
-    min-height: 30em;
+  #container{
+    margin-left: 20%;
+    margin-right: 20%;
     background-color: white;
-    border-radius: 0.3em;
+    min-height: 400px;
   }
 
-  .content{
-    line-height: 2.5em;
+  #content {
+    margin-top: 2em;
+    text-align: left;
+    padding-bottom: 20px;
   }
+
+  .no-border {
+    margin: 0;
+    border: none;
+    font-weight: 400;
+    font-size: 14px;
+  }
+
+
 
 .tabs {
   width: 100%;
@@ -136,37 +151,17 @@
 .li-tab{
   background-color: #F5F5F5;
   height: inherit;
-  font-size: 20px;
+  font-size: 16px;
   padding-top: 20px;
   padding-bottom: 1em;
+  font-weight: 500;
 }
-
-.liTabFirst {
-  border-radius: 0.3em 0 0 0;
-}
-
-.liTabLast {
-  border-radius: 0 0.3em 0 0;
-}
-
 .active{
-  background-color: white;
   color: #247fbb;
+  background-color: white;
 }
 
-.divTab {
-  text-align: left;
-  padding-top: 3em;
-  padding-left: 6em;
-}
 
-  .thesisLink {
-    font-size: 16px;
-    text-decoration-line: none;
-  }
-  .thesisLink:hover {
-
-  }
 
 
 @media (max-width: 768px) {
@@ -200,12 +195,7 @@
 }
 
 @media (min-width: 768px) and (max-width: 992px) {
-  #banner-title-container{
-    background-color: white;
-  }
-  #banner-img {
-    display: none;
-  }
+
   #academyContainer{
     margin-top: 0;
     margin: 0;

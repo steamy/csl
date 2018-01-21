@@ -25,6 +25,9 @@
         <div id="menu-navbar" class="collapse navbar-collapse" style="height: inherit !important;">
           <ul class="nav navbar-nav navbar-right" > <!---->
             <li>
+              <a href="/">首页</a>
+            </li>
+            <li>
               <a href="academy.html">学术</a>
             </li>
             <li class="dropdown">

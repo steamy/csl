@@ -417,8 +417,6 @@
 
   @media (max-width: 768px){
 
-
-
     .cell-container{
       padding: 0 5px;
     }
@@ -438,7 +436,5 @@
     }
 
   }
-
-
 
 </style>
