@@ -7,7 +7,7 @@
           <!--logo-->
           <a class="navbar-brand " href="/">
             <span ><img src="../assets/img/logo/logo_3.png" class="lab-icon"/></span>
-            <span style="color: white;font-family: 方正兰亭黑简体;margin-left: 20px;font-size: 1.4em;" >
+            <span style="color: white;margin-left: 20px;font-size: 1.4em;" >
                 网络空间安全实验室
               </span>
           </a>
@@ -25,8 +25,15 @@
             <li>
               <a href="academy.html">学术</a>
             </li>
-            <li>
-              <a href="team.html">团队</a>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">团队</a>
+
+              <ul class="dropdown-menu">
+                <li><a href="#">团队师资</a></li>
+                <li><a href="#">优秀毕业生</a></li>
+                <li><a href="#">团队管理</a></li>
+              </ul>
+
             </li>
             <li>
               <a href="cooperation.html">合作</a>
@@ -94,6 +101,9 @@
   ul li a{
     color:white;
     font-size: 16px;
+    font-weight: 500;
+    line-height: 20px;
+
   }
 
   @media (max-width: 768px) {
