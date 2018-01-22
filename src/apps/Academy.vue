@@ -165,18 +165,8 @@
 
 
 @media (max-width: 768px) {
-  #banner-title-container{
-    padding-top: 2em;
-    background-color: white;
-  }
-  #banner-img {
-    display: none;
-  }
-  #academyContainer{
-    margin-top: 0;
+  #container{
     margin: 0;
-    padding-top: 1em;
-    width: 100%;
   }
 
   #banner-title-container h1 {
@@ -189,18 +179,12 @@
     font-size: 16px;
     padding-top: 0.8em;
   }
-  .divTab {
-    padding-left: 2em;
-  }
 }
 
 @media (min-width: 768px) and (max-width: 992px) {
 
-  #academyContainer{
-    margin-top: 0;
+  #container{
     margin: 0;
-    padding-top: 1em;
-    width: 100%;
   }
   #banner-title-container h1 {
     font-size: 24px;

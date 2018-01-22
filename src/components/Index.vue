@@ -345,6 +345,7 @@
   #more-button{
     padding-top: 4em;
     margin: 0 auto;
+
   }
 
   #more-button button {

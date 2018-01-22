@@ -3,12 +3,12 @@
     <navigation></navigation>
     <index-banner></index-banner>
 
-    <teachers v-if="isteacher"></teachers>
-    <students v-else></students>
+    <!--<teachers v-if="isteacher"></teachers>-->
+    <!--<students v-else></students>-->
+    <router-view></router-view>
 
 
     <br/>
-
 
     <site-footer></site-footer>
 

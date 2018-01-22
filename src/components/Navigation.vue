@@ -34,11 +34,10 @@
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">团队</a>
 
               <ul class="dropdown-menu team-menu">
-                <li><a href="team.html#/teachers">团队师资</a></li>
-                <li><a href="team.html#/students">优秀毕业生</a></li>
+                <li><a href="../../team.html#/teachers">团队师资</a></li>
+                <li><a href="../../team.html#/students">优秀毕业生</a></li>
                 <li><a href="#">团队管理</a></li>
               </ul>
-
             </li>
             <li>
               <a href="cooperation.html">合作</a>

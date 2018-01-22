@@ -1,23 +1,24 @@
 <template>
   <div id="teachers">
-    <div class="row content-container">
-      <div class="line-flag"></div>
-      <p class="title-text-1">团队师资</p>
-    </div>
+    <div class="">
+      <div class="row content-container">
+        <div class="line-flag"></div>
+        <p class="title-main">团队师资</p>
+      </div>
 
-    <div class="teamTeaches" >
-      <div class="teacher row"  v-for="teacher in teachers">
-        <div class="col-md-4 col-sm-12 col-xs-12">
-          <img  :src="teacher.avatorUrl">
-        </div>
-        <div class="teacherIntr col-md-8 col-sm-12 col-xs-12">
-          <p class="title-text">
-            {{teacher.name}}   <span style="color: #555555">{{teacher.professionalTitle}}</span>
-          </p>
-          <br/>
-          <p  class="teacher-info" v-for="intro in teacher.simpleIntro">
-            {{intro}}
-          </p>
+      <div class="teamTeaches" >
+        <div class="teacher row"  v-for="teacher in teachers">
+          <div class="col-md-3 col-sm-12 col-xs-12">
+            <img  :src="teacher.avatar_url">
+          </div>
+          <div class="teacherIntr col-md-9 col-sm-12 col-xs-12">
+            <p class="title-main">
+              {{teacher.name}} <span>{{teacher.professional_title}}</span>
+            </p>
+            <br/>
+            <p  class="desc" v-html="teacher.introduction">
+            </p>
+          </div>
         </div>
       </div>
     </div>
@@ -26,29 +27,69 @@
 </template>
 
 <script>
+  import {jsonFetcher} from '../../fetchdata/fetcher'
+
   export default {
     name: 'Teachers',
-    computed: {
-      teachers: function () {
-        var teachersJson = require('../../assets/json/teachers.json')
-        console.log(teachersJson)
-        for (var i = 0; i < teachersJson.length; i++) {
-          var url = teachersJson[i].avatorUrl.split('/')
-          teachersJson[i].avatorUrl = require('../../assets/img/teacher/' + url[url.length - 1])
-        }
-        return teachersJson
+    data () {
+      return {
+        teachers: []
+      }
+    },
+    created () {
+      this.getTeachersInfo()
+    },
+    methods: {
+      getTeachersInfo: function () {
+        jsonFetcher.get('/api/v1/teachers')
+          .then(res => {
+            this.teachers = res.data.data
+            console.log(this.teachers)
+          })
+          .catch(err => {
+            console.log(err)
+          })
       }
     }
   }
 </script>
 
 <style scoped="scoped" lang="scss">
-  @import '../../assets/css/common';
+  /*@import '../../assets/css/common';*/
   #teachers {
-    margin-left:20%;
-    margin-right: 20%;
-    width: 60%;
+
+  }
+  #teachers>div {
+    margin-left: 15%;
+    margin-right: 15%;
     background-color: white;
+    min-width: 920px;
+  }
+
+  .desc{
+    color: #373d41;
+    font-size: 14px;
+    font-weight: 400;
+  }
+
+  .title-main {
+    color: #333;
+    font-size: 24px;
+    font-weight: 400;
+  }
+  .line-flag + .title-main {
+    margin-left: 80px;
+    padding-top: 10px;
+  }
+
+
+  .teacherIntr .title-main  {
+     font-weight: 500;
+   }
+
+  .teacherIntr .title-main span {
+    margin-left: 10px;
+    font-weight: 400;
   }
 
 
@@ -58,24 +99,15 @@
   }
 
   .line-flag {
-    background-color: $theme-color-blue;
+    background-color: #247fbb;
     margin-left: 5%;
     width: 0.4em;
     height: 4em;
     float:left;
   }
 
-  .title-text-1{
-    padding:10px 0 0 3%;
-    float: left;
-    font-size: 26px;
-    line-height: 1.5;
-    font-weight: 400;
-    color: #333;
-    text-align: left;
-  }
   .teacherIntr{
-    padding:1em 1em 0 0;
+    padding:10px 12px 0 0;
   }
   .teacher{
     padding:4% 0 0 4%;
@@ -87,17 +119,21 @@
 
   }
   @media (max-width: 768px) {
-    #banner-title-container{
-      background-color: white;
-    }
-    #banner-img {
-      display: none;
-    }
-    .teamContain{
-      margin-top: 0;
+    #teachers>div {
       margin: 0;
-      padding-top: 1em;
-      width: 100%;
+      padding-right: 20px;
+      padding-left: 20px;
+      min-width: auto;
+    }
+    .teacherIntr .title-main{
+      text-align: center;
+    }
+    .line-flag + .title-main {
+      margin-left: 55px;
+      padding-top: 10px;
+    }
+    #teachers{
+      margin: 0 auto;
     }
     .teacher{
       padding: 3em 0 0 4%;
@@ -116,24 +152,25 @@
   }
 
   @media (min-width: 768px) and (max-width: 992px) {
-    #banner-title-container{
-      background-color: white;
-    }
-    #banner-img {
-      display: none;
-    }
-    .teamContain{
-      margin-top: 0;
+    #teachers>div {
       margin: 0;
-      padding-top: 1em;
-      width: 100%;
+      padding-right: 20px;
+      padding-left: 20px;
+      min-width: auto;
+    }
+    .line-flag + .title-main {
+      margin-left: 55px;
+      padding-top: 10px;
+    }
+    .teacherIntr .title-main{
+      text-align: center;
+    }
+
+    #teachers{
+      margin: 0 auto;
     }
     .teacher{
       padding: 3em 0 0 4%;
-    }
-    .title-text {
-      text-align: center;
-      font-size: 22px;
     }
     .teacher-info {
       padding-left: 15%;
@@ -145,7 +182,7 @@
   }
   @media (min-width: 992px) {
     div.col-sm-12 img {
-      width: 60%;
+      width: 90%;
     }
   }
 
