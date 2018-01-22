@@ -2,7 +2,7 @@
     <div id="students">
       <section id="location">
         <div class="line-flag"></div>
-        <p class="title-main">团队概括 > 主要成员</p>
+        <p class="title-main">团队概括 > 毕业生代表</p>
       </section>
       <br/>
       <br/>
