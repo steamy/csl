@@ -43,7 +43,7 @@
       </div>
 
       <div id="more-button">
-        <button>查看更多</button>
+        <button onclick="window.location.href='cooperation.html'">查看更多</button>
       </div>
 
     </section>
