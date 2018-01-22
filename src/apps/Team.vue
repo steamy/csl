@@ -32,20 +32,8 @@
       Navigation,
       'app-banner': Banner},
     name: 'Team',
-    mounted () {
-      this.checkWho()
-    },
-    methods: {
-      checkWho: function () {
-        console.log(this.$route.params.who)
-        if (this.$route.params.who === 'teachers') {
-          this.isteacher = true
-        } else {
-          this.isteacher = false
-          console.log('student')
-        }
-      }
-    },
+    mounted () {},
+    methods: {},
     data () {
       return {
         isteacher: true

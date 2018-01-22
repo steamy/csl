@@ -1,9 +1,9 @@
 <template>
   <div id="teachers">
     <div class="">
-      <div class="row content-container">
+      <div class="content-container">
         <div class="line-flag"></div>
-        <p class="title-main">团队师资</p>
+        <p class="title-main">团队概括 > 主要成员</p>
       </div>
 
       <div class="teamTeaches" >
@@ -64,6 +64,7 @@
     margin-right: 15%;
     background-color: white;
     min-width: 920px;
+    padding-bottom: 3em;
   }
 
   .desc{
@@ -100,7 +101,7 @@
 
   .line-flag {
     background-color: #247fbb;
-    margin-left: 5%;
+    margin-left: 2%;
     width: 0.4em;
     height: 4em;
     float:left;
