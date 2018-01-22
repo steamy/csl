@@ -36,7 +36,7 @@
               <ul class="dropdown-menu team-menu">
                 <li><a href="../../team.html#/teachers">团队师资</a></li>
                 <li><a href="../../team.html#/students">毕业生代表</a></li>
-                <li><a href="#">团队管理</a></li>
+                <li><a href="../../team.html#/manage">团队管理</a></li>
               </ul>
             </li>
             <li>

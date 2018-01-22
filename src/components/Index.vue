@@ -6,7 +6,7 @@
     <!-- 团队概述-->
     <section id="teamintro">
       <p class="title-main">团队概况</p>
-      <p class="desc">网络安全空间实验室以网络空间安全、大数据分析及智能信息处理、互联网+作为主要方向</p>
+      <!--<p class="desc">网络安全空间实验室以网络空间安全、大数据分析及智能信息处理、互联网+作为主要方向</p>-->
       <div class="row our-achieves">
         <div class="col-xs-2 achievement" v-for="achieve in intro">
           <img class=" achieve-icon" :src="achieve.icon_url"/>
@@ -140,59 +140,7 @@
     data () {
       return {
         projectNow: [],
-        projectAll: [
-          [
-            {
-              show_title: '网络空间',
-              show_detail: '安全态势',
-              show_img: require('../assets/img/index/1.jpg')
-            },
-            {
-              show_title: '智能计算',
-              show_detail: '垃圾邮件识别',
-              show_img: require('../assets/img/index/2.jpg')
-            },
-            {
-              show_title: '云安全',
-              show_detail: '密码学',
-              show_img: require('../assets/img/index/3.jpg')
-            }
-          ],
-          [
-            {
-              show_title: '智能计算',
-              show_detail: '熊猫动漫',
-              show_img: require('../assets/img/index/3.jpg')
-            },
-            {
-              show_title: '智能计算',
-              show_detail: '交通仿真',
-              show_img: require('../assets/img/index/2.jpg')
-            },
-            {
-              show_title: '朗驰',
-              show_detail: 'PG网关',
-              show_img: require('../assets/img/index/1.jpg')
-            }
-          ],
-          [
-            {
-              show_title: '域通全球',
-              show_detail: '商业项目',
-              show_img: require('../assets/img/index/3.jpg')
-            },
-            {
-              show_title: '五粮液',
-              show_detail: '互联网营销',
-              show_img: require('../assets/img/index/2.jpg')
-            },
-            {
-              show_title: '卧龙',
-              show_detail: '智慧旅游',
-              show_img: require('../assets/img/index/1.jpg')
-            }
-          ]
-        ],
+        projectAll: [],
         intro: [
           {
             icon_url: require('../assets/img/index/project_icon.png'),
@@ -226,7 +174,7 @@
           {url: require('../assets/img/index/langchi.png')},
           {url: require('../assets/img/index/wulianye.png')}
         ],
-        tabNames: ['信息安全', '智能计算', '互联网+'],
+        tabNames: ['网络空间安全', '大数据与智能计算', '互联网+'],
         nowIndex: 0
 
       }
@@ -315,8 +263,8 @@
   }
   .bottom-line {
     margin-top: 3px;
-    margin-left: 45%;
-    margin-right: 45%;
+    margin-left: 40%;
+    margin-right: 40%;
     height: 1px;
     background-color: #247fbb;
   }
