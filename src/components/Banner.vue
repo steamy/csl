@@ -31,7 +31,6 @@
 <style lang="less">
   .swiper-container {
     width: 100%;
-/*    height: 10rem;*/
     height:10em;
     .swiper-wrapper {
       width: 100%;
