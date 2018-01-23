@@ -1,4 +1,3 @@
-<!--
 <template>
   <div id="securitySituation">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -8,15 +7,15 @@
     <no-data v-show="noData"></no-data>
     <div id="security-pro" class="container">
       <div class="row">
-        <div id="project-info" class="col-md-9" v-for='(project,5) in projects'>
+        <div id="project-info" class="col-md-9" v-for="project in projects">
           <p>项目展示 > 项目详情</p>
           <div id="center">
-            <p>{{projects.category}}</p>
-            <p>{{projects.name}}</p>
-            <img src="{{projects.img_url}}">
+            <p>{{project.category}}</p>
+            <p>{{project.name}}</p>
+            <img :src="project.img_url">
           </div>
           <div id="left">
-            <p>{{projects.project_des}}</p>
+            <p>{{project.project_des}}</p>
           </div>
         </div>
         <div id="team_pics" class="col-md-3">
@@ -31,8 +30,8 @@
 </template>
 
 <script>
-  import {jsonFetcher} from '../../fetchdata/fetcher'
-  import NoData from '../NoData'
+  import {jsonFetcher} from '../fetchdata/fetcher'
+  import NoData from '../components/NoData'
   import Navigation from '../components/Navigation'
   import SiteFooter from '../components/SiteFooter'
   export default {
@@ -52,7 +51,7 @@
     },
     methods: {
       getProjects: async function () {
-        jsonFetcher.get('/api/v1/projects')
+        jsonFetcher.get('/api/v1/projects/1')
           .then(res => {
             this.projects = res.data.data
             if (this.projects.length !== 0) {
@@ -70,15 +69,15 @@
 
 <style>
   #securitySituation {
-    font-family: 方正兰亭黑简体;
+/*    font-family: 方正兰亭黑简体;*/
     text-align: center;
-    margin-top: 0px;
+    margin-top: 0;
     background-color: #fafafa;
   }
 
   #banner{
     margin-top: -0.05%;
-    padding-top: 0%;
+    padding-top: 0;
     width:100%;
   }
   #security-pro{
@@ -123,4 +122,3 @@
   }
 
 </style>
--->

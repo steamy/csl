@@ -1,78 +1,19 @@
 <template>
   <div id="cooperation">
-    <!--<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">-->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1">-->
     <navigation></navigation>
-<!--    <img id="banner-img" src="../assets/img/index/1首页-banner.jpg" style="width: 100%;height: 350px"/>-->
-
-    <div id="banner" class="container">
-      <div class="row">
-        <div id="banner-discript" class="col-md-6">
-          <p>主要研究方向</p>
-          <div style="width:15%;height:1px;background-color: #F5F5F5;margin-top: 1%;margin-bottom: 3%;"></div>
-          <p>网络空间安全</p>
-          <p>大数据分析及智能信息处理</p>
-          <p>互联网+</p>
-        </div>
-      </div>
-    </div>
-
 
     <div id="content" class="container">
       <div class="row">
-
-<!--        <div id="link-list" class="list-group col-md-3">
-          <a href="#infosecurity"  class="list-group-item list-group-item-infosecurity active">信息安全</a>
-          <a href="#intecomputing" class="list-group-item list-group-item-intecompute ">智能计算</a>
-          <a href="#internetplus" class="list-group-item list-group-item-internetplus ">互联网+</a>
-        </div>
-
-        <div id="title" class="col-md-6">
-          <p>ABOUT</p>
-          <p>项目展示 > 主要成果</p>
-          <div id="projects">
-            <a name="infosecurity"></a>
-            <p><a href="trafficBigData.html">大数据分析及智能信息处理 > 交通大数据</a><br></p>
-            <p><a href="securitySituation.html">大数据分析及智能信息处理 > 网络空间安全态势</a><br></p>
-            <p><a href="#">大数据分析及智能信息处理 > 网络空间安全态势剖分技术</a><br></p>
-            <p><a href="#">网络空间安全 > 密网系统</a><br></p>
-            <p><a href="#">网络空间安全 > RFID漏洞扫描系统</a><br></p>
-            <p><a href="#">网络空间安全 > 密网系统</a><br></p>
-            <a name="intecomputing"></a>
-            <p><a href="#">智能信息处理 > 机器人场景-地图管理</a><br></p>
-            <p><a href="#">智能信息处理 > 变压站机器人巡检控制</a><br></p>
-            <p><a href="#">大数据平台 > 四川省科技成果云服务平台</a><br></p>
-            <p><a href="#">人工智能 > 机场自动托运系统</a><br></p>
-            <a name="internetplus"></a>
-            <p><a href="#">互联网+ > 五粮液话联网营销指挥中心</a><br></p>
-            <p><a href="#">互联网+ > 域通全球商业软件系统</a><br></p>
-            <p><a href="#">互联网+ > 五粮液话联网营销指挥中心</a><br></p>
-            <p><a href="#">互联网+ > 五粮液话联网营销指挥中心</a><br></p>
-            <p><a href="#">互联网+ > 五粮液话联网营销指挥中心</a><br></p>
-          </div>
-        </div>
-        <div id="team_pics" class="col-md-3">
-          <p>团队风采</p>
-          <div class="studentIntr" >
-            <app-banner :listImg="listImg"></app-banner>
-          </div>
-&lt;!&ndash;          <img src="../assets/img/cooperation/team1.png">&ndash;&gt;
-        </div>-->
-
         <!--  根据项目方向分类展示项目内容.项目方向分别为信息安全，智能计算及互联网+ -->
         <div id="infosecurity" class=" col-md-4">
           <div class="project-list">
             <div class="classify">
               <img src="../assets/img/cooperation/信息安全.png">
-              <p>信息安全</p>
+              <p>网络空间安全</p>
             </div>
             <div class="classify-dtil">
-              <p><a href="trafficBigData.html">交通大数据</a><br></p>
-              <p><a href="securitySituation.html">网络空间安全态势</a><br></p>
-              <p><a href="#">网络空间安全态势剖分技术</a><br></p>
-              <p><a href="#">密网系统</a><br></p>
-              <p><a href="#">RFID漏洞扫描系统</a><br></p>
-              <p><a href="#">密网系统</a><br></p>
+              <p v-for="project in internetSecurityPojects"><a :href="project.pushUrl">{{project.name}}</a><br></p>
             </div>
           </div>
         </div>
@@ -80,13 +21,10 @@
           <div class="project-list">
             <div class="classify">
               <img src="../assets/img/cooperation/智能计算.png">
-              <p>智能计算</p>
+              <p>大数据与智能计算</p>
             </div>
             <div class="classify-dtil">
-              <p><a href="#">机器人场景-地图管理</a><br></p>
-              <p><a href="#">变压站机器人巡检控制</a><br></p>
-              <p><a href="#">四川省科技成果云服务平台</a><br></p>
-              <p><a href="#">机场自动托运系统</a><br></p>
+              <p v-for="project in bigData"><a :href="project.pushUrl">{{project.name}}</a><br></p>
             </div>
           </div>
         </div>
@@ -97,11 +35,7 @@
               <p>互联网+</p>
             </div>
             <div class="classify-dtil">
-              <p><a href="#">五粮液话联网营销指挥中心</a><br></p>
-              <p><a href="#">域通全球商业软件系统</a><br></p>
-              <p><a href="#">五粮液话联网营销指挥中心</a><br></p>
-              <p><a href="#">五粮液话联网营销指挥中心</a><br></p>
-              <p><a href="#">五粮液话联网营销指挥中心</a><br></p>
+              <p v-for="project in internetPlus"><a :href="project.pushUrl">{{project.name}}</a><br></p>
             </div>
           </div>
         </div>
@@ -118,8 +52,7 @@
   import Navigation from '../components/Navigation'
   import SiteFooter from '../components/SiteFooter'
   import Banner from '../components/Banner'
-  import a from '../assets/img/cooperation/team1.png'
-  import b from '../assets/img/cooperation/team2.jpg'
+  import {jsonFetcher} from '../fetchdata/fetcher'
   export default {
     components: {
       SiteFooter,
@@ -128,11 +61,36 @@
     name: 'cooperation',
     data () {
       return {
-        listImg: [{
-          url: a
-        }, {
-          url: b
-        }]
+        internetSecurityPojects: [],
+        bigData: [],
+        internetPlus: []
+      }
+    },
+    mounted () {
+      this.getAllProjects()
+    },
+    methods: {
+      getAllProjects: function () {
+        jsonFetcher.get('/api/v1/projects')
+          .then(res => {
+            const projects = res.data.data
+            for (let index = 0; index < projects.length; index++) {
+              const project = projects[index]
+              if (project.category === '网络空间安全') {
+                project.pushUrl = 'projectdetail.html?project_id=' + project.project_id
+                this.internetSecurityPojects.push(project)
+              } else if (project.category === '大数据与智能计算') {
+                project.pushUrl = 'projectdetail.html?project_id=' + project.project_id
+                this.bigData.push(project)
+              } else if (project.category === '互联网+') {
+                project.pushUrl = 'projectdetail.html?project_id=' + project.project_id
+                this.internetPlus.push(project)
+              }
+            }
+          })
+          .catch(err => {
+            console.log(err)
+          })
       }
     }
   }
@@ -141,26 +99,10 @@
 <style scoped>
 /*  @import '../assets/css/common.scss';*/
   #cooperation {
-    font-family: 方正兰亭黑简体;
+/*    font-family: 方正兰亭黑简体;*/
     text-align: center;
-    margin-top: 0px;
+    margin-top: 0;
     background-color: #fafafa;
-  }
-
-  #banner{
-    background-color: #08346a;
-    width:100%;
-  }
-
-  #banner-discript{
-    padding:5% 0 5% 30%;
-  }
-
-  #banner-discript p{
-    color: #F5F5F5;
-    font-size: 18px;
-    text-align: left;
-    line-height: 170%;
   }
 
 
@@ -174,7 +116,7 @@
     border-style: solid;
     border-radius: 2%;
     border-width: 1.5px;
-    height: 350px;
+    height: 370px;
   }
 
   .classify{
