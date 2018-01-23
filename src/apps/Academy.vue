@@ -16,12 +16,10 @@
 
       <div id="content">
         <ul class="list-group">
-          <li class="list-group-item no-border" v-for="(content, index) in showNow">
-            {{content.show_text}}
+          <li class="list-group-item no-border" v-for="(content, index) in showNow" v-html="content.show_text">
           </li>
         </ul>
       </div>
-
 
     </section>
     <!--tab-->
@@ -54,7 +52,7 @@
         nowIndex: 0,
         patents: [],
         theses: [],
-        publishes: []
+        subjects: []
       }
     },
     computed: {
@@ -62,6 +60,7 @@
     mounted () {
       this.getPatents()
       this.getThesis()
+      this.getSubjects()
     },
     methods: {
       toggleTabs: function (index) {
@@ -72,7 +71,7 @@
         } else if (index === 1) {
           this.showNow = this.patents
         } else {
-          this.showNow = this.publishes
+          this.showNow = this.subjects
         }
         this.noData = (this.showNow.length === 0)
       },
@@ -99,6 +98,22 @@
               this.theses[index].show_text = '【' + (index + 1) + '】' + thesis.author + '. 《' + thesis.title + '》.' + thesis.press + '.' + thesis.deadline
             }
             this.toggleTabs(0)
+          })
+          .catch(err => {
+            console.log(err)
+          })
+      },
+      getSubjects: async function () {
+        jsonFetcher.get('/api/v1/subjects')
+          .then(res => {
+            this.subjects = res.data.data
+            console.log(typeof this.subjects[0].end_date)
+            for (let index = 0; index < this.subjects.length; index++) {
+              const subject = this.subjects[index]
+              const startDate = new Date(subject.start_date)
+              const endDate = new Date(subject.end_date)
+              this.subjects[index].show_text = '【' + (index + 1) + '】<b>' + subject.name + '</b>-' + subject.provider + '   ' + startDate.getFullYear() + '至' + endDate.getFullYear()
+            }
           })
           .catch(err => {
             console.log(err)

@@ -43,7 +43,7 @@
               <a href="cooperation.html">合作</a>
             </li>
             <li>
-              <a href="/">通告</a>
+              <a href="news.html">通告</a>
             </li>
             <li>
               <a href="http://localhost:2368">博客</a>
