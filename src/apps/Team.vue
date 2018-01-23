@@ -1,7 +1,7 @@
 <template>
   <div id="team">
     <navigation></navigation>
-    <index-banner></index-banner>
+    <!--<index-banner></index-banner>-->
 
     <!--<teachers v-if="isteacher"></teachers>-->
     <!--<students v-else></students>-->

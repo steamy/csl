@@ -25,14 +25,14 @@
           </thead>
 
           <tbody>
-          <tr v-for="content in tableBody">
-            <td>{{content.cause}}</td>
-            <td>{{content.income}}</td>
+          <tr v-for="(content, index) in tableBody">
+            <td :class="[{'even-td':(index%2)!=0}, 'odd-td']">{{content.cause}}</td>
+            <td :class="[{'even-td':(index%2)!=0}, 'odd-td']">{{content.income}}</td>
           </tr>
           </tbody>
         </table>
-
       </section>
+      <p class="desc">实验室奖励制度</p>
     </div>
 
 </template>
@@ -45,7 +45,7 @@
         tableHead: ['事由', '奖金'],
         tableBody: [
           {
-            cause: 'CCF A类期刊或者会议、JCR分区1区和2区的期刊（导师认可其贡献量≥2/3）',
+            cause: '  CCF A类期刊或者会议、JCR分区1区和2区的期刊（导师认可其贡献量≥2/3）',
             income: '10000'
           },
           {
@@ -115,7 +115,7 @@
   #manage-system img {
     width: 100%;
   }
-  #manage-system + p {
+  #manage-system + p, #award-rule + p {
     margin-top: 20px;
     text-align: center;
     font-weight: 500;
@@ -123,7 +123,7 @@
   }
 
   #award-rule {
-
+    margin-top: 3em;
   }
 
   .table-unit-height {
@@ -131,20 +131,32 @@
     width: 50%;
   }
 
+  #award-rule table {
+    border: #F1F2F3 2px solid;
+  }
+
   #award-rule th {
     @extend .table-unit-height;
     text-align: center;
-    background-color: #1a6fa6;
+    background-color: #6699cc;
     color: white;
     border: white 1px solid;
   }
 
-  #award-rule tr {
+  #award-rule td {
     @extend .table-unit-height;
+    @extend .desc;
     border: white 1px solid;
     padding-left: 3px;
     padding-right: 3px;
   }
+  .odd-td {
+    background-color: #ffffff;
+  }
+  .even-td {
+    background-color: #99ccff;
+  }
+
 
 
   @media (max-width: 768px) {
@@ -155,7 +167,7 @@
     .line-flag + p {
       margin-left: 30px;
     }
-    #manage-system + p {
+    #manage-system + p, #award-rule + p {
       font-size: 14px;
     }
     .title-main {
