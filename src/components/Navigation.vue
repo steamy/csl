@@ -7,7 +7,7 @@
           <!--logo-->
           <a class="navbar-brand " href="/">
             <span ><img src="../assets/img/logo/logo_3.png" class="lab-icon"/></span>
-            <span style="color: white;font-family: 方正兰亭黑简体;margin-left: 20px;font-size: 1.4em;" >
+            <span style="color: white;margin-left: 20px;font-size: 20px;" >
                 网络空间安全实验室
               </span>
           </a>
@@ -19,14 +19,25 @@
           </button>
         </div> <!--navbar-header-->
 
+
+
         <!--menu-->
         <div id="menu-navbar" class="collapse navbar-collapse" style="height: inherit !important;">
           <ul class="nav navbar-nav navbar-right" > <!---->
             <li>
-              <a href="academy.html">学术</a>
+              <a href="/">首页</a>
             </li>
             <li>
-              <a href="team.html">团队</a>
+              <a href="academy.html">学术</a>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">团队</a>
+
+              <ul class="dropdown-menu team-menu">
+                <li><a href="../../team.html#/teachers">团队师资</a></li>
+                <li><a href="../../team.html#/students">毕业生代表</a></li>
+                <li><a href="#">团队管理</a></li>
+              </ul>
             </li>
             <li>
               <a href="cooperation.html">合作</a>
@@ -93,7 +104,13 @@
   }
   ul li a{
     color:white;
-    font-size: 16px;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+
+  }
+  .team-menu{
+    background-color: #003478;
   }
 
   @media (max-width: 768px) {
@@ -103,11 +120,14 @@
   }
 
   @media (min-width: 768px) and (max-width: 992px) {
-    .navbar-brand span img{
-      display: none;
-    }
     ul li a{
       padding: 40px 20px;
+    }
+  }
+  @media (min-width: 992px) and (max-width: 1200px){
+    .navbar-brand {
+      padding-top: 25px;
+      padding-bottom: 25px;
     }
   }
 
