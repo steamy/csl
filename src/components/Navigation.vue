@@ -88,9 +88,9 @@
 
 
 
-  /*ul li a:hover{*/
-    /*background-color: inherit;*/
-  /*}*/
+  ul li a:hover{
+    background-color: rgba(0, 18, 48, 0.31);
+  }
   ul li a{
     color:white;
     font-size: 16px;

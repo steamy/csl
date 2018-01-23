@@ -12,6 +12,8 @@ module.exports = {
     academy: path.resolve(__dirname,'../dist/academy.html'),
     team: path.resolve(__dirname,'../dist/team.html'),
     cooperation: path.resolve(__dirname,'../dist/cooperation.html'),
+    trafficBigData: path.resolve(__dirname,'../dist/trafficBigData.html'),
+    securitySituation: path.resolve(__dirname,'../dist/securitySituation.html'),
     assetsRoot: path.resolve(__dirname, '../dist'),
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',

@@ -18,7 +18,7 @@
         pagination: '.swiper-pagination',
         paginationClickable: true,
         loop: true,
-        speed: 600,
+        speed: 1000,
         autoplay: 1000,
         onTouchEnd: function () {
           swiper.startAutoplay()
