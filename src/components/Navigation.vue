@@ -36,7 +36,7 @@
               <ul class="dropdown-menu team-menu">
                 <li><a href="../../team.html#/teachers">团队师资</a></li>
                 <li><a href="../../team.html#/students">毕业生代表</a></li>
-                <li><a href="#">团队管理</a></li>
+                <li><a href="../../team.html#/manage">团队管理</a></li>
               </ul>
             </li>
             <li>
@@ -53,26 +53,37 @@
 
       </div><!-- /.container-fluid -->
     </header>
+
+    <index-banner v-if="showBanner"></index-banner>
   </div>
 </template>
 
 <script>
-  import {isPC} from '../js/common/common'
+  import {deviceType} from '../js/common/common'
+  import IndexBanner from './IndexBanner'
 
   export default {
+    components: {IndexBanner},
     name: 'Navigation',
     data () {
       return {
         msg: 'Welcome to Your Vue.js App'
       }
     },
+    props: {
+      isInIndexPage: {
+        type: Boolean,
+        default: false
+      }
+    },
     computed: {
-      isPC: isPC,
-      brandPadding: function () {
-        if (isPC()) {
-          return 25
+      showBanner: function () {
+        if (deviceType() === 'Pc') {
+          return true
+        } else if (this.isInIndexPage) {
+          return true
         } else {
-          return 40
+          return false
         }
       }
     }
@@ -104,8 +115,8 @@
   /*}*/
   ul li a{
     color:white;
-    font-size: 14px;
-    font-weight: 500;
+    font-size: 16px;
+    font-weight: 400;
     line-height: 20px;
 
   }

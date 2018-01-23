@@ -2,7 +2,6 @@
   <div id="academy">
     <navigation></navigation>
 
-    <index-banner></index-banner>
     <!--banner-->
 
     <!--tab-->
