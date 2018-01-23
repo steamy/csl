@@ -3,43 +3,43 @@
     <navigation></navigation>
     <!--banner-->
     <div>
-      <div style="padding-top: 1%;padding-bottom: 1%" >
+      <div id="banner-title-container" style="padding-top: 1%;padding-bottom: 1%;" >
         <h1 style="color: #247fbb">Team</h1>
         <div style="width: 10%;height: 3px;background-color: #247fbb;margin-left: 45%;margin-top: 20px"></div>
       </div>
-      <img src="../assets/img/academy/banner.png" style="width: 100%;height: 200px"/>
+      <img id="banner-img" src="../assets/img/academy/banner.png" style="width: 100%;height: 200px"/>
     </div>
     <!--banner-->
 
 
     <!--tab-->
-    <div id="teamContain">
+    <div class="teamContain">
       <div class="row">
         <div class="line-flag"></div>
         <p class="title-text-1">团队师资</p>
-
-<!--        <div class="col-md-2">
-          <div class="line-flag"></div>
-        </div>
-        <div class="col-md-10" style="padding-top: 0.6em">
-          <p class="title-text">团队师资</p>
-        </div>-->
       </div>
 
       <div class="teamTeaches" >
         <div class="teacher row"  v-for="teacher in teachers">
-          <div class="col-md-4">
-            <img style="width: 60%" :src="teacher.avatorUrl">
+          <div class="col-md-4 col-sm-12 col-xs-12">
+            <img  :src="teacher.avatorUrl">
           </div>
-          <div class="teacherIntr col-md-8">
+          <div class="teacherIntr col-md-8 col-sm-12 col-xs-12">
             <p class="title-text">
               {{teacher.name}}   <span style="color: #555555">{{teacher.professionalTitle}}</span>
             </p>
             <br/>
-            <p v-for="intro in teacher.simpleIntro">
+            <p  class="teacher-info" v-for="intro in teacher.simpleIntro">
               {{intro}}
             </p>
           </div>
+        </div>
+
+        <br/>
+
+        <div class="row">
+          <div class="line-flag"></div>
+          <p class="title-text-1">学生风采</p>
         </div>
         <div class="studentIntr" >
           <app-banner :listImg="listImg"></app-banner>
@@ -47,6 +47,7 @@
       </div>
     </div>
     <!--tab-->
+    <br/>
 
 
     <site-footer></site-footer>
@@ -125,31 +126,17 @@
   background-color: #f0f2f5;
 }
 
-  #teamContain {
+  .teamContain {
     position: relative;
     margin-top: -50px;
-/*    margin-left:20%;
+    margin-left:20%;
     margin-right: 20%;
-    width: 60%;*/
-    min-height: 30em;
+    width: 60%;
+    /*min-height: 30em;*/
     background-color: white;
     border-radius: 0.3em;
     padding-bottom: 5%;
-/*    @media screen and (min-width:1800px){
-        margin-left:20%;
-        margin-right: 20%;
-        width: 60%;
-    }
-    @media screen and (min-width:1200px) and (max-width: 1400px){
-      margin-left:15%;
-      margin-right: 15%;
-      width: 70%;
-    }
-    @media screen and (min-width:960px) and (max-width:1199px ){
-      width: 100%;
-    }*/
   }
-
   .row{
     padding-top: 3%;
   }
@@ -161,6 +148,7 @@
     height: 4em;
     float:left;
   }
+
   .title-text-1{
     padding:10px 0 0 3%;
     float: left;
@@ -210,4 +198,69 @@
     background: #7c5e53;
   }
 }
+
+@media (max-width: 768px) {
+  #banner-title-container{
+    background-color: white;
+  }
+  #banner-img {
+    display: none;
+  }
+  .teamContain{
+    margin-top: 0;
+    margin: 0;
+    padding-top: 1em;
+    width: 100%;
+  }
+  .teacher{
+    padding: 3em 0 0 4%;
+  }
+  .title-text {
+    text-align: center;
+    font-size: 22px;
+  }
+  .teacher-info {
+    padding-left: 15%;
+    padding-right: 15%;
+  }
+  div.col-sm-12 img {
+    width: 70%;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+  #banner-title-container{
+    background-color: white;
+  }
+  #banner-img {
+    display: none;
+  }
+  .teamContain{
+    margin-top: 0;
+    margin: 0;
+    padding-top: 1em;
+    width: 100%;
+  }
+  .teacher{
+    padding: 3em 0 0 4%;
+  }
+  .title-text {
+    text-align: center;
+    font-size: 22px;
+  }
+  .teacher-info {
+    padding-left: 15%;
+    padding-right: 15%;
+  }
+  div.col-sm-12 img {
+    width: 70%;
+  }
+}
+  @media (min-width: 992px) {
+    div.col-sm-12 img {
+      width: 60%;
+    }
+  }
+
+
 </style>

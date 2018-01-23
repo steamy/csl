@@ -4,18 +4,18 @@
 
     <!--banner-->
     <div>
-      <div style="padding-top: 1%;padding-bottom: 1%">
-        <h2 style="color: #247fbb">Achievement in Research</h2>
+      <div id="banner-title-container" >
+        <h1 style="color: #247fbb">Achievement in Acaddemy</h1>
         <div style="width: 10%;height: 3px;background-color: #247fbb;margin-left: 45%;margin-top: 20px"></div>
       </div>
-      <img src="../assets/img/academy/banner.png" style="width: 100%;height: 200px"/>
+      <img id="banner-img" src="../assets/img/academy/banner.png" style="width: 100%;height: 200px"/>
     </div>
     <!--banner-->
 
     <!--tab-->
     <div id="academyContainer">
       <ul class="tabs row">
-        <li class="li-tab col-md-6" v-for="(name,index) in tabNames"
+        <li class="li-tab col-md-6 col-xs-6 col-sm-6" v-for="(name,index) in tabNames"
         @click="toggleTabs(index)"
         :class='{active:index==nowIndex,liTabFirst:index==0,liTabLast:index==1}'>{{name}}</li>
       </ul>
@@ -107,6 +107,10 @@
     margin-top: 0px;
     background-color: #f0f2f5;
   }
+ #banner-title-container {
+   padding-top: 1%;
+   padding-bottom: 1%;
+ }
 
   #academyContainer{
     position: relative;
@@ -163,5 +167,64 @@
   .thesisLink:hover {
 
   }
+
+
+@media (max-width: 768px) {
+  #banner-title-container{
+    padding-top: 2em;
+    background-color: white;
+  }
+  #banner-img {
+    display: none;
+  }
+  #academyContainer{
+    margin-top: 0;
+    margin: 0;
+    padding-top: 1em;
+    width: 100%;
+  }
+
+  #banner-title-container h1 {
+    font-size: 24px;
+  }
+  .tabs {
+    height: 3em;
+  }
+  .li-tab {
+    font-size: 16px;
+    padding-top: 0.8em;
+  }
+  .divTab {
+    padding-left: 2em;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+  #banner-title-container{
+    background-color: white;
+  }
+  #banner-img {
+    display: none;
+  }
+  #academyContainer{
+    margin-top: 0;
+    margin: 0;
+    padding-top: 1em;
+    width: 100%;
+  }
+  #banner-title-container h1 {
+    font-size: 24px;
+  }
+  .tabs {
+    height: 3em;
+  }
+  .li-tab {
+    font-size: 16px;
+    padding-top: 0.8em;
+  }
+}
+@media (min-width: 992px) {
+
+}
 
 </style>
