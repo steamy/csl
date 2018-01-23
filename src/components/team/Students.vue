@@ -2,7 +2,7 @@
     <div id="students">
       <section id="location">
         <div class="line-flag"></div>
-        <p class="title-main">团队概括 > 毕业生代表</p>
+        <p class="title-main">团队 > 毕业生代表</p>
       </section>
       <br/>
       <br/>
@@ -133,6 +133,9 @@
   }
 
   @media (max-width: 768px) {
+    .title-main {
+      font-size: 20px;
+    }
     #students {
       padding-left: 20px;
       padding-right: 20px;
@@ -144,9 +147,15 @@
     .student-avator {
       height: 170px;
     }
+    .line-flag + p {
+      padding-left: 30px;
+    }
   }
 
   @media (min-width: 768px) and (max-width: 992px) {
+    .title-main {
+      font-size: 20px;
+    }
     #students {
       padding-left: 20%;
       padding-right: 20%;
@@ -157,6 +166,9 @@
     }
     .student-avator {
       height: 170px;
+    }
+    .line-flag + p {
+      padding-left: 30px;
     }
   }
   @media (min-width: 992px) and (max-width: 1130px){

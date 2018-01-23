@@ -3,7 +3,7 @@
     <div class="">
       <div class="content-container">
         <div class="line-flag"></div>
-        <p class="title-main">团队概括 > 主要成员</p>
+        <p class="title-main">团队 > 团队师资</p>
       </div>
 
       <div class="teamTeaches" >
@@ -120,6 +120,9 @@
 
   }
   @media (max-width: 768px) {
+    .title-main {
+      font-size: 20px;
+    }
     #teachers>div {
       margin: 0;
       padding-right: 20px;
@@ -153,6 +156,9 @@
   }
 
   @media (min-width: 768px) and (max-width: 992px) {
+    .title-main {
+      font-size: 20px;
+    }
     #teachers>div {
       margin: 0;
       padding-right: 20px;

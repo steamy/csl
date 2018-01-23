@@ -1,17 +1,17 @@
 <template xmlns="http://www.w3.org/1999/html">
   <div class="Index">
-    <navigation></navigation>
-    <index-banner></index-banner>
+    <navigation :is-in-index-page="true"></navigation>
+    <!--<index-banner></index-banner>-->
 
     <!-- 团队概述-->
     <section id="teamintro">
       <p class="title-main">团队概况</p>
-      <p class="desc">网络安全空间实验室以网络空间安全、大数据分析及智能信息处理、互联网+作为主要方向</p>
+      <!--<p class="desc">网络安全空间实验室以网络空间安全、大数据分析及智能信息处理、互联网+作为主要方向</p>-->
       <div class="row our-achieves">
         <div class="col-xs-2 achievement" v-for="achieve in intro">
           <img class=" achieve-icon" :src="achieve.icon_url"/>
           <p class="desc">{{achieve.category}}</p>
-          <p class="desc">{{achieve.detail}}</p>
+          <p class="desc" v-html="achieve.detail"></p>
         </div>
       </div>
     </section>
@@ -61,26 +61,7 @@
       </div>
     </section>
 
-    <!-- 联系我们和相关链接-->
-    <section id="connect-us">
 
-      <div class="row">
-        <div class="col-xs-7">
-          <p class="desc bolder">相关链接</p>
-          <p><a class="desc" target="_blank" href="http://www.uestc.edu.cn">电子科技大学主页</a></p>
-          <p><a class="desc" target="_blank" href="http://www.ss.uestc.edu.cn/">电子科技大学信息与软件工程学院</a></p>
-        </div>
-
-        <div class="col-xs-5">
-          <p class="desc bolder">联系我们</p>
-          <p class="desc">联系人：刘老师</p>
-          <p class="desc">TEL:15208292978</p>
-          <p class="desc">E-Mail:QIHELIU@UESTC.EDU.CN</p>
-          <p class="desc">联系地址：四川省成都市成华区建设北路二段四号</p>
-        </div>
-      </div>
-
-    </section>
 
 
     <site-footer></site-footer>
@@ -91,7 +72,6 @@
 <script>
   import Navigation from './Navigation'
   import SiteFooter from './SiteFooter'
-  import {isPC} from '../js/common/common'
   import IndexBanner from './IndexBanner'
   import {jsonFetcher} from '../fetchdata/fetcher'
 
@@ -101,9 +81,7 @@
       SiteFooter,
       Navigation},
     name: 'Index',
-    computed: {
-      isPC: isPC
-    },
+    computed: {},
     mounted () {
       this.getPojects()
     },
@@ -140,84 +118,32 @@
     data () {
       return {
         projectNow: [],
-        projectAll: [
-          [
-            {
-              show_title: '网络空间',
-              show_detail: '安全态势',
-              show_img: require('../assets/img/index/1.jpg')
-            },
-            {
-              show_title: '智能计算',
-              show_detail: '垃圾邮件识别',
-              show_img: require('../assets/img/index/2.jpg')
-            },
-            {
-              show_title: '云安全',
-              show_detail: '密码学',
-              show_img: require('../assets/img/index/3.jpg')
-            }
-          ],
-          [
-            {
-              show_title: '智能计算',
-              show_detail: '熊猫动漫',
-              show_img: require('../assets/img/index/3.jpg')
-            },
-            {
-              show_title: '智能计算',
-              show_detail: '交通仿真',
-              show_img: require('../assets/img/index/2.jpg')
-            },
-            {
-              show_title: '朗驰',
-              show_detail: 'PG网关',
-              show_img: require('../assets/img/index/1.jpg')
-            }
-          ],
-          [
-            {
-              show_title: '域通全球',
-              show_detail: '商业项目',
-              show_img: require('../assets/img/index/3.jpg')
-            },
-            {
-              show_title: '五粮液',
-              show_detail: '互联网营销',
-              show_img: require('../assets/img/index/2.jpg')
-            },
-            {
-              show_title: '卧龙',
-              show_detail: '智慧旅游',
-              show_img: require('../assets/img/index/1.jpg')
-            }
-          ]
-        ],
+        projectAll: [],
         intro: [
           {
             icon_url: require('../assets/img/index/project_icon.png'),
             category: '项目',
-            detail: '30余项项目'
+            detail: '<span style="color: #00257A; font-weight: 500;font-size: 15px">30<span/>余项项目'
           },
           {
             icon_url: require('../assets/img/index/award_icon.png'),
             category: '奖项',
-            detail: '获进步奖2项'
+            detail: '获进步奖<span style="color: #00257A; font-weight: 500;font-size: 15px">2<span/>项'
           },
           {
             icon_url: require('../assets/img/index/theses_icon.png'),
             category: '论文',
-            detail: '200余篇论文'
+            detail: '<span style="color: #00257A; font-weight: 500;font-size: 15px">200<span/>余篇论文'
           },
           {
             icon_url: require('../assets/img/index/public_icon.png'),
             category: '专著',
-            detail: '10余部专著'
+            detail: '<span style="color: #00257A; font-weight: 500;font-size: 15px">10<span/>余部专著'
           },
           {
             icon_url: require('../assets/img/index/patent_icon.png'),
             category: '专利',
-            detail: '30余项专利'
+            detail: '<span style="color: #00257A; font-weight: 500;font-size: 15px">30<span/>余项专利'
           }
         ],
         coImgUrls: [
@@ -226,7 +152,7 @@
           {url: require('../assets/img/index/langchi.png')},
           {url: require('../assets/img/index/wulianye.png')}
         ],
-        tabNames: ['信息安全', '智能计算', '互联网+'],
+        tabNames: ['网络空间安全', '大数据与智能计算', '互联网+'],
         nowIndex: 0
 
       }
@@ -315,8 +241,8 @@
   }
   .bottom-line {
     margin-top: 3px;
-    margin-left: 45%;
-    margin-right: 45%;
+    margin-left: 40%;
+    margin-right: 40%;
     height: 1px;
     background-color: #247fbb;
   }
@@ -384,36 +310,7 @@
   #partner-show img {
     width: 100%;
   }
-  /*
-  联系我们
-  */
-  #connect-us{
-    width: 100%;
-    background-color: #f1f2f3;
-    padding-bottom: 3em;
-    padding-top: 3em;
 
-    text-align: left;
-  }
-
-  #connect-us > div {
-    @extend .detail-container
-  }
-
-  #connect-us .desc {
-    padding-top: 4px;
-    font-weight: 400;
-  }
-  #connect-us .bolder {
-    font-weight: 500;
-    padding-bottom: 1em;
-  }
-  #connect-us a {
-    text-decoration: none;
-  }
-  #connect-us a:hover {
-    color: #1a6fa6;
-  }
 
 
   @media (max-width: 768px){
