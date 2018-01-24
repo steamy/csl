@@ -44,7 +44,6 @@
         jsonFetcher.get('/api/v1/teachers')
           .then(res => {
             this.teachers = res.data.data
-            console.log(this.teachers)
           })
           .catch(err => {
             console.log(err)

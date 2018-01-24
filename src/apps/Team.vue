@@ -1,10 +1,6 @@
 <template>
   <div id="team">
-    <navigation></navigation>
-    <!--<index-banner></index-banner>-->
-
-    <!--<teachers v-if="isteacher"></teachers>-->
-    <!--<students v-else></students>-->
+    <navigation :show-banner-props="isPc"></navigation>
     <router-view></router-view>
 
 
@@ -19,24 +15,23 @@
   import Navigation from '../components/Navigation'
   import SiteFooter from '../components/SiteFooter'
   import Banner from '../components/Banner'
-  import IndexBanner from '../components/IndexBanner'
-  import Teachers from '../components/team/Teachers'
-  import Students from '../components/team/Students'
+  import {deviceType} from '../js/common/common'
 
   export default {
     components: {
-      Students,
-      Teachers,
-      IndexBanner,
       SiteFooter,
       Navigation,
       'app-banner': Banner},
     name: 'Team',
     mounted () {},
     methods: {},
-    data () {
-      return {
-        isteacher: true
+    computed: {
+      isPc: function () {
+        if (deviceType() === 'Pc') {
+          return true
+        } else {
+          return false
+        }
       }
     }
   }

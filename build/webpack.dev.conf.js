@@ -51,16 +51,10 @@ module.exports = merge(baseWebpackConfig, {
       chunks: ['cooperation']
     }),
     new HtmlWebpackPlugin({
-      filename: 'trafficBigData.html',
-      template: 'trafficBigData.html',
+      filename: 'news.html',
+      template: 'news.html',
       inject: true,
-      chunks: ['trafficBigData']
-    }),
-    new HtmlWebpackPlugin({
-      filename: 'securitySituation.html',
-      template: 'securitySituation.html',
-      inject: true,
-      chunks: ['securitySituation']
+      chunks: ['news']
     }),
     new FriendlyErrorsPlugin()
   ]

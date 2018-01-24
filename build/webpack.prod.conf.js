@@ -113,7 +113,22 @@ const webpackConfig = merge(baseWebpackConfig, {
       },
       // necessary to consistently work with multiple chunks via CommonsChunkPlugin
       chunksSortMode: 'dependency',
-      chunks: ['manifest','vendor','team']
+      chunks: ['manifest','vendor','cooperation']
+    }),
+    new HtmlWebpackPlugin({
+      filename: config.build.team,
+      template: 'news.html',
+      inject: true,
+      minify: {
+        removeComments: true,
+        collapseWhitespace: true,
+        removeAttributeQuotes: true
+        // more options:
+        // https://github.com/kangax/html-minifier#options-quick-reference
+      },
+      // necessary to consistently work with multiple chunks via CommonsChunkPlugin
+      chunksSortMode: 'dependency',
+      chunks: ['manifest','vendor','news']
     }),
     // keep module.id stable when vender modules does not change
     new HtmlWebpackPlugin({

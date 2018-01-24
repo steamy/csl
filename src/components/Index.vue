@@ -1,7 +1,6 @@
 <template xmlns="http://www.w3.org/1999/html">
   <div class="Index">
-    <navigation :is-in-index-page="true"></navigation>
-    <!--<index-banner></index-banner>-->
+    <navigation :show-banner-props="true"></navigation>
 
     <!-- 团队概述-->
     <section id="teamintro">
@@ -60,7 +59,6 @@
         </div>
       </div>
     </section>
-
 
 
 
