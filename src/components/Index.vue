@@ -3,14 +3,17 @@
     <navigation :show-banner-props="true"></navigation>
 
     <!-- 团队概述-->
-    <section id="teamintro">
-      <p class="title-main">团队概况</p>
-      <!--<p class="desc">网络安全空间实验室以网络空间安全、大数据分析及智能信息处理、互联网+作为主要方向</p>-->
-      <div class="row our-achieves">
-        <div class="col-xs-2 achievement" v-for="achieve in intro">
-          <img class=" achieve-icon" :src="achieve.icon_url"/>
-          <p class="desc">{{achieve.category}}</p>
-          <p class="desc" v-html="achieve.detail"></p>
+    <section id="teamintro" class="main-container">
+      <div class="content">
+        <p class="title-main">团队概况</p>
+        <!--<p class="desc">网络安全空间实验室以网络空间安全、大数据分析及智能信息处理、互联网+作为主要方向</p>-->
+        <div class="row our-achieves">
+          <div class="col-xs-4   col-sm-2 col-md-2 achievement" v-for="(achieve, index) in intro"
+          :class="{'col-md-offset-1':index===0,'col-sm-offset-1':index===0}">
+            <img class=" achieve-icon" :src="achieve.icon_url"/>
+            <p class="desc">{{achieve.category}}</p>
+            <p class="desc" v-html="achieve.detail"></p>
+          </div>
         </div>
       </div>
     </section>
@@ -33,10 +36,12 @@
 
         <div  class="row">
           <div class="cell-container col-xs-4 col-sm-4" v-for="project in projectNow">
-            <div class="project-cell">
-              <img class="project-img" :src="project.show_img">
-              <p class="desc" >{{project.show_title}}<br><span style="font-weight: 300">{{project.show_detail}}</span></p>
-            </div>
+            <a :href="project.pushUrl">
+              <div class="project-cell">
+                <img class="project-img" :src="project.show_img">
+                <p class="desc" >{{project.show_title}}<br><span style="font-weight: 300">{{project.show_detail}}</span></p>
+              </div>
+            </a>
           </div>
         </div>
       </div>
@@ -48,14 +53,15 @@
     </section>
 
     <!--合作伙伴-->
-    <section id="partner">
+    <section id="partner" class="main-container">
+      <div class="content">
+        <p class="title-main">合作伙伴</p>
+        <p class="desc">卓越工程师计划实施-实习实训</p>
 
-      <p class="title-main">合作伙伴</p>
-      <p class="desc">卓越工程师计划实施-实习实训</p>
-
-      <div id="partner-show" class="row">
-        <div class="col-xs-3" v-for="imgUrl in coImgUrls">
-          <img :src="imgUrl.url"/>
+        <div id="partner-show" class="row">
+          <div class="col-xs-3 " v-for="imgUrl in coImgUrls">
+            <img :src="imgUrl.url"/>
+          </div>
         </div>
       </div>
     </section>
@@ -103,6 +109,7 @@
                 if (project.category === this.tabNames[index]) {
                   this.projectAll[index].push(project)
                 }
+                project.pushUrl = '../../cooperation.html#/detail/' + project.project_id
               }
             }
             this.projectNow = this.projectAll[0]
@@ -161,12 +168,17 @@
 <style  scoped="scoped" lang="scss">
 
 
+  @import '../assets/css/page';
+
 
 
 
   /*
     首页通用样式
   */
+  a {
+    text-decoration: none;
+  }
 
   .desc {
     color: #373d41;
@@ -187,22 +199,22 @@
   /*
     团队概述
   */
+
   #teamintro {
     width: 100%;
     background-color: white;
     padding-bottom: 3em;
     padding-top: 3em;
   }
+  #teamintro .content {
+    width: 900px;
+  }
 
   #teamintro .title-main+.desc {
     margin-top: 0.5em;
   }
   .our-achieves {
-    @extend .detail-container;
     margin-top: 3em;
-  }
-  .achievement {
-    width: 20%;
   }
   .achievement .desc {
     font-weight: 400;
@@ -291,22 +303,26 @@
     合作伙伴
   */
   #partner{
-    width: 100%;
     background-color: white;
     padding-bottom: 3em;
     padding-top: 3em;
+  }
+  #partner .content {
+    width: 900px;
   }
   #partner .title-main + .desc {
     margin-top: 0.5em;
   }
   #partner-show{
-    @extend .detail-container;
     margin-top: 2em;
     margin-bottom: 10px;
   }
 
   #partner-show img {
     width: 100%;
+  }
+  .last {
+
   }
 
 
@@ -324,6 +340,9 @@
     .detail-container{
       padding-left: 0;
       padding-right: 0;
+    }
+    .achievement {
+      margin-bottom: 10px;
     }
   }
   @media (min-width: 768px) and (max-width: 992px) {

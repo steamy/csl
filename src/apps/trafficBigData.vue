@@ -77,9 +77,8 @@
     padding: 2% 0 2% 0;
   }
   #left{
-    font-size: 18px;
+    font-size: 14px;
     text-align: left;
-    line-height: 160%;
     color: #555555;
   }
 
