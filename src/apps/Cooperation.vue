@@ -1,7 +1,7 @@
 <template>
   <div id="cooperation">
     <!--    <meta name="viewport" content="width=device-width, initial-scale=1">-->
-    <navigation></navigation>
+    <navigation :show-banner-props="isPc"></navigation>
 
     <div id="content" class="container">
       <div class="row">
@@ -53,6 +53,7 @@
   import SiteFooter from '../components/SiteFooter'
   import Banner from '../components/Banner'
   import {jsonFetcher} from '../fetchdata/fetcher'
+  import {deviceType} from '../js/common/common'
   export default {
     components: {
       SiteFooter,
@@ -91,6 +92,15 @@
           .catch(err => {
             console.log(err)
           })
+      }
+    },
+    computed: {
+      isPc: function () {
+        if (deviceType() === 'Pc') {
+          return true
+        } else {
+          return false
+        }
       }
     }
   }
