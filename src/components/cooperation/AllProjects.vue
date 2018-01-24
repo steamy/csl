@@ -104,15 +104,7 @@
 </script>
 
 <style scoped>
-  /*  @import '../assets/css/common.scss';*/
-  #cooperation {
-    /*    font-family: 方正兰亭黑简体;*/
-    text-align: center;
-    margin-top: 0;
-    background-color: #fafafa;
-  }
-
-
+  @import '../../assets/css/page.scss';
   #content{
     padding: 2% 0 6% 0;
   }
