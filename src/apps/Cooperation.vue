@@ -1,45 +1,45 @@
 <template>
   <div id="cooperation">
-    <!--<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">-->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <navigation></navigation>
-<!--    <img src="../assets/img/index/banner.jpg" style="width: 100%;">-->
-    <div class="container">
-      <div class="row">
-        <div class="CooperativeProject" >
-          <div class="project-details col-md-8" style="...">
-            <p class="project-name">域通全球</p>
-            <p class="project-introduction">
-            手机可视化导购系统。联牧场是新兴的一个理念，
-            即将传统牧场与互联网结合起来，这样的结合有利于牧场管理者与牧场客户随时随地监测牧场实况。
-            传统的视频监控系统只限于牧场管理者，而客户却无法方便快捷的了解牧场的实际情况，
-            无法使客户确信自己购买的羊是纯天然野生放养的。本监控软件，将提供即时的视频监控功能，
-            以及实时通信功能，让牧场管理者与客户通过android手机就可以随时掌握牧场实况，
-            双方也可通过此软件进行交流，使客户购买更加方便，交易更加快捷。
-            从而让牧场主（/投资者）以最便捷的途径获得农牧业投资回报，
-            牧场客户可以享受专属的放心的农牧业消费服务。
-            </p>
-          </div>
-          <div class="project-pic col-md-4">
-            <img src="../assets/img/index/2.jpg" style="...">
-          </div>
-        </div>
-      </div>
-    </div>
+    <!--    <meta name="viewport" content="width=device-width, initial-scale=1">-->
+    <navigation :show-banner-props="isPc"></navigation>
 
-    <div class="container">
+    <div id="content" class="container">
       <div class="row">
-        <div class="CooperativeProject" >
-          <div class="project-details col-md-8" style="...">
-            <p class="project-name">五粮液互联网营销</p>
-            <p class="project-introduction">
-              互联网项目电商项目。
-            </p>
-          </div>
-          <div class="project-pic col-md-4">
-            <img src="../assets/img/index/3.jpg" style="...">
+        <!--  根据项目方向分类展示项目内容.项目方向分别为信息安全，智能计算及互联网+ -->
+        <div id="infosecurity" class=" col-md-4">
+          <div class="project-list">
+            <div class="classify">
+              <img src="../assets/img/cooperation/信息安全.png">
+              <p>网络空间安全</p>
+            </div>
+            <div class="classify-dtil">
+              <p v-for="project in internetSecurityPojects"><a :href="project.pushUrl">{{project.name}}</a><br></p>
+            </div>
           </div>
         </div>
+        <div id="intecomputing" class=" col-md-4">
+          <div class="project-list">
+            <div class="classify">
+              <img src="../assets/img/cooperation/智能计算.png">
+              <p>大数据与智能计算</p>
+            </div>
+            <div class="classify-dtil">
+              <p v-for="project in bigData"><a :href="project.pushUrl">{{project.name}}</a><br></p>
+            </div>
+          </div>
+        </div>
+        <div id="internetplus" class=" col-md-4">
+          <div class="project-list">
+            <div class="classify">
+              <img src="../assets/img/cooperation/互联网+.png">
+              <p>互联网+</p>
+            </div>
+            <div class="classify-dtil">
+              <p v-for="project in internetPlus"><a :href="project.pushUrl">{{project.name}}</a><br></p>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
 
@@ -51,53 +51,217 @@
 <script>
   import Navigation from '../components/Navigation'
   import SiteFooter from '../components/SiteFooter'
+  import Banner from '../components/Banner'
+  import {jsonFetcher} from '../fetchdata/fetcher'
+  import {deviceType} from '../js/common/common'
   export default {
     components: {
       SiteFooter,
-      Navigation},
-    name: 'cooperation'
+      Navigation,
+      'app-banner': Banner},
+    name: 'cooperation',
+    data () {
+      return {
+        internetSecurityPojects: [],
+        bigData: [],
+        internetPlus: []
+      }
+    },
+    mounted () {
+      this.getAllProjects()
+    },
+    methods: {
+      getAllProjects: function () {
+        jsonFetcher.get('/api/v1/projects')
+          .then(res => {
+            const projects = res.data.data
+            for (let index = 0; index < projects.length; index++) {
+              const project = projects[index]
+              if (project.category === '网络空间安全') {
+                project.pushUrl = 'projectdetail.html?project_id=' + project.project_id
+                this.internetSecurityPojects.push(project)
+              } else if (project.category === '大数据与智能计算') {
+                project.pushUrl = 'projectdetail.html?project_id=' + project.project_id
+                this.bigData.push(project)
+              } else if (project.category === '互联网+') {
+                project.pushUrl = 'projectdetail.html?project_id=' + project.project_id
+                this.internetPlus.push(project)
+              }
+            }
+          })
+          .catch(err => {
+            console.log(err)
+          })
+      }
+    },
+    computed: {
+      isPc: function () {
+        if (deviceType() === 'Pc') {
+          return true
+        } else {
+          return false
+        }
+      }
+    }
   }
 </script>
 
 <style scoped>
-  @import '../assets/css/common.scss';
+  /*  @import '../assets/css/common.scss';*/
   #cooperation {
-    font-family: 方正兰亭黑简体;
+    /*    font-family: 方正兰亭黑简体;*/
     text-align: center;
-    margin-top: 0px;
+    margin-top: 0;
     background-color: #fafafa;
   }
-@media (min-width: 1600px){
-  .container{
-    width:1484px;
-  }
-}
-  .CooperativeProject{
-    padding:5% 0 0 0;
-    min-height: 400px;
-/*    margin-left: -10%;*/
-  }
-  .project-details{
-    float: left;
-/*    min-height: 20em;*/
-  /*  width: 50%;*/
-  }
-  .project-name{
-    line-height: 40px;
-    font-size: 32px;
-    color: #333;
-    text-align: left;
-  }
-  .project-introduction{
-    font-size: 17px;
-    line-height: 1.5;
-    font-weight: 400;
-    color: #333;
-    text-align: left;
-  }
-  .project-pic{
-    float: left;
-    padding-right:5%;
+
+
+  #content{
+    padding: 2% 0 6% 0;
   }
 
+  .project-list{
+    margin: 5% 10% 0 10%;
+    border-color: rgb(30, 123, 180);
+    border-style: solid;
+    border-radius: 2%;
+    border-width: 1.5px;
+    height: 370px;
+  }
+
+  .classify{
+    border-style: solid;
+    border-color: transparent;
+    background-color: #1a6fa6;
+    color: #F5F5F5;
+    padding-bottom: 2%;
+  }
+
+  .classify img{
+    display: inline-block;
+  }
+
+  .classify p{
+    display: inline-block;
+    font-size: 20px;
+    text-align: center;
+    padding: 2% 0 2% 0;
+    margin:0;
+  }
+
+  .classify-dtil{
+    padding-top: 3%;
+  }
+
+  .classify-dtil p{
+    font-size: 18px;
+    line-height: 150%;
+    text-align: left;
+    padding-left: 5%;
+  }
+
+  .classify-dtil a{
+    color: #555555;
+  }
+
+  .classify-dtil a:hover{
+    color: #1a6fa6;
+  }
+
+  /*  #title p{
+      text-align: left;
+      font-size: 20px;
+      line-height: 90%;
+      padding-left: 2%;
+    }*/
+
+  /*  #projects{
+      padding-top: 6%;
+    }
+    #projects p{
+      text-align: left;
+      font-size: 16px;
+      line-height: 190%;
+    }
+
+    #link-list{
+      padding-top: 8%;
+    }
+
+    #projects a{
+      color: #0f0f0f;
+    }
+  #projects a:hover{
+    color: #337ab7;
+  }
+
+    #team_pics{
+      padding-top: 5%;
+      float: left;
+    }
+
+    #team_pics p{
+      background-color: #337ab7;
+      font-size: 16px;
+      line-height: 35px;
+      color: #F5F5F5;
+      text-align: center;
+      width:334px;
+    }
+
+    .studentIntr{
+      width:334px;
+
+    }*/
+
+
+  /*  #link-list a{
+      background-color:#F5F5F5;
+      color: #555555;
+      border-color:#337ab7;
+    }
+
+    #link-list a:hover{
+      background-color: #1a6fa6;
+      color: #F5F5F5;
+    }*/
+
+
+  /*  @media (min-width: 1600px){
+    .container{
+      width:1484px;
+    }
+  }*/
+
+
+  /*  @media (max-width: 768px) {
+      #banner-title-container{
+        background-color: white;
+      }
+      #banner-img {
+        display: none;
+      }
+      div.col-sm-12 img {
+        width: 70%;
+      }
+    }
+
+    @media (min-width: 768px) and (max-width: 992px) {
+      #banner-title-container{
+        background-color: white;
+      }
+      #banner-img {
+        display: none;
+      }
+
+      div.col-sm-12 img {
+        width: 70%;
+      }
+    }
+    @media (min-width: 992px) {
+      div.col-sm-12 img {
+        width: 60%;
+      }
+    }*/
 </style>
+

@@ -131,6 +131,36 @@ const webpackConfig = merge(baseWebpackConfig, {
       chunks: ['manifest','vendor','news']
     }),
     // keep module.id stable when vender modules does not change
+    new HtmlWebpackPlugin({
+      filename: config.build.trafficBigData,
+      template: 'trafficBigData.html',
+      inject: true,
+      minify: {
+        removeComments: true,
+        collapseWhitespace: true,
+        removeAttributeQuotes: true
+        // more options:
+        // https://github.com/kangax/html-minifier#options-quick-reference
+      },
+      // necessary to consistently work with multiple chunks via CommonsChunkPlugin
+      chunksSortMode: 'dependency',
+      chunks: ['manifest','vendor','trafficBigData']
+    }),
+    new HtmlWebpackPlugin({
+      filename: config.build.securitySituation,
+      template: 'securitySituation.html',
+      inject: true,
+      minify: {
+        removeComments: true,
+        collapseWhitespace: true,
+        removeAttributeQuotes: true
+        // more options:
+        // https://github.com/kangax/html-minifier#options-quick-reference
+      },
+      // necessary to consistently work with multiple chunks via CommonsChunkPlugin
+      chunksSortMode: 'dependency',
+      chunks: ['manifest','vendor','securitySituation']
+    }),
     new webpack.HashedModuleIdsPlugin(),
     // split vendor js into its own file
     new webpack.optimize.CommonsChunkPlugin({
