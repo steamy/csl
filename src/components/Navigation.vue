@@ -1,5 +1,5 @@
 <template>
-  <div class="navigation">
+  <div id="navigation">
 
     <header class="navbar navbar-bar csl-header" style="margin-bottom: 0px">
       <div class="row" style="height: inherit;padding-left: 7%">
@@ -43,7 +43,7 @@
               <a href="cooperation.html">合作</a>
             </li>
             <li>
-              <a href="news.html">通告</a>
+              <a href="news.html">新闻</a>
             </li>
             <li>
               <a href="http://localhost:2368">博客</a>
@@ -54,12 +54,11 @@
       </div><!-- /.container-fluid -->
     </header>
 
-    <index-banner v-if="showBanner"></index-banner>
+    <index-banner v-if="showBannerProps"></index-banner>
   </div>
 </template>
 
 <script>
-  import {deviceType} from '../js/common/common'
   import IndexBanner from './IndexBanner'
 
   export default {
@@ -71,27 +70,19 @@
       }
     },
     props: {
-      isInIndexPage: {
+      showBannerProps: {
         type: Boolean,
         default: false
       }
     },
-    computed: {
-      showBanner: function () {
-        if (deviceType() === 'Pc') {
-          return true
-        } else if (this.isInIndexPage) {
-          return true
-        } else {
-          return false
-        }
-      }
-    }
+    computed: {}
   }
 </script>
 
-<style scoped>
-
+<style scoped="scoped">
+  #navigation {
+    text-align: center;
+  }
 
   .csl-header {
     background-color: #003478 ;
