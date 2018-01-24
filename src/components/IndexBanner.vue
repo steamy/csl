@@ -45,9 +45,9 @@
     width: 100%;
   }*/
 @media (max-width: 768px){
-  #banner{
-    display: none;
-  }
+  /*#banner{*/
+    /*display: none;*/
+  /*}*/
 }
 
 #banner{
