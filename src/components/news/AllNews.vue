@@ -32,7 +32,7 @@
 
 <script>
   import {jsonFetcher} from '../../fetchdata/fetcher'
-  import {dateFormat, formatMasks} from '../../js/common/datefarmat'
+  import {fecha, formatMasks} from '../../js/common/datefarmat'
   import NoData from '../NoData'
 
   export default {
@@ -73,7 +73,7 @@
               } else {
                 resData[index].show_timeflag = false
               }
-              resData[index].published_format_time = dateFormat(date, formatMasks.default)
+              resData[index].published_format_time = fecha.format(date, formatMasks.default)
               resData[index].push_url = '/detail/' + resData[index].news_id
             }
             this.allNews = resData

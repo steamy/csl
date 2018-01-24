@@ -6,8 +6,8 @@
 
     <div class="content">
       <section class="back">
-        <p class=""><router-link to="/">新闻中心</router-link> > 详情</p>
-      </section>
+      <p class=""><router-link to="/">新闻中心</router-link> > 详情</p>
+    </section>
       <section class="row ">
         <div class="col-md-offset-1 col-md-10">
           <div class="news-title">
@@ -29,7 +29,7 @@
 <script>
   import NoData from '../NoData'
   import {jsonFetcher} from '../../fetchdata/fetcher'
-  import {dateFormat, formatMasks} from '../../js/common/datefarmat'
+  import {fecha, formatMasks} from '../../js/common/datefarmat'
 
   export default {
     components: {NoData},
@@ -51,7 +51,7 @@
           .then(res => {
             const newsDetail = res.data.data[0]
             newsDetail.published_at = new Date(newsDetail.published_at)
-            newsDetail.published_fromat_time = dateFormat(newsDetail.published_at, formatMasks.YMD)
+            newsDetail.published_fromat_time = fecha.format(newsDetail.published_at, formatMasks.YMD)
             this.newsDetail = newsDetail
             if (this.newsDetail === {}) {
               this.noData = true

@@ -12,7 +12,10 @@
               <p>网络空间安全</p>
             </div>
             <div class="classify-dtil">
-              <p v-for="project in internetSecurityPojects"><a :href="project.pushUrl">{{project.name}}</a><br></p>
+              <p v-for="project in internetSecurityPojects">
+                <router-link :to="project.pushUrl">{{project.name}}</router-link>
+                <br>
+              </p>
             </div>
           </div>
         </div>
@@ -23,7 +26,7 @@
               <p>大数据与智能计算</p>
             </div>
             <div class="classify-dtil">
-              <p v-for="project in bigData"><a :href="project.pushUrl">{{project.name}}</a><br></p>
+              <p v-for="project in bigData"><router-link :to="project.pushUrl">{{project.name}}</router-link><br></p>
             </div>
           </div>
         </div>
@@ -34,7 +37,10 @@
               <p>互联网+</p>
             </div>
             <div class="classify-dtil">
-              <p v-for="project in internetPlus"><a :href="project.pushUrl">{{project.name}}</a><br></p>
+              <p v-for="project in internetPlus">
+                <router-link :to="project.pushUrl">{{project.name}}</router-link>
+                <br>
+              </p>
             </div>
           </div>
         </div>
@@ -111,7 +117,6 @@
     margin-top: 0;
     background-color: #fafafa;
   }
-
 
   #content{
     padding: 2% 0 6% 0;

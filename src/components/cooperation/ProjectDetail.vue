@@ -1,18 +1,19 @@
 <template>
-    <div id="project-detail">
+    <div id="project-detail" class="main-container">
 
       <no-data v-show="noData"></no-data>
-      <div id="security-pro" class="container">
+
+      <section class="content">
+        <section class="back">
+          <p class=""><router-link to="/">所有项目</router-link> > {{project.category}}</p>
+        </section>
         <div class="row">
-          <div id="project-info" class="col-md-9" v-for="project in projects">
-            <p>项目展示 > 项目详情</p>
+          <div id="project-info" class="col-md-9">
             <div id="center">
-              <p>{{project.category}}</p>
-              <p>{{project.name}}</p>
-              <img :src="project.img_url">
+              <p class="project-name">{{project.name}}</p>
             </div>
             <div id="left">
-              <p v-html="project.project_des"></p>
+              <p class="main-img" v-html="project.project_des"></p>
             </div>
           </div>
           <div id="team_pics" class="col-md-3">
@@ -20,7 +21,7 @@
             <img src="../../assets/img/cooperation/team1.png">
           </div>
         </div>
-      </div>
+      </section>
 
     </div>
 </template>
@@ -39,7 +40,7 @@
     data () {
       return {
         noData: true,
-        projects: []
+        project: {}
       }
     },
     mounted () {
@@ -51,8 +52,8 @@
         const url = '/api/v1/projects/' + projectId
         jsonFetcher.get(url)
           .then(res => {
-            this.projects = res.data.data
-            if (this.projects.length !== 0) {
+            this.project = res.data.data[0]
+            if (res.data.data.length !== 0) {
               this.noData = false
             }
             console.log(this.noData)
@@ -65,22 +66,21 @@
   }
 </script>
 
-<style scoped="scoped" lang="scss">
-  #securitySituation {
-    /*    font-family: 方正兰亭黑简体;*/
+<style lang="scss">
+  @import '../../assets/css/common';
+  @import '../../assets/css/page';
+
+  #project-detail {
     text-align: center;
-    margin-top: 0;
-    background-color: #fafafa;
+    background-color: white;
+    padding-top: 30px;
+    padding-bottom: 30px;
   }
 
   #banner{
     margin-top: -0.05%;
     padding-top: 0;
     width:100%;
-  }
-  #security-pro{
-    padding-top: 3%;
-    padding-bottom: 6%;
   }
 
   #project-info{
@@ -99,17 +99,20 @@
     padding: 2% 0 2% 0;
   }
   #left{
-    font-size: 18px;
+    font-size: 14px;
     text-align: left;
-    line-height: 160%;
+    font-weight: 400;
     color: #555555;
+  }
+  .main-img  img {
+    width: 200px;
+    height: 200px;
   }
 
   #team_pics{
     padding-top: 5%;
     float: left;
   }
-
   #team_pics p{
     background-color: #337ab7;
     font-size: 16px;
@@ -117,6 +120,34 @@
     color: #F5F5F5;
     text-align: center;
     width:334px;
+  }
+
+  .back {
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 30px;
+    padding-bottom: 30px;
+    text-align: left;
+  }
+  .back p, .back a {
+    color: #247fbb;
+  }
+  .back a:hover{
+    color: #0C4E7A;
+    cursor: pointer;
+  }
+  .project-name {
+    color: #262930;
+    font-size: 26px;
+    font-weight: 400;
+    line-height: 40px;
+    margin-bottom: 24px;
+  }
+
+  @media (max-width: 768px) {
+    #team_pics {
+      display: none;
+    }
   }
 
 </style>
