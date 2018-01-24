@@ -21,7 +21,7 @@ export default new Router({
     },
     {
       path: '/manage',
-      name: 'students',
+      name: 'manage',
       component: TeamManagement
     }
   ]

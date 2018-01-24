@@ -1,6 +1,6 @@
 <template>
   <div id="academy">
-    <navigation></navigation>
+    <navigation :show-banner-props="isPc"></navigation>
 
     <!--banner-->
 
@@ -36,6 +36,7 @@
   import IndexBanner from '../components/IndexBanner'
   import NoData from '../components/NoData'
   import {jsonFetcher} from '../fetchdata/fetcher'
+  import {deviceType} from '../js/common/common'
 
   export default {
     components: {
@@ -56,6 +57,13 @@
       }
     },
     computed: {
+      isPc: function () {
+        if (deviceType() === 'Pc') {
+          return true
+        } else {
+          return false
+        }
+      }
     },
     mounted () {
       this.getPatents()
