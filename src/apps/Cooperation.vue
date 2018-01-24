@@ -1,6 +1,6 @@
 <template>
   <div id="cooperation">
-<!--    <meta name="viewport" content="width=device-width, initial-scale=1">-->
+    <!--    <meta name="viewport" content="width=device-width, initial-scale=1">-->
     <navigation></navigation>
 
     <div id="content" class="container">
@@ -97,9 +97,9 @@
 </script>
 
 <style scoped>
-/*  @import '../assets/css/common.scss';*/
+  /*  @import '../assets/css/common.scss';*/
   #cooperation {
-/*    font-family: 方正兰亭黑简体;*/
+    /*    font-family: 方正兰亭黑简体;*/
     text-align: center;
     margin-top: 0;
     background-color: #fafafa;
@@ -158,99 +158,100 @@
     color: #1a6fa6;
   }
 
-/*  #title p{
-    text-align: left;
-    font-size: 20px;
-    line-height: 90%;
-    padding-left: 2%;
-  }*/
+  /*  #title p{
+      text-align: left;
+      font-size: 20px;
+      line-height: 90%;
+      padding-left: 2%;
+    }*/
 
-/*  #projects{
-    padding-top: 6%;
-  }
-  #projects p{
-    text-align: left;
-    font-size: 16px;
-    line-height: 190%;
-  }
-
-  #link-list{
-    padding-top: 8%;
-  }
-
-  #projects a{
-    color: #0f0f0f;
-  }
-#projects a:hover{
-  color: #337ab7;
-}
-
-  #team_pics{
-    padding-top: 5%;
-    float: left;
-  }
-
-  #team_pics p{
-    background-color: #337ab7;
-    font-size: 16px;
-    line-height: 35px;
-    color: #F5F5F5;
-    text-align: center;
-    width:334px;
-  }
-
-  .studentIntr{
-    width:334px;
-
-  }*/
-
-
-/*  #link-list a{
-    background-color:#F5F5F5;
-    color: #555555;
-    border-color:#337ab7;
-  }
-
-  #link-list a:hover{
-    background-color: #1a6fa6;
-    color: #F5F5F5;
-  }*/
-
-
-/*  @media (min-width: 1600px){
-  .container{
-    width:1484px;
-  }
-}*/
-
-
-/*  @media (max-width: 768px) {
-    #banner-title-container{
-      background-color: white;
+  /*  #projects{
+      padding-top: 6%;
     }
-    #banner-img {
-      display: none;
-    }
-    div.col-sm-12 img {
-      width: 70%;
-    }
-  }
-
-  @media (min-width: 768px) and (max-width: 992px) {
-    #banner-title-container{
-      background-color: white;
-    }
-    #banner-img {
-      display: none;
+    #projects p{
+      text-align: left;
+      font-size: 16px;
+      line-height: 190%;
     }
 
-    div.col-sm-12 img {
-      width: 70%;
+    #link-list{
+      padding-top: 8%;
     }
+
+    #projects a{
+      color: #0f0f0f;
+    }
+  #projects a:hover{
+    color: #337ab7;
   }
-  @media (min-width: 992px) {
-    div.col-sm-12 img {
-      width: 60%;
+
+    #team_pics{
+      padding-top: 5%;
+      float: left;
+    }
+
+    #team_pics p{
+      background-color: #337ab7;
+      font-size: 16px;
+      line-height: 35px;
+      color: #F5F5F5;
+      text-align: center;
+      width:334px;
+    }
+
+    .studentIntr{
+      width:334px;
+
+    }*/
+
+
+  /*  #link-list a{
+      background-color:#F5F5F5;
+      color: #555555;
+      border-color:#337ab7;
+    }
+
+    #link-list a:hover{
+      background-color: #1a6fa6;
+      color: #F5F5F5;
+    }*/
+
+
+  /*  @media (min-width: 1600px){
+    .container{
+      width:1484px;
     }
   }*/
+
+
+  /*  @media (max-width: 768px) {
+      #banner-title-container{
+        background-color: white;
+      }
+      #banner-img {
+        display: none;
+      }
+      div.col-sm-12 img {
+        width: 70%;
+      }
+    }
+
+    @media (min-width: 768px) and (max-width: 992px) {
+      #banner-title-container{
+        background-color: white;
+      }
+      #banner-img {
+        display: none;
+      }
+
+      div.col-sm-12 img {
+        width: 70%;
+      }
+    }
+    @media (min-width: 992px) {
+      div.col-sm-12 img {
+        width: 60%;
+      }
+    }*/
 </style>
+
