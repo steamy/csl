@@ -75,13 +75,13 @@
             for (let index = 0; index < projects.length; index++) {
               const project = projects[index]
               if (project.category === '网络空间安全') {
-                project.pushUrl = 'projectdetail.html?project_id=' + project.project_id
+                project.pushUrl = '/detail/' + project.project_id
                 this.internetSecurityPojects.push(project)
               } else if (project.category === '大数据与智能计算') {
-                project.pushUrl = 'projectdetail.html?project_id=' + project.project_id
+                project.pushUrl = '/detail/' + project.project_id
                 this.bigData.push(project)
               } else if (project.category === '互联网+') {
-                project.pushUrl = 'projectdetail.html?project_id=' + project.project_id
+                project.pushUrl = '/detail/' + project.project_id
                 this.internetPlus.push(project)
               }
             }
