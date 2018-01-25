@@ -31,7 +31,7 @@
   #IndexBanner{
     padding-bottom: 60px;
     padding-top: 60px;
-    background-color: #08346a;
+    background-color: #0b2867;
   }
   .content {
     width: 940px;
@@ -55,10 +55,16 @@
 }
 
 #banner-discript p{
-  color: #F5F5F5;
+  color: #7685a6;
   font-size: 24px;
   text-align: left;
   font-weight: 400;
+  font-stretch: inherit;
+  font-style: normal;
+  font-variant-ligatures: normal;
+  font-variant-caps: normal;
+  font-variant-numeric: normal;
+  font-variant-east-asian: normal;
 }
 
 #banner img{
