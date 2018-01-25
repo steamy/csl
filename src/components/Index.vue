@@ -1,6 +1,6 @@
 <template xmlns="http://www.w3.org/1999/html">
   <div class="Index">
-    <navigation :show-banner-props="!isMobile()"></navigation>
+    <navigation :show-banner-props="true"></navigation>
 
     <!-- 团队概述-->
     <section id="teamintro" class="main-container">
