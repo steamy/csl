@@ -20,14 +20,12 @@
 </template>
 
 <script>
-  import AwardSvgOne from '../svg/index/AwardSvgOne'
   import ImgBox from '../common/ImgBox'
   import {serverRoot} from '../../fetchdata/fetcher'
 
   export default {
     components: {
-      ImgBox,
-      AwardSvgOne},
+      ImgBox},
     name: 'team-intro',
     data () {
       return {
