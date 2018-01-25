@@ -1,6 +1,6 @@
 <template xmlns="http://www.w3.org/1999/html">
   <div class="Index">
-    <navigation :show-banner-props="true"></navigation>
+    <navigation :show-banner-props="!isMobile()"></navigation>
 
     <!-- 团队概述-->
     <section id="teamintro" class="main-container">
@@ -8,11 +8,21 @@
         <p class="title-main">团队概况</p>
         <!--<p class="desc">网络安全空间实验室以网络空间安全、大数据分析及智能信息处理、互联网+作为主要方向</p>-->
         <div class="row our-achieves">
-          <div class="col-xs-4   col-sm-2 col-md-2 achievement" v-for="(achieve, index) in intro"
+          <div class="col-xs-4  col-sm-2 col-md-2 achievement" v-for="(achieve, index) in intro"
           :class="{'col-md-offset-1':index===0,'col-sm-offset-1':index===0}">
             <img class=" achieve-icon" :src="achieve.icon_url"/>
             <p class="desc">{{achieve.category}}</p>
             <p class="desc" v-html="achieve.detail"></p>
+          </div>
+
+          <div class="col-xs-4  col-sm-12 col-md-12 achieve-detail">
+            <button v-if="!isMobile()" onclick="window.location.href='academy.html'">
+              更多
+            </button>
+            <button  v-else="" onclick="window.location.href='academy.html'">
+              <moresvg></moresvg>
+              <p>更多</p>
+            </button>
           </div>
         </div>
       </div>
@@ -59,7 +69,8 @@
         <p class="desc">卓越工程师计划实施-实习实训</p>
 
         <div id="partner-show" class="row">
-          <div class="col-xs-3 " v-for="imgUrl in coImgUrls">
+          <div class="col-md-3 col-xs-5 col-sm-3 col-sm-offset-0 " v-for="(imgUrl, index) in coImgUrls"
+          :class="{'col-xs-offset-1':(index%2)===0}">
             <img :src="imgUrl.url"/>
           </div>
         </div>
@@ -78,9 +89,12 @@
   import SiteFooter from './SiteFooter'
   import IndexBanner from './IndexBanner'
   import {jsonFetcher} from '../fetchdata/fetcher'
+  import {isMobile} from '../js/common/common'
+  import Moresvg from './index/moresvg'
 
   export default {
     components: {
+      Moresvg,
       IndexBanner,
       SiteFooter,
       Navigation},
@@ -94,6 +108,7 @@
         this.nowIndex = index
         this.projectNow = this.projectAll[index]
       },
+      isMobile: isMobile,
       getPojects: function () {
         jsonFetcher.get('/api/v1/projects/index')
           .then(res => {
@@ -281,7 +296,10 @@
   #more-button{
     padding-top: 4em;
     margin: 0 auto;
+  }
 
+  .achieve-detail {
+    @extend #more-button;
   }
 
   #more-button button {
@@ -327,7 +345,12 @@
 
 
 
+
   @media (max-width: 768px){
+
+    .achieve-detail button{
+      width: inherit;
+    }
 
     .cell-container{
       padding: 0 5px;
@@ -344,10 +367,27 @@
     .achievement {
       margin-bottom: 10px;
     }
+    .achieve-detail {
+      padding-top: 0px;
+    }
+    .achieve-detail button{
+      margin: 0;
+      border: 0;
+      padding-top: 5px;
+      width: 80px;
+    }
+    .achieve-detail button p {
+      color: #373d41;
+      font-size: 14px;
+      font-weight: 500;
+      margin-top: 10px;
+      margin-left: 3px;
+    }
   }
   @media (min-width: 768px) and (max-width: 992px) {
     .cell-container{
       padding: 0 5px;
+      text-align: center;
     }
 
   }

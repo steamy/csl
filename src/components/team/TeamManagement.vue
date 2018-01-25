@@ -1,10 +1,8 @@
 <template>
     <div id="team-manager">
-      <section>
-        <div class="line-flag"></div>
-        <p class="title-main">团队 > 团队管理</p>
+      <section class="back">
+        <p class="">团队 > 团队管理</p>
       </section>
-      <br/>
       <br/>
       <section id="manage-system" class="row">
         <div class="col-md-5 col-xs-6 col-sm-6">
@@ -101,16 +99,14 @@
     font-size: 24px;
     font-weight: 400;
   }
-  .line-flag {
-    background-color: #247fbb;
-    margin-left: 2%;
-    width: 0.4em;
-    height: 4em;
-    float:left;
+  .back {
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 30px;
+    padding-bottom: 30px;
   }
-  .line-flag + p {
-    margin-left: 80px;
-    padding-top: 10px;
+  .back p, .back a {
+    color: #247fbb;
   }
   #manage-system img {
     width: 100%;

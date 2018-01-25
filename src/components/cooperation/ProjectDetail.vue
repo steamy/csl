@@ -44,10 +44,10 @@
       }
     },
     mounted () {
-      this.getProjects()
+      this.getProject()
     },
     methods: {
-      getProjects: async function () {
+      getProject: async function () {
         const projectId = this.$route.params.project_id
         const url = '/api/v1/projects/' + projectId
         jsonFetcher.get(url)

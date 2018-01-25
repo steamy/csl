@@ -1,13 +1,12 @@
 <template>
   <div id="news-detail" class="main-container">
-    <no-data v-if="noData"></no-data>
-
-
 
     <div class="content">
       <section class="back">
-      <p class=""><router-link to="/">新闻中心</router-link> > 详情</p>
-    </section>
+        <p class=""><router-link to="/">新闻中心</router-link> > 详情</p>
+      </section>
+      <no-data v-if="noData"></no-data>
+
       <section class="row ">
         <div class="col-md-offset-1 col-md-10">
           <div class="news-title">
@@ -115,12 +114,10 @@
     padding-left: 15px;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 765px) {
     .news-title {
       font-size: 24px;
     }
   }
-
-
 
 </style>

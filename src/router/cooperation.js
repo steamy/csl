@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-// import Index from '@/components/Index'
 import AllProjects from '../components/cooperation/AllProjects'
 import ProjectDetail from '../components/cooperation/ProjectDetail'
 

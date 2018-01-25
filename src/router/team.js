@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-// import Index from '@/components/Index'
 import Teachers from '../components/team/Teachers'
 import Students from '../components/team/Students'
 import TeamManagement from '../components/team/TeamManagement'
