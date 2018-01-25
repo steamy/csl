@@ -3,32 +3,21 @@
     <navigation :show-banner-props="true"></navigation>
 
     <!-- 团队概述-->
+    <team-intro></team-intro>
+
     <section id="teamintro" class="main-container">
       <div class="content">
-        <p class="title-main">团队概况</p>
-        <!--<p class="desc">网络安全空间实验室以网络空间安全、大数据分析及智能信息处理、互联网+作为主要方向</p>-->
-        <div class="row our-achieves">
-          <div class="col-xs-4  col-sm-2 col-md-2 achievement" v-for="(achieve, index) in intro"
-          :class="{'col-md-offset-1':index===0,'col-sm-offset-1':index===0}">
-            <img class=" achieve-icon" :src="achieve.icon_url"/>
-            <p class="desc">{{achieve.category}}</p>
-            <p class="desc" v-html="achieve.detail"></p>
-          </div>
-
-          <div class="col-xs-4  col-sm-12 col-md-12 achieve-detail">
-            <button v-if="!isMobile()" onclick="window.location.href='academy.html'">
-              更多
-            </button>
-            <button  v-else="" onclick="window.location.href='academy.html'">
-              <moresvg></moresvg>
-              <p>更多</p>
-            </button>
-          </div>
-        </div>
+        <button onclick="window.location.href='academy.html'">
+          更多
+        </button>
       </div>
+
     </section>
 
     <!--项目展示-->
+
+    <projects-show></projects-show>
+
     <section id="project">
       <p class="title-main">项目展示</p>
       <br/>
@@ -91,9 +80,13 @@
   import {jsonFetcher} from '../fetchdata/fetcher'
   import {isMobile} from '../js/common/common'
   import Moresvg from './index/moresvg'
+  import ProjectsShow from './index/ProjectsShow'
+  import TeamIntro from './index/TeamIntro'
 
   export default {
     components: {
+      TeamIntro,
+      ProjectsShow,
       Moresvg,
       IndexBanner,
       SiteFooter,
@@ -143,27 +136,27 @@
           {
             icon_url: require('../assets/img/index/project_icon.png'),
             category: '项目',
-            detail: '<span style="color: #00257A; font-weight: 500;font-size: 15px">30<span/>余项项目'
+            detail: '<span style="color: #00257A; font-weight: 500;font-size: 15px">30</span>余项项目'
           },
           {
             icon_url: require('../assets/img/index/award_icon.png'),
             category: '奖项',
-            detail: '获进步奖<span style="color: #00257A; font-weight: 500;font-size: 15px">2<span/>项'
+            detail: '获进步奖<span style="color: #00257A; font-weight: 500;font-size: 15px">2</span>项'
           },
           {
             icon_url: require('../assets/img/index/theses_icon.png'),
             category: '论文',
-            detail: '<span style="color: #00257A; font-weight: 500;font-size: 15px">200<span/>余篇论文'
+            detail: '<span style="color: #00257A; font-weight: 500;font-size: 15px">200</span> 余篇论文'
           },
           {
             icon_url: require('../assets/img/index/public_icon.png'),
             category: '专著',
-            detail: '<span style="color: #00257A; font-weight: 500;font-size: 15px">10<span/>余部专著'
+            detail: '<span style="color: #00257A; font-weight: 500;font-size: 15px">10</span>余部专著'
           },
           {
             icon_url: require('../assets/img/index/patent_icon.png'),
             category: '专利',
-            detail: '<span style="color: #00257A; font-weight: 500;font-size: 15px">30<span/>余项专利'
+            detail: '<span style="color: #00257A; font-weight: 500;font-size: 15px">30</span>余项专利'
           }
         ],
         coImgUrls: [
@@ -196,12 +189,12 @@
   }
 
   .desc {
-    color: #373d41;
+    color: #7685a6;
     font-size: 14px;
     font-weight: 200;
   }
   .title-main {
-    color: #333;
+    color: #061f54;
     font-size: 24px;
     font-weight: 400;
   }
@@ -246,7 +239,7 @@
   */
   #project {
     width: 100%;
-    background-color: #f1f2f3;
+    background-color: #f5f8ff;
     padding-bottom: 3em;
     padding-top: 3em;
   }
@@ -302,7 +295,7 @@
     @extend #more-button;
   }
 
-  #more-button button {
+  button {
     width: 160px;
     padding-top: 0.7em;
     padding-bottom: 0.7em;

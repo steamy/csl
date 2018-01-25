@@ -1,9 +1,11 @@
 import axios from 'axios'
 
+const serverRoot = process.env.API_ROOT
+
 const jsonFetcher = axios.create({
-  baseURL: 'http://localhost:8001',
+  baseURL: serverRoot,
   responseType: 'json',
   timeout: 2000
 })
 
-export {jsonFetcher}
+export {jsonFetcher, serverRoot}

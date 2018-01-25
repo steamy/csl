@@ -1,0 +1,46 @@
+.desc {
+  color: #7685a6;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 28px;
+}
+.title {
+  color: #061f54;
+  font-weight: 400;
+  line-height: 40px;
+  font-size: 30px;
+}
+
+.hd {
+  width: 50%;
+  padding: 0;
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+.hd-left {
+  @extend .hd;
+  text-align: right;
+}
+.hd-right {
+  @extend .hd;
+  margin-left: 50%;
+  text-align: left;
+}
+.hd .desc {
+  margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+  .hd {
+    width: 100%;
+  }
+  .hd-left {
+    text-align: center;
+    margin: 0;
+  }
+  .hd-right {
+    text-align: center;
+    margin: 0;
+  }
+
+}

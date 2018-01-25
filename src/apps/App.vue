@@ -9,7 +9,8 @@ import Index from '../components/Index'
 
 export default {
   components: {Index},
-  name: 'app'
+  name: 'app',
+  mounted () {}
 }
 </script>
 

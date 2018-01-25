@@ -85,7 +85,7 @@
   }
 
   .csl-header {
-    background-color: #003478 ;
+    background-color: #0b2867 ;
   }
 
   .icon-bar{
