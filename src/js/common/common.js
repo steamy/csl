@@ -13,4 +13,12 @@ function deviceType () {
   return device
 }
 
-export {deviceType}
+function isMobile () {
+  if (deviceType() === 'Pc') {
+    return false
+  } else {
+    return true
+  }
+}
+
+export {deviceType, isMobile}

@@ -1,10 +1,9 @@
 <template>
-  <div id="teachers">
-    <div class="">
-      <div class="content-container">
-        <div class="line-flag"></div>
-        <p class="title-main">团队 > 团队师资</p>
-      </div>
+  <div id="teachers" class="main-container">
+    <div class="content">
+      <section class="back">
+        <p class="">团队 > 团队师资</p>
+      </section>
 
       <div class="teamTeaches" >
         <div class="teacher row"  v-for="teacher in teachers">
@@ -54,22 +53,31 @@
 </script>
 
 <style scoped="scoped" lang="scss">
-  /*@import '../../assets/css/common';*/
+  @import '../../assets/css/common';
+  @import '../../assets/css/page';
   #teachers {
 
   }
-  #teachers>div {
-    margin-left: 15%;
-    margin-right: 15%;
+  #teachers .content{
     background-color: white;
-    min-width: 920px;
-    padding-bottom: 3em;
+    padding-top: 3em;
+  }
+  .back {
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 30px;
+    padding-bottom: 30px;
+  }
+  .back p, .back a {
+    color: #247fbb;
   }
 
   .desc{
+    text-indent: 32px;
     color: #373d41;
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 400;
+    line-height: 24px;
   }
 
   .title-main {
@@ -122,12 +130,6 @@
     .title-main {
       font-size: 20px;
     }
-    #teachers>div {
-      margin: 0;
-      padding-right: 20px;
-      padding-left: 20px;
-      min-width: auto;
-    }
     .teacherIntr .title-main{
       text-align: center;
     }
@@ -149,20 +151,14 @@
       padding-left: 15%;
       padding-right: 15%;
     }
-    div.col-sm-12 img {
-      width: 70%;
+    .teacher img {
+      width: 200px;
     }
   }
 
   @media (min-width: 768px) and (max-width: 992px) {
     .title-main {
       font-size: 20px;
-    }
-    #teachers>div {
-      margin: 0;
-      padding-right: 20px;
-      padding-left: 20px;
-      min-width: auto;
     }
     .line-flag + .title-main {
       margin-left: 55px;
@@ -171,7 +167,6 @@
     .teacherIntr .title-main{
       text-align: center;
     }
-
     #teachers{
       margin: 0 auto;
     }
@@ -183,12 +178,18 @@
       padding-right: 15%;
     }
     div.col-sm-12 img {
-      width: 70%;
+      width: 200px;
     }
   }
   @media (min-width: 992px) {
     div.col-sm-12 img {
       width: 90%;
+    }
+  }
+
+  @media (min-width: 980px) and (max-width: 1020px) {
+    .content {
+      width: 980px;
     }
   }
 

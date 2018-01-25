@@ -1,16 +1,16 @@
 <template>
-  <div id="IndexBanner">
+  <div id="IndexBanner" class="main-container">
 <!--    <img :src="bannerImg"/>-->
-    <div id="banner" class="container">
+    <div id="banner" class="content">
       <div class="row">
-        <div id="banner-discript" class=" col-sm-6">
-          <p>主要研究方向</p>
-          <div style="width:15%;height:1px;background-color: #F5F5F5;margin-top: 1%;margin-bottom: 3%;"></div>
+        <div id="banner-discript" class="col-md-6 col-sm-6 col-xs-12">
+          <h1>主要研究方向</h1>
+          <div></div>
           <p>网络空间安全</p>
           <p>大数据分析及智能信息处理</p>
           <p>互联网+</p>
         </div>
-        <div id="banner_icon" class=" col-sm-6">
+        <div id="banner_icon" class="col-md-6 col-sm-6 col-xs-0">
           <img src="../assets/img/index/banner_icon.jpg">
         </div>
       </div>
@@ -20,56 +20,69 @@
 </template>
 
 <script>
-/* import {deviceType} from '../js/common/common'
-  import bannerImgiOS from '../assets/img/index/banner-ios.jpg'
-  import bannerImgAndroid from '../assets/img/index/banner-android.jpg'
-  import bannerImgPc from '../assets/img/index/bannerv-pc.jpg' */
   export default {
     name: 'IndexBanner'
-    /* computed: {
-      bannerImg: function () {
-        if (deviceType() === 'Pc') {
-          return bannerImgPc
-        } else if (deviceType() === 'Android') {
-          return bannerImgAndroid
-        } else {
-          return bannerImgiOS
-        }
-      }
-    } */
   }
 </script>
 
-<style scoped>
-/*  #IndexBanner img {
-    width: 100%;
-  }*/
+<style scoped="scoped" lang="scss">
+  @import '../assets/css/page';
 
+  #IndexBanner{
+    padding-bottom: 60px;
+    padding-top: 60px;
+    background-color: #08346a;
+  }
+  .content {
+    width: 940px;
+  }
 #banner{
-  background-color: #08346a;
-  width:100%;
-  padding-left: 25%;
-  padding-right: 25%;
+
 }
 
 #banner-discript{
-  padding-top: 5%;
+
 }
+  #banner-discript h1 {
+    color: white;
+    font-size: 48px;
+    margin-bottom: 10px;
+    text-align: left;
+    font-weight: 500;
+  }
 
 #banner_icon{
 }
 
 #banner-discript p{
   color: #F5F5F5;
-  font-size: 20px;
+  font-size: 24px;
   text-align: left;
-  line-height: 170%;
+  font-weight: 400;
 }
 
 #banner img{
-  width: 25em;
-  margin-right: 5%;
-  margin-top: 2%;
+  width: 250px;
+}
+
+  @media (max-width: 768px) {
+    #banner_icon {
+      display: none;
+    }
+    #IndexBanner {
+      padding-bottom: 30px;
+      padding-top: 30px;
+    }
+    #banner-discript h1 {
+      font-size: 36px;
+      text-align: center;
+    }
+    #banner-discript p {
+      font-size: 20px;
+      text-align: center;
+    }
   }
+
+
 
 </style>

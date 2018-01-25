@@ -5,23 +5,25 @@
     <!--banner-->
 
     <!--tab-->
-    <section id="container">
-      <ul class="tabs row">
-        <li class="li-tab col-md-4 col-xs-4 col-sm-4" v-for="(name,index) in tabNames"
-        @click="toggleTabs(index)"
-        :class='{active:index==nowIndex,liTabFirst:index==0,liTabLast:index==1}'>{{name}}</li>
-      </ul>
-
-      <no-data v-show="noData"></no-data>
-
-      <div id="content">
-        <ul class="list-group">
-          <li class="list-group-item no-border" v-for="(content, index) in showNow" v-html="content.show_text">
-          </li>
+    <div class="main-container">
+      <section id="container"  class="content">
+        <ul class="tabs row">
+          <li class="li-tab col-md-4 col-xs-4 col-sm-4" v-for="(name,index) in tabNames"
+              @click="toggleTabs(index)"
+              :class='{active:index==nowIndex,liTabFirst:index==0,liTabLast:index==1}'>{{name}}</li>
         </ul>
-      </div>
 
-    </section>
+        <no-data v-show="noData"></no-data>
+
+        <div id="content">
+          <ul class="list-group">
+            <li class="list-group-item no-border" v-for="(content, index) in showNow" v-html="content.show_text">
+            </li>
+          </ul>
+        </div>
+
+      </section>
+    </div>
     <!--tab-->
     <br/>
     <br/>
@@ -135,16 +137,14 @@
 
 @import '../assets/css/common.scss';
 /*@import '../assets/css/tabbar.scss';*/
+@import '../assets/css/page.scss';
   #academy {
     text-align: center;
     color: #2c3e50;
-    margin-top: 0px;
     background-color: #f0f2f5;
   }
 
   #container{
-    margin-left: 20%;
-    margin-right: 20%;
     background-color: white;
     min-height: 400px;
   }
@@ -153,6 +153,12 @@
     margin-top: 2em;
     text-align: left;
     padding-bottom: 20px;
+  }
+
+  #content li {
+    font-size: 16px;
+    font-weight: 400;
+    word-wrap: break-word;
   }
 
   .no-border {
@@ -188,7 +194,7 @@
 
 @media (max-width: 768px) {
   #container{
-    margin: 0;
+    padding: 0px;
   }
 
   #banner-title-container h1 {
@@ -206,7 +212,6 @@
 @media (min-width: 768px) and (max-width: 992px) {
 
   #container{
-    margin: 0;
   }
   #banner-title-container h1 {
     font-size: 24px;
