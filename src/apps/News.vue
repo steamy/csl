@@ -63,6 +63,11 @@
   #news {
 
   }
+  @media (max-width: 768px) {
+    #news {
+      margin-top: 64px;
+    }
+  }
 
 
 
