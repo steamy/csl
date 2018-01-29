@@ -1,7 +1,9 @@
 <template xmlns="http://www.w3.org/1999/html">
   <div class="Index">
-    <navigation :show-banner-props="true"></navigation>
+    <!--<navigation :show-banner-props="true"></navigation>-->
+    <site-header :page-index="0"></site-header>
 
+    <index-banner></index-banner>
     <!-- 团队概述-->
     <team-intro></team-intro>
 
@@ -28,8 +30,6 @@
       </div>
     </section>
 
-
-
     <site-footer></site-footer>
 
   </div>
@@ -44,9 +44,11 @@
   import Moresvg from './index/moresvg'
   import ProjectsShow from './index/ProjectsShow'
   import TeamIntro from './index/TeamIntro'
+  import SiteHeader from './common/SiteHeader'
 
   export default {
     components: {
+      SiteHeader,
       TeamIntro,
       ProjectsShow,
       Moresvg,

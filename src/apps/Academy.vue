@@ -1,6 +1,9 @@
 <template>
   <div id="academy">
-    <navigation :show-banner-props="isPc"></navigation>
+    <site-header :page-index="1"></site-header>
+
+
+    <index-banner v-if="isPc"></index-banner>
 
     <!--banner-->
 
@@ -39,9 +42,11 @@
   import NoData from '../components/NoData'
   import {jsonFetcher} from '../fetchdata/fetcher'
   import {deviceType} from '../js/common/common'
+  import SiteHeader from '../components/common/SiteHeader'
 
   export default {
     components: {
+      SiteHeader,
       NoData,
       IndexBanner,
       SiteFooter,
@@ -193,6 +198,9 @@
 
 
 @media (max-width: 768px) {
+  #academy {
+    margin-top: 64px;
+  }
   #container{
     padding: 0px;
   }

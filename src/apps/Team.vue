@@ -1,6 +1,7 @@
 <template>
   <div id="team">
-    <navigation :show-banner-props="isPc"></navigation>
+    <site-header :page-index="2"></site-header>
+    <index-banner v-if="isPc"></index-banner>
     <router-view></router-view>
 
 
@@ -16,9 +17,13 @@
   import SiteFooter from '../components/SiteFooter'
   import Banner from '../components/Banner'
   import {deviceType} from '../js/common/common'
+  import SiteHeader from '../components/common/SiteHeader'
+  import IndexBanner from '../components/IndexBanner'
 
   export default {
     components: {
+      IndexBanner,
+      SiteHeader,
       SiteFooter,
       Navigation,
       'app-banner': Banner},
@@ -46,6 +51,12 @@
   margin-top: 0px;
   background-color: #f0f2f5;
 }
+
+  @media (max-width: 768px) {
+    #team {
+      margin-top: 64px;
+    }
+  }
 
 
 

@@ -4,6 +4,10 @@
     <div id="banner" class="content">
       <div class="row">
         <div id="banner-discript" class="col-md-6 col-sm-6 col-xs-12">
+          <div class="slogan slogan-animation">
+            <img src="../assets/img/logo/logo_2.png"/>
+            <h1 class="title">网络空间安全实验室</h1>
+          </div>
           <h1>主要研究方向</h1>
           <div></div>
           <p>网络空间安全</p>
@@ -27,6 +31,13 @@
 
 <style scoped="scoped" lang="scss">
   @import '../assets/css/page';
+  .slogan {
+    display: none;
+  }
+  .slogan img{
+    width: 100px !important;
+    height: 100px;
+  }
 
   #IndexBanner{
     padding-bottom: 60px;
@@ -72,6 +83,11 @@
 }
 
   @media (max-width: 768px) {
+    .slogan {
+      display: block;
+      margin-bottom: 100px;
+      padding-top: 50px;
+    }
     #banner_icon {
       display: none;
     }
@@ -80,13 +96,29 @@
       padding-top: 30px;
     }
     #banner-discript h1 {
-      font-size: 36px;
+      font-size: 24px;
       text-align: center;
     }
     #banner-discript p {
       font-size: 20px;
       text-align: center;
     }
+    #IndexBanner {
+      margin-top: 64px;
+    }
+  }
+
+  /***
+    动画
+  */
+  @keyframes slogan-in {
+    0% {transform: scale(0.5,0.5)}
+    80% {transform: scale(1.2,1.2)}
+    100% {transform: scale(1,1)}
+  }
+  .slogan-animation {
+    animation: slogan-in 0.9s;
+    animation-fill-mode: forwards;
   }
 
 
