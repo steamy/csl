@@ -38,6 +38,7 @@
 
 <style scoped="scoped">
   @import '../assets/css/page.scss';
+  @import '../assets/css/index.scss';
 
   #footer {
     text-align: center;

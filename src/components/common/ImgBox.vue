@@ -64,17 +64,12 @@
   .icon-item:first-child {
     background-position: 0 0;
     z-index: 1;
-    /*transform: matrix(1,0,0,1,-49,42.5);*/
-    /*-webkit-animation: first 2s;*/
-    /*animation: first 2s;*/
   }
   .icon-item:nth-child(2) {
     background-position: 90px 0;
-    /*transform: matrix(1,0,0,1,49,42.5);*/
   }
   .icon-item:nth-child(3) {
     background-position: 180px 0;
-    /*transform: matrix(1,0,0,1,0,42.5);*/
   }
 
   /*

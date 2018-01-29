@@ -1,6 +1,8 @@
 <template>
   <div id="news">
-    <navigation :show-banner-props="isShowBanner"></navigation>
+    <site-header :page-index="4"></site-header>
+
+    <index-banner v-if="isPc()"></index-banner>
 
     <router-view></router-view>
 
@@ -12,9 +14,13 @@
   import Navigation from '../components/Navigation'
   import SiteFooter from '../components/SiteFooter'
   import {deviceType} from '../js/common/common'
+  import SiteHeader from '../components/common/SiteHeader'
+  import IndexBanner from '../components/IndexBanner'
 
   export default {
     components: {
+      IndexBanner,
+      SiteHeader,
       SiteFooter,
       Navigation},
     name: 'news',
@@ -35,6 +41,13 @@
         } else {
           this.isShowBanner = false
         }
+      },
+      isPc: function () {
+        if (deviceType() === 'Pc') {
+          return true
+        } else {
+          return false
+        }
       }
     },
     watch: {
@@ -49,6 +62,11 @@
   @import "../assets/css/common.scss";
   #news {
 
+  }
+  @media (max-width: 768px) {
+    #news {
+      margin-top: 64px;
+    }
   }
 
 
