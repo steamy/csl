@@ -8,16 +8,21 @@
 
           <div class="col-xs-12 col-sm-offset-1 col-md-5 col-sm-5 first">
             <p class="desc bolder">相关链接</p>
-            <p><a class="desc" target="_blank" href="http://www.uestc.edu.cn">电子科技大学主页</a></p>
-            <p><a class="desc" target="_blank" href="http://www.ss.uestc.edu.cn/">电子科技大学信息与软件工程学院</a></p>
+            <div class="urls">
+              <p><a class="desc" target="_blank" href="http://www.uestc.edu.cn">电子科技大学主页</a></p>
+              <p><a class="desc" target="_blank" href="http://www.ss.uestc.edu.cn/">电子科技大学信息与软件工程学院</a></p>
+            </div>
           </div>
 
           <div class="col-xs-12  col-md-5 col-sm-5 second">
+
             <p class="desc bolder">联系我们</p>
-            <p class="desc">联系人：刘老师</p>
-            <p class="desc">TEL:15208292978</p>
-            <p class="desc">E-Mail:QIHELIU@UESTC.EDU.CN</p>
-            <p class="desc">联系地址：四川省成都市成华区建设北路二段四号</p>
+            <div class="urls">
+              <p class="desc">联系人：刘老师</p>
+              <p class="desc">TEL:15208292978</p>
+              <p class="desc">E-Mail:QIHELIU@UESTC.EDU.CN</p>
+              <p class="desc">联系地址：四川省成都市成华区建设北路二段四号</p>
+            </div>
           </div>
 
         </div>
@@ -89,6 +94,9 @@
     padding-top: 10px;
     color: #333;
     padding-bottom: 10px;
+  }
+  .urls p {
+    margin-bottom: 0px;
   }
 
   @media (max-width: 765px) {
