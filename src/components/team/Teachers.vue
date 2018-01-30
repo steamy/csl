@@ -26,7 +26,7 @@
 </template>
 
 <script>
-  import {jsonFetcher} from '../../fetchdata/fetcher'
+  import {jsonFetcher, serverRoot} from '../../fetchdata/fetcher'
 
   export default {
     name: 'Teachers',
@@ -42,7 +42,11 @@
       getTeachersInfo: function () {
         jsonFetcher.get('/api/v1/teachers')
           .then(res => {
-            this.teachers = res.data.data
+            let teachers = res.data.data
+            for (let index = 0; index < teachers.length; index++) {
+              teachers[index].avatar_url = serverRoot + teachers[index].avatar_url
+            }
+            this.teachers = teachers
           })
           .catch(err => {
             console.log(err)

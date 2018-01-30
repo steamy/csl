@@ -12,12 +12,12 @@
                v-for="(student, index) in students" :class="{'col-md-offset-1':(index%2)!=0}">
             <div class="row">
               <div class="col-md-4 col-sm-4 col-xs-4 avatar">
-                <img class="student-avator" :src="student.avatar_url"/>
+                <img class="student-avator" :src="serverRoot + student.avatar_url"/>
               </div>
 
               <div class="col-md-8 col-sm-8 col-xs-8 student-intro">
                 <p>{{student.name}}   <span class="desc">（{{student.admission_year}}级）</span></p>
-                <p class="desc" v-for="carrer in student.stu_careers">{{carrer.start_year}}-{{carrer.end_year}}，<b>{{carrer.position}}</b>，{{carrer.institution}}</p>
+                <p class="desc career" v-for="carrer in student.stu_careers">{{carrer.start_year}}-{{carrer.end_year}}，<b>{{carrer.position}}</b>，{{carrer.institution}}</p>
               </div>
             </div>
           </div>
@@ -32,7 +32,7 @@
 </template>
 
 <script>
-  import {jsonFetcher} from '../../fetchdata/fetcher'
+  import {jsonFetcher, serverRoot} from '../../fetchdata/fetcher'
   import NoData from '../NoData'
   export default {
     components: {NoData},
@@ -40,7 +40,8 @@
     data () {
       return {
         noData: true,
-        students: []
+        students: [],
+        serverRoot: serverRoot
       }
     },
     mounted () {
@@ -122,7 +123,9 @@
   .student-intro {
     padding-top: 5px;
   }
-
+  .career {
+    line-height: 14px;
+  }
   .student-avator {
     height: 180px;
   }
@@ -141,6 +144,9 @@
     }
     .line-flag + p {
       padding-left: 30px;
+    }
+    .career {
+      line-height: 14px;
     }
   }
 
