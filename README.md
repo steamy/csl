@@ -40,8 +40,7 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
     - [X] 学术加入科研课题，数据动态化
     - [X] 团队-师资页面数据动态化
     - [X] 团队-学生代表页面
-- [ ] 未完成
-    - [ ] 团队-奖惩界面
-    - [ ] 项目展示页面
-    - [ ] 项目详情页面
-    - [ ] 通知公告界面
+    - [x] 团队-奖惩界面
+    - [x] 项目展示页面
+    - [x] 项目详情页面
+    - [x] 通知公告界面
