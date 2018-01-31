@@ -32,7 +32,7 @@
 </script>
 
 <style scoped="scoped" lang="scss">
-  a {
+  #more-button a {
     text-decoration: none;
   }
   #more-button {

@@ -2,7 +2,7 @@
 
     <header :class="{'opened':isNavOpen}">
       <div class="mask" :class="initAnimation[1]"></div>
-      <div class="content">
+      <div class="nav-content">
         <a class="nav-brand" href="/" :class="[initAnimation[0], brandAnimation, mobileBrandClass]">
           <div class="logo">
             <img src="../../assets/img/logo/logo_3.png"/>
@@ -126,12 +126,12 @@
   }
 </script>
 
-<style scoped="scoped" lang="scss">
+<style  scoped="scoped" lang="scss">
   header {
     display: block;
     position: relative;
-    left: 0px;
-    top: 0px;
+    left: 0;
+    top: 0;
     width: 100%;
     z-index: 10;
     height: 64px;
@@ -140,13 +140,14 @@
   .mask {
     display: none;
   }
-  header .content {
+  header .nav-content {
     display: flex;
     margin: 0 auto;
     width: 100%;
     max-width: 1320px;
     height: 64px;
     overflow: hidden;
+    padding: 0;
   }
   header .nav-brand {
     margin: 10px 0 10px 0;
@@ -161,7 +162,7 @@
     font-size: 26px;
     font-weight: 400;
   }
-  a {
+  header a {
     text-decoration: none;
     cursor: pointer;
   }
@@ -241,14 +242,15 @@
   }
 
   @media (max-width: 768px) {
+    header {
+      position: fixed;
+      width: 100%;
+    }
     header .mobile-brand-show {
       display: flex;
     }
     header .mobile-brand-hide {
       display: none;
-    }
-    header {
-      position: fixed;
     }
     .opened {
 
@@ -395,6 +397,5 @@
     animation: nav-items-out 0.9s;
     animation-fill-mode: forwards;
   }
-
 
 </style>

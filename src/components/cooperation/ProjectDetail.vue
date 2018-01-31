@@ -8,17 +8,13 @@
           <p class=""><router-link to="/">所有项目</router-link> > {{project.category}}</p>
         </section>
         <div class="row">
-          <div id="project-info" class="col-md-9">
+          <div id="project-info" class="col-md-12 col-sm-12 col-xs-12">
             <div id="center">
               <p class="project-name">{{project.name}}</p>
             </div>
             <div id="left">
               <p class="main-img" v-html="project.project_des"></p>
             </div>
-          </div>
-          <div id="team_pics" class="col-md-3">
-            <p>团队风采</p>
-            <img src="../../assets/img/cooperation/team1.png">
           </div>
         </div>
       </section>
@@ -76,6 +72,10 @@
     padding-top: 30px;
     padding-bottom: 30px;
   }
+  #project-detail a {
+    text-decoration: none;
+    cursor: pointer;
+  }
 
   #banner{
     margin-top: -0.05%;
@@ -98,15 +98,22 @@
     width:60%;
     padding: 2% 0 2% 0;
   }
-  #left{
+  #left {
     font-size: 14px;
     text-align: left;
     font-weight: 400;
     color: #555555;
+    max-width: 600px;
+    margin: 0 auto;
   }
   .main-img  img {
-    width: 200px;
-    height: 200px;
+    max-width: 500px;
+    margin: 0 auto;
+    margin-bottom: 20px;
+  }
+  .main-img p {
+    padding-left: 10px;
+    padding-right: 10px;
   }
 
   #team_pics{
@@ -147,6 +154,9 @@
   @media (max-width: 768px) {
     #team_pics {
       display: none;
+    }
+    .main-img  img {
+      max-width: 280px;
     }
   }
 

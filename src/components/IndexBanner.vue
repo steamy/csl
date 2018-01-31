@@ -44,7 +44,7 @@
     padding-top: 60px;
     background-color: #0b2867;
   }
-  .content {
+  #IndexBanner .content {
     width: 940px;
   }
 #banner{

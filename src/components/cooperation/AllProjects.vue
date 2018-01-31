@@ -111,15 +111,14 @@
 
 <style scoped>
   /*  @import '../assets/css/common.scss';*/
-  #cooperation {
-    /*    font-family: 方正兰亭黑简体;*/
-    text-align: center;
-    margin-top: 0;
-    background-color: #fafafa;
-  }
+
 
   #content{
     padding: 2% 0 6% 0;
+  }
+  #AllProjects a{
+    text-decoration: none;
+    cursor: pointer;
   }
 
   .project-list{
@@ -135,10 +134,8 @@
     border-style: solid;
     border-color: transparent;
     background-color: #1a6fa6;
-    color: #F5F5F5;
     padding-bottom: 2%;
   }
-
   .classify img{
     display: inline-block;
   }
@@ -149,6 +146,7 @@
     text-align: center;
     padding: 2% 0 2% 0;
     margin:0;
+    color: #F5F5F5;
   }
 
   .classify-dtil{
