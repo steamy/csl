@@ -6,6 +6,7 @@ import App from '../apps/App.vue'
 import 'jquery/dist/jquery.min'
 import '../assets/css/bootstrap/css/bootstrap.css'
 import '../assets/css/bootstrap/js/bootstrap.min'
+import 'swiper/dist/css/swiper.min.css'
 import 'lib-flexible'
 
 Vue.config.productionTip = false

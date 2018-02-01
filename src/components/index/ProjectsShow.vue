@@ -8,7 +8,7 @@
 
       <section id="project-list" ref="projectlist" >
         <div class=" project-list-item"   v-for="(project,index) in allProjects"
-        :class="initAnimationClass[index]">
+        :class="[initAnimationClass[index], {'hidden-item':index>=3}]">
             <a :href="project.pushUrl">
               <picture>
                 <img :src="project.showImg"/>
@@ -183,6 +183,11 @@
     top: 151px;
     color: #7685a6;
     z-index: 2;
+  }
+  @media (max-width: 768px) {
+    #project-list .hidden-item{
+      display: none;
+    }
   }
 
 

@@ -12,6 +12,7 @@
 
     <projects-show></projects-show>
 
+    <team-show></team-show>
 
     <!--合作伙伴-->
     <section id="partner" class="main-container">
@@ -45,9 +46,11 @@
   import ProjectsShow from './index/ProjectsShow'
   import TeamIntro from './index/TeamIntro'
   import SiteHeader from './common/SiteHeader'
+  import TeamShow from './index/TeamShow'
 
   export default {
     components: {
+      TeamShow,
       SiteHeader,
       TeamIntro,
       ProjectsShow,
@@ -114,9 +117,6 @@
 
   @import '../assets/css/page';
   @import '../assets/css/index';
-
-
-
 
   /*
     首页通用样式

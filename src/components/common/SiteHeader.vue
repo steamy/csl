@@ -37,15 +37,13 @@
 </template>
 
 <script>
-  import IndexBanner from '../IndexBanner'
   import NavMenuSvg from './svg/NavMenuSvg'
   import NavExitMenuSvg from './svg/NavExitMenuSvg'
 
   export default {
     components: {
       NavExitMenuSvg,
-      NavMenuSvg,
-      IndexBanner},
+      NavMenuSvg},
     name: 'site-header',
     data () {
       return {

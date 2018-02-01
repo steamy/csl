@@ -2,7 +2,7 @@
   <section id="team-intro" class="main-container">
     <div class="content">
       <div class="hd-right">
-        <p class="desc">团队概括</p>
+        <p class="desc">科研实力</p>
         <h2 class="title">在科研路上的探索</h2>
       </div>
       <div class="row">
