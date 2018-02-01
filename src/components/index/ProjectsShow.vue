@@ -83,7 +83,6 @@
         const windowHeight = window.innerHeight
         const listTop = this.$refs.projectlist.getClientRects()[0].top
         if ((windowHeight - listTop) >= 60) {
-          console.log('动画')
           this.initAnimationClass = this.animationClass
           window.removeEventListener('scroll', this.beginList)
         }

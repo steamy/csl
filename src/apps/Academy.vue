@@ -122,7 +122,6 @@
         jsonFetcher.get('/api/v1/subjects')
           .then(res => {
             this.subjects = res.data.data
-            console.log(typeof this.subjects[0].end_date)
             for (let index = 0; index < this.subjects.length; index++) {
               const subject = this.subjects[index]
               const startDate = new Date(subject.start_date)

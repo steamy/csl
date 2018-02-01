@@ -12,7 +12,7 @@
 
           <a class="badge-list-item"  href="team.html#/teachers"
              @mouseenter="itemsMouseEnter(0)" @mouseleave="itemsMouseLeave()">
-            <div class="icon member" :class="itemsAnimation[0]"></div>
+            <div class="icon teacher " :class="itemsAnimation[0]"></div>
             <div class="info">
               <p class="title">师资</p>
               <p class="desc">教授、副教授6名，高级工程师1名，助理研究员3名</p>
@@ -20,7 +20,7 @@
           </a>
 
           <a class="badge-list-item" @mouseenter="itemsMouseEnter(1)" @mouseleave="itemsMouseLeave()">
-            <div class="icon teacher" :class="itemsAnimation[1]"></div>
+            <div class="icon member" :class="itemsAnimation[1]"></div>
             <div class="info">
               <p class="title">成员</p>
               <p class="desc">在读硕士、博士研究生、本科生40余名，外聘人员10余名</p>
@@ -179,6 +179,9 @@
     }
     .info-area .content {
       width: 100%;
+    }
+    .swiper-pagination {
+      display: none;
     }
   }
 

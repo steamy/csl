@@ -57,7 +57,6 @@
             if (this.projects.length !== 0) {
               this.noData = false
             }
-            console.log(this.noData)
           }).catch(err => {
             console.log(err)
             this.noData = true

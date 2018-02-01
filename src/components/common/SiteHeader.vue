@@ -107,7 +107,6 @@
       },
       showNavBrand: function () {
         if (window.scrollY >= 212 && !this.isShowNavBrand) {
-          console.log('show')
           this.brandAnimation = 'show-nav-brand'
           this.isShowNavBrand = !this.isShowNavBrand
         } else if (window.scrollY < 212 && this.isShowNavBrand) {
